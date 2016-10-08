@@ -1,0 +1,23 @@
+# ---> Composer
+composer.phar
+vendor/
+
+# Commit your application's lock file http://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file
+# You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
+# composer.lock
+
+# ---> CakePHP
+# CakePHP 3
+
+/vendor/*
+/config/app.php
+/tmp/*
+/logs/*
+
+# CakePHP 2
+
+/app/tmp/*
+/app/Config/core.php
+/app/Config/database.php
+/vendors/*
+
