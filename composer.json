@@ -13,5 +13,8 @@
         "files": [
             "Ice.php"
         ]
-    }
+    },
+    "include-path": [
+        ""
+    ]
 }
