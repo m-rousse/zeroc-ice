@@ -10,8 +10,8 @@
     ],
     "require": {},
     "autoload": {
-        "psr-4": {
-            "Ice\\": ""
-        }
+        "files": [
+            "vendor/mrousse/zeroc-ice/Ice.php"
+        ]
     }
 }
