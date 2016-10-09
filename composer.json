@@ -11,7 +11,7 @@
     "require": {},
     "autoload": {
         "files": [
-            "vendor/mrousse/zeroc-ice/Ice.php"
+            "Ice.php"
         ]
     }
 }
