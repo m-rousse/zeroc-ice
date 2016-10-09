@@ -1,0 +1,17 @@
+{
+    "name": "mrousse/zeroc-ice",
+    "description": "Add the ZeroC Ice API to your PHP projects !",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Mathieu Rousse",
+            "email": "mathieu@rousse.me"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Ice\\": ""
+        }
+    }
+}
