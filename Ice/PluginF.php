@@ -20,21 +20,15 @@
 //
 
 
-namespace Ice
+global $Ice__t_Plugin;
+if(!isset($Ice__t_Plugin))
 {
-    global $Ice__t_Plugin;
-    if(!isset($Ice__t_Plugin))
-    {
-        $Ice__t_Plugin = IcePHP_declareClass('::Ice::Plugin');
-    }
+    $Ice__t_Plugin = IcePHP_declareClass('::Ice::Plugin');
 }
 
-namespace Ice
+global $Ice__t_PluginManager;
+if(!isset($Ice__t_PluginManager))
 {
-    global $Ice__t_PluginManager;
-    if(!isset($Ice__t_PluginManager))
-    {
-        $Ice__t_PluginManager = IcePHP_declareClass('::Ice::PluginManager');
-    }
+    $Ice__t_PluginManager = IcePHP_declareClass('::Ice::PluginManager');
 }
 ?>

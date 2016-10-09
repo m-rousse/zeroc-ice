@@ -19,287 +19,262 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
+require_once 'Ice/Identity.php';
+require_once 'Glacier2/SSLInfo.php';
 
-namespace
+global $Glacier2__t_CannotCreateSessionException;
+
+if(!class_exists('Glacier2_CannotCreateSessionException'))
 {
-    require_once 'Ice/BuiltinSequences.php';
-    require_once 'Ice/Identity.php';
-    require_once 'Glacier2/SSLInfo.php';
+    class Glacier2_CannotCreateSessionException extends Ice_UserException
+    {
+        public function __construct($reason='')
+        {
+            $this->reason = $reason;
+        }
+
+        public function ice_name()
+        {
+            return 'Glacier2::CannotCreateSessionException';
+        }
+
+        public function __toString()
+        {
+            global $Glacier2__t_CannotCreateSessionException;
+            return IcePHP_stringifyException($this, $Glacier2__t_CannotCreateSessionException);
+        }
+
+        public $reason;
+    }
+
+    $Glacier2__t_CannotCreateSessionException = IcePHP_defineException('::Glacier2::CannotCreateSessionException', 'Glacier2_CannotCreateSessionException', true, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Glacier2
+global $Glacier2__t_Session;
+global $Glacier2__t_SessionPrx;
+
+if(!interface_exists('Glacier2_Session'))
 {
-    global $Glacier2__t_CannotCreateSessionException;
-
-    if(!class_exists('\\Glacier2\\CannotCreateSessionException'))
+    interface Glacier2_Session extends Ice_Object
     {
-        class CannotCreateSessionException extends \Ice\UserException
+        public function destroy();
+    }
+
+    class Glacier2_SessionPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Glacier2::CannotCreateSessionException';
-            }
-
-            public function __toString()
-            {
-                global $Glacier2__t_CannotCreateSessionException;
-                return IcePHP_stringifyException($this, $Glacier2__t_CannotCreateSessionException);
-            }
-
-            public $reason;
+            return $proxy->ice_checkedCast('::Glacier2::Session', $facetOrCtx, $ctx);
         }
 
-        $Glacier2__t_CannotCreateSessionException = IcePHP_defineException('::Glacier2::CannotCreateSessionException', '\\Glacier2\\CannotCreateSessionException', true, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Glacier2::Session', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Glacier2::Session';
+        }
     }
+
+    $Glacier2__t_Session = IcePHP_defineClass('::Glacier2::Session', 'Glacier2_Session', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_SessionPrx = IcePHP_defineProxy($Glacier2__t_Session);
+
+    IcePHP_defineOperation($Glacier2__t_Session, 'destroy', 0, 0, 0, null, null, null, null);
 }
 
-namespace Glacier2
+global $Glacier2__t_StringSet;
+global $Glacier2__t_StringSetPrx;
+
+if(!interface_exists('Glacier2_StringSet'))
 {
-    global $Glacier2__t_Session;
-    global $Glacier2__t_SessionPrx;
-
-    if(!interface_exists('\\Glacier2\\Session'))
+    interface Glacier2_StringSet extends Ice_Object
     {
-        interface Session extends \Ice\Object
-        {
-            public function destroy();
-        }
-
-        class SessionPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::Session', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::Session', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::Session';
-            }
-        }
-
-        $Glacier2__t_Session = IcePHP_defineClass('::Glacier2::Session', '\\Glacier2\\Session', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_SessionPrx = IcePHP_defineProxy($Glacier2__t_Session);
-
-        IcePHP_defineOperation($Glacier2__t_Session, 'destroy', 0, 0, 0, null, null, null, null);
+        public function add($additions);
+        public function remove($deletions);
+        public function get();
     }
+
+    class Glacier2_StringSetPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Glacier2::StringSet', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Glacier2::StringSet', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Glacier2::StringSet';
+        }
+    }
+
+    $Glacier2__t_StringSet = IcePHP_defineClass('::Glacier2::StringSet', 'Glacier2_StringSet', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_StringSetPrx = IcePHP_defineProxy($Glacier2__t_StringSet);
+
+    IcePHP_defineOperation($Glacier2__t_StringSet, 'add', 2, 2, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
+    IcePHP_defineOperation($Glacier2__t_StringSet, 'remove', 2, 2, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
+    IcePHP_defineOperation($Glacier2__t_StringSet, 'get', 2, 2, 0, null, null, array($Ice__t_StringSeq, false, 0), null);
 }
 
-namespace Glacier2
+global $Glacier2__t_IdentitySet;
+global $Glacier2__t_IdentitySetPrx;
+
+if(!interface_exists('Glacier2_IdentitySet'))
 {
-    global $Glacier2__t_StringSet;
-    global $Glacier2__t_StringSetPrx;
-
-    if(!interface_exists('\\Glacier2\\StringSet'))
+    interface Glacier2_IdentitySet extends Ice_Object
     {
-        interface StringSet extends \Ice\Object
-        {
-            public function add($additions);
-            public function remove($deletions);
-            public function get();
-        }
-
-        class StringSetPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::StringSet', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::StringSet', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::StringSet';
-            }
-        }
-
-        $Glacier2__t_StringSet = IcePHP_defineClass('::Glacier2::StringSet', '\\Glacier2\\StringSet', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_StringSetPrx = IcePHP_defineProxy($Glacier2__t_StringSet);
-
-        IcePHP_defineOperation($Glacier2__t_StringSet, 'add', 2, 2, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
-        IcePHP_defineOperation($Glacier2__t_StringSet, 'remove', 2, 2, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
-        IcePHP_defineOperation($Glacier2__t_StringSet, 'get', 2, 2, 0, null, null, array($Ice__t_StringSeq, false, 0), null);
+        public function add($additions);
+        public function remove($deletions);
+        public function get();
     }
+
+    class Glacier2_IdentitySetPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Glacier2::IdentitySet', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Glacier2::IdentitySet', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Glacier2::IdentitySet';
+        }
+    }
+
+    $Glacier2__t_IdentitySet = IcePHP_defineClass('::Glacier2::IdentitySet', 'Glacier2_IdentitySet', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_IdentitySetPrx = IcePHP_defineProxy($Glacier2__t_IdentitySet);
+
+    IcePHP_defineOperation($Glacier2__t_IdentitySet, 'add', 2, 2, 0, array(array($Ice__t_IdentitySeq, false, 0)), null, null, null);
+    IcePHP_defineOperation($Glacier2__t_IdentitySet, 'remove', 2, 2, 0, array(array($Ice__t_IdentitySeq, false, 0)), null, null, null);
+    IcePHP_defineOperation($Glacier2__t_IdentitySet, 'get', 2, 2, 0, null, null, array($Ice__t_IdentitySeq, false, 0), null);
 }
 
-namespace Glacier2
+global $Glacier2__t_SessionControl;
+global $Glacier2__t_SessionControlPrx;
+
+if(!interface_exists('Glacier2_SessionControl'))
 {
-    global $Glacier2__t_IdentitySet;
-    global $Glacier2__t_IdentitySetPrx;
-
-    if(!interface_exists('\\Glacier2\\IdentitySet'))
+    interface Glacier2_SessionControl extends Ice_Object
     {
-        interface IdentitySet extends \Ice\Object
-        {
-            public function add($additions);
-            public function remove($deletions);
-            public function get();
-        }
-
-        class IdentitySetPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::IdentitySet', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::IdentitySet', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::IdentitySet';
-            }
-        }
-
-        $Glacier2__t_IdentitySet = IcePHP_defineClass('::Glacier2::IdentitySet', '\\Glacier2\\IdentitySet', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_IdentitySetPrx = IcePHP_defineProxy($Glacier2__t_IdentitySet);
-
-        IcePHP_defineOperation($Glacier2__t_IdentitySet, 'add', 2, 2, 0, array(array($Ice__t_IdentitySeq, false, 0)), null, null, null);
-        IcePHP_defineOperation($Glacier2__t_IdentitySet, 'remove', 2, 2, 0, array(array($Ice__t_IdentitySeq, false, 0)), null, null, null);
-        IcePHP_defineOperation($Glacier2__t_IdentitySet, 'get', 2, 2, 0, null, null, array($Ice__t_IdentitySeq, false, 0), null);
+        public function categories();
+        public function adapterIds();
+        public function identities();
+        public function getSessionTimeout();
+        public function destroy();
     }
+
+    class Glacier2_SessionControlPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Glacier2::SessionControl', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Glacier2::SessionControl', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Glacier2::SessionControl';
+        }
+    }
+
+    $Glacier2__t_SessionControl = IcePHP_defineClass('::Glacier2::SessionControl', 'Glacier2_SessionControl', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_SessionControlPrx = IcePHP_defineProxy($Glacier2__t_SessionControl);
+
+    IcePHP_defineOperation($Glacier2__t_SessionControl, 'categories', 0, 0, 0, null, null, array($Glacier2__t_StringSetPrx, false, 0), null);
+    IcePHP_defineOperation($Glacier2__t_SessionControl, 'adapterIds', 0, 0, 0, null, null, array($Glacier2__t_StringSetPrx, false, 0), null);
+    IcePHP_defineOperation($Glacier2__t_SessionControl, 'identities', 0, 0, 0, null, null, array($Glacier2__t_IdentitySetPrx, false, 0), null);
+    IcePHP_defineOperation($Glacier2__t_SessionControl, 'getSessionTimeout', 2, 2, 0, null, null, array($IcePHP__t_int, false, 0), null);
+    IcePHP_defineOperation($Glacier2__t_SessionControl, 'destroy', 0, 0, 0, null, null, null, null);
 }
 
-namespace Glacier2
+global $Glacier2__t_SessionManager;
+global $Glacier2__t_SessionManagerPrx;
+
+if(!interface_exists('Glacier2_SessionManager'))
 {
-    global $Glacier2__t_SessionControl;
-    global $Glacier2__t_SessionControlPrx;
-
-    if(!interface_exists('\\Glacier2\\SessionControl'))
+    interface Glacier2_SessionManager extends Ice_Object
     {
-        interface SessionControl extends \Ice\Object
-        {
-            public function categories();
-            public function adapterIds();
-            public function identities();
-            public function getSessionTimeout();
-            public function destroy();
-        }
-
-        class SessionControlPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::SessionControl', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::SessionControl', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::SessionControl';
-            }
-        }
-
-        $Glacier2__t_SessionControl = IcePHP_defineClass('::Glacier2::SessionControl', '\\Glacier2\\SessionControl', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_SessionControlPrx = IcePHP_defineProxy($Glacier2__t_SessionControl);
-
-        IcePHP_defineOperation($Glacier2__t_SessionControl, 'categories', 0, 0, 0, null, null, array($Glacier2__t_StringSetPrx, false, 0), null);
-        IcePHP_defineOperation($Glacier2__t_SessionControl, 'adapterIds', 0, 0, 0, null, null, array($Glacier2__t_StringSetPrx, false, 0), null);
-        IcePHP_defineOperation($Glacier2__t_SessionControl, 'identities', 0, 0, 0, null, null, array($Glacier2__t_IdentitySetPrx, false, 0), null);
-        IcePHP_defineOperation($Glacier2__t_SessionControl, 'getSessionTimeout', 2, 2, 0, null, null, array($IcePHP__t_int, false, 0), null);
-        IcePHP_defineOperation($Glacier2__t_SessionControl, 'destroy', 0, 0, 0, null, null, null, null);
+        public function create($userId, $control);
     }
+
+    class Glacier2_SessionManagerPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Glacier2::SessionManager', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Glacier2::SessionManager', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Glacier2::SessionManager';
+        }
+    }
+
+    $Glacier2__t_SessionManager = IcePHP_defineClass('::Glacier2::SessionManager', 'Glacier2_SessionManager', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_SessionManagerPrx = IcePHP_defineProxy($Glacier2__t_SessionManager);
+
+    IcePHP_defineOperation($Glacier2__t_SessionManager, 'create', 0, 0, 2, array(array($IcePHP__t_string, false, 0), array($Glacier2__t_SessionControlPrx, false, 0)), null, array($Glacier2__t_SessionPrx, false, 0), array($Glacier2__t_CannotCreateSessionException));
 }
 
-namespace Glacier2
+global $Glacier2__t_SSLSessionManager;
+global $Glacier2__t_SSLSessionManagerPrx;
+
+if(!interface_exists('Glacier2_SSLSessionManager'))
 {
-    global $Glacier2__t_SessionManager;
-    global $Glacier2__t_SessionManagerPrx;
-
-    if(!interface_exists('\\Glacier2\\SessionManager'))
+    interface Glacier2_SSLSessionManager extends Ice_Object
     {
-        interface SessionManager extends \Ice\Object
-        {
-            public function create($userId, $control);
-        }
-
-        class SessionManagerPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::SessionManager', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::SessionManager', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::SessionManager';
-            }
-        }
-
-        $Glacier2__t_SessionManager = IcePHP_defineClass('::Glacier2::SessionManager', '\\Glacier2\\SessionManager', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_SessionManagerPrx = IcePHP_defineProxy($Glacier2__t_SessionManager);
-
-        IcePHP_defineOperation($Glacier2__t_SessionManager, 'create', 0, 0, 2, array(array($IcePHP__t_string, false, 0), array($Glacier2__t_SessionControlPrx, false, 0)), null, array($Glacier2__t_SessionPrx, false, 0), array($Glacier2__t_CannotCreateSessionException));
+        public function create($info, $control);
     }
-}
 
-namespace Glacier2
-{
-    global $Glacier2__t_SSLSessionManager;
-    global $Glacier2__t_SSLSessionManagerPrx;
-
-    if(!interface_exists('\\Glacier2\\SSLSessionManager'))
+    class Glacier2_SSLSessionManagerPrxHelper
     {
-        interface SSLSessionManager extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function create($info, $control);
+            return $proxy->ice_checkedCast('::Glacier2::SSLSessionManager', $facetOrCtx, $ctx);
         }
 
-        class SSLSessionManagerPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::SSLSessionManager', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::SSLSessionManager', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::SSLSessionManager';
-            }
+            return $proxy->ice_uncheckedCast('::Glacier2::SSLSessionManager', $facet);
         }
 
-        $Glacier2__t_SSLSessionManager = IcePHP_defineClass('::Glacier2::SSLSessionManager', '\\Glacier2\\SSLSessionManager', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_SSLSessionManagerPrx = IcePHP_defineProxy($Glacier2__t_SSLSessionManager);
-
-        IcePHP_defineOperation($Glacier2__t_SSLSessionManager, 'create', 0, 0, 2, array(array($Glacier2__t_SSLInfo, false, 0), array($Glacier2__t_SessionControlPrx, false, 0)), null, array($Glacier2__t_SessionPrx, false, 0), array($Glacier2__t_CannotCreateSessionException));
+        public static function ice_staticId()
+        {
+            return '::Glacier2::SSLSessionManager';
+        }
     }
+
+    $Glacier2__t_SSLSessionManager = IcePHP_defineClass('::Glacier2::SSLSessionManager', 'Glacier2_SSLSessionManager', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_SSLSessionManagerPrx = IcePHP_defineProxy($Glacier2__t_SSLSessionManager);
+
+    IcePHP_defineOperation($Glacier2__t_SSLSessionManager, 'create', 0, 0, 2, array(array($Glacier2__t_SSLInfo, false, 0), array($Glacier2__t_SessionControlPrx, false, 0)), null, array($Glacier2__t_SessionPrx, false, 0), array($Glacier2__t_CannotCreateSessionException));
 }
 ?>

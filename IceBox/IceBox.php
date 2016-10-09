@@ -19,230 +19,205 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
+require_once 'Ice/CommunicatorF.php';
+require_once 'Ice/PropertiesF.php';
+require_once 'Ice/SliceChecksumDict.php';
 
-namespace
+global $IceBox__t_FailureException;
+
+if(!class_exists('IceBox_FailureException'))
 {
-    require_once 'Ice/BuiltinSequences.php';
-    require_once 'Ice/CommunicatorF.php';
-    require_once 'Ice/PropertiesF.php';
-    require_once 'Ice/SliceChecksumDict.php';
+    class IceBox_FailureException extends Ice_LocalException
+    {
+        public function __construct($reason='')
+        {
+            $this->reason = $reason;
+        }
+
+        public function ice_name()
+        {
+            return 'IceBox::FailureException';
+        }
+
+        public function __toString()
+        {
+            global $IceBox__t_FailureException;
+            return IcePHP_stringifyException($this, $IceBox__t_FailureException);
+        }
+
+        public $reason;
+    }
+
+    $IceBox__t_FailureException = IcePHP_defineException('::IceBox::FailureException', 'IceBox_FailureException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceBox
+global $IceBox__t_AlreadyStartedException;
+
+if(!class_exists('IceBox_AlreadyStartedException'))
 {
-    global $IceBox__t_FailureException;
-
-    if(!class_exists('\\IceBox\\FailureException'))
+    class IceBox_AlreadyStartedException extends Ice_UserException
     {
-        class FailureException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceBox::FailureException';
-            }
-
-            public function __toString()
-            {
-                global $IceBox__t_FailureException;
-                return IcePHP_stringifyException($this, $IceBox__t_FailureException);
-            }
-
-            public $reason;
         }
 
-        $IceBox__t_FailureException = IcePHP_defineException('::IceBox::FailureException', '\\IceBox\\FailureException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceBox::AlreadyStartedException';
+        }
+
+        public function __toString()
+        {
+            global $IceBox__t_AlreadyStartedException;
+            return IcePHP_stringifyException($this, $IceBox__t_AlreadyStartedException);
+        }
     }
+
+    $IceBox__t_AlreadyStartedException = IcePHP_defineException('::IceBox::AlreadyStartedException', 'IceBox_AlreadyStartedException', false, null, null);
 }
 
-namespace IceBox
+global $IceBox__t_AlreadyStoppedException;
+
+if(!class_exists('IceBox_AlreadyStoppedException'))
 {
-    global $IceBox__t_AlreadyStartedException;
-
-    if(!class_exists('\\IceBox\\AlreadyStartedException'))
+    class IceBox_AlreadyStoppedException extends Ice_UserException
     {
-        class AlreadyStartedException extends \Ice\UserException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'IceBox::AlreadyStartedException';
-            }
-
-            public function __toString()
-            {
-                global $IceBox__t_AlreadyStartedException;
-                return IcePHP_stringifyException($this, $IceBox__t_AlreadyStartedException);
-            }
         }
 
-        $IceBox__t_AlreadyStartedException = IcePHP_defineException('::IceBox::AlreadyStartedException', '\\IceBox\\AlreadyStartedException', false, null, null);
+        public function ice_name()
+        {
+            return 'IceBox::AlreadyStoppedException';
+        }
+
+        public function __toString()
+        {
+            global $IceBox__t_AlreadyStoppedException;
+            return IcePHP_stringifyException($this, $IceBox__t_AlreadyStoppedException);
+        }
     }
+
+    $IceBox__t_AlreadyStoppedException = IcePHP_defineException('::IceBox::AlreadyStoppedException', 'IceBox_AlreadyStoppedException', false, null, null);
 }
 
-namespace IceBox
+global $IceBox__t_NoSuchServiceException;
+
+if(!class_exists('IceBox_NoSuchServiceException'))
 {
-    global $IceBox__t_AlreadyStoppedException;
-
-    if(!class_exists('\\IceBox\\AlreadyStoppedException'))
+    class IceBox_NoSuchServiceException extends Ice_UserException
     {
-        class AlreadyStoppedException extends \Ice\UserException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'IceBox::AlreadyStoppedException';
-            }
-
-            public function __toString()
-            {
-                global $IceBox__t_AlreadyStoppedException;
-                return IcePHP_stringifyException($this, $IceBox__t_AlreadyStoppedException);
-            }
         }
 
-        $IceBox__t_AlreadyStoppedException = IcePHP_defineException('::IceBox::AlreadyStoppedException', '\\IceBox\\AlreadyStoppedException', false, null, null);
+        public function ice_name()
+        {
+            return 'IceBox::NoSuchServiceException';
+        }
+
+        public function __toString()
+        {
+            global $IceBox__t_NoSuchServiceException;
+            return IcePHP_stringifyException($this, $IceBox__t_NoSuchServiceException);
+        }
     }
+
+    $IceBox__t_NoSuchServiceException = IcePHP_defineException('::IceBox::NoSuchServiceException', 'IceBox_NoSuchServiceException', false, null, null);
 }
 
-namespace IceBox
+global $IceBox__t_Service;
+
+if(!interface_exists('IceBox_Service'))
 {
-    global $IceBox__t_NoSuchServiceException;
-
-    if(!class_exists('\\IceBox\\NoSuchServiceException'))
+    interface IceBox_Service
     {
-        class NoSuchServiceException extends \Ice\UserException
-        {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'IceBox::NoSuchServiceException';
-            }
-
-            public function __toString()
-            {
-                global $IceBox__t_NoSuchServiceException;
-                return IcePHP_stringifyException($this, $IceBox__t_NoSuchServiceException);
-            }
-        }
-
-        $IceBox__t_NoSuchServiceException = IcePHP_defineException('::IceBox::NoSuchServiceException', '\\IceBox\\NoSuchServiceException', false, null, null);
+        public function start($name, $communicator, $args);
+        public function stop();
     }
+
+    $IceBox__t_Service = IcePHP_defineClass('::IceBox::Service', 'IceBox_Service', -1, true, false, $Ice__t_Object, null, null);
 }
 
-namespace IceBox
-{
-    global $IceBox__t_Service;
+global $IceBox__t_ServiceObserver;
+global $IceBox__t_ServiceObserverPrx;
 
-    if(!interface_exists('\\IceBox\\Service'))
+if(!interface_exists('IceBox_ServiceObserver'))
+{
+    interface IceBox_ServiceObserver extends Ice_Object
     {
-        interface Service
+        public function servicesStarted($services);
+        public function servicesStopped($services);
+    }
+
+    class IceBox_ServiceObserverPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function start($name, $communicator, $args);
-            public function stop();
+            return $proxy->ice_checkedCast('::IceBox::ServiceObserver', $facetOrCtx, $ctx);
         }
 
-        $IceBox__t_Service = IcePHP_defineClass('::IceBox::Service', '\\IceBox\\Service', -1, true, false, $Ice__t_Object, null, null);
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceBox::ServiceObserver', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceBox::ServiceObserver';
+        }
     }
+
+    $IceBox__t_ServiceObserver = IcePHP_defineClass('::IceBox::ServiceObserver', 'IceBox_ServiceObserver', -1, true, false, $Ice__t_Object, null, null);
+
+    $IceBox__t_ServiceObserverPrx = IcePHP_defineProxy($IceBox__t_ServiceObserver);
+
+    IcePHP_defineOperation($IceBox__t_ServiceObserver, 'servicesStarted', 0, 0, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
+    IcePHP_defineOperation($IceBox__t_ServiceObserver, 'servicesStopped', 0, 0, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
 }
 
-namespace IceBox
+global $IceBox__t_ServiceManager;
+global $IceBox__t_ServiceManagerPrx;
+
+if(!interface_exists('IceBox_ServiceManager'))
 {
-    global $IceBox__t_ServiceObserver;
-    global $IceBox__t_ServiceObserverPrx;
-
-    if(!interface_exists('\\IceBox\\ServiceObserver'))
+    interface IceBox_ServiceManager extends Ice_Object
     {
-        interface ServiceObserver extends \Ice\Object
-        {
-            public function servicesStarted($services);
-            public function servicesStopped($services);
-        }
-
-        class ServiceObserverPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceBox::ServiceObserver', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceBox::ServiceObserver', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceBox::ServiceObserver';
-            }
-        }
-
-        $IceBox__t_ServiceObserver = IcePHP_defineClass('::IceBox::ServiceObserver', '\\IceBox\\ServiceObserver', -1, true, false, $Ice__t_Object, null, null);
-
-        $IceBox__t_ServiceObserverPrx = IcePHP_defineProxy($IceBox__t_ServiceObserver);
-
-        IcePHP_defineOperation($IceBox__t_ServiceObserver, 'servicesStarted', 0, 0, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
-        IcePHP_defineOperation($IceBox__t_ServiceObserver, 'servicesStopped', 0, 0, 0, array(array($Ice__t_StringSeq, false, 0)), null, null, null);
+        public function getSliceChecksums();
+        public function startService($service);
+        public function stopService($service);
+        public function addObserver($observer);
+        public function shutdown();
     }
-}
 
-namespace IceBox
-{
-    global $IceBox__t_ServiceManager;
-    global $IceBox__t_ServiceManagerPrx;
-
-    if(!interface_exists('\\IceBox\\ServiceManager'))
+    class IceBox_ServiceManagerPrxHelper
     {
-        interface ServiceManager extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function getSliceChecksums();
-            public function startService($service);
-            public function stopService($service);
-            public function addObserver($observer);
-            public function shutdown();
+            return $proxy->ice_checkedCast('::IceBox::ServiceManager', $facetOrCtx, $ctx);
         }
 
-        class ServiceManagerPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceBox::ServiceManager', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceBox::ServiceManager', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceBox::ServiceManager';
-            }
+            return $proxy->ice_uncheckedCast('::IceBox::ServiceManager', $facet);
         }
 
-        $IceBox__t_ServiceManager = IcePHP_defineClass('::IceBox::ServiceManager', '\\IceBox\\ServiceManager', -1, true, false, $Ice__t_Object, null, null);
-
-        $IceBox__t_ServiceManagerPrx = IcePHP_defineProxy($IceBox__t_ServiceManager);
-
-        IcePHP_defineOperation($IceBox__t_ServiceManager, 'getSliceChecksums', 2, 1, 0, null, null, array($Ice__t_SliceChecksumDict, false, 0), null);
-        IcePHP_defineOperation($IceBox__t_ServiceManager, 'startService', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, null, array($IceBox__t_AlreadyStartedException, $IceBox__t_NoSuchServiceException));
-        IcePHP_defineOperation($IceBox__t_ServiceManager, 'stopService', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, null, array($IceBox__t_AlreadyStoppedException, $IceBox__t_NoSuchServiceException));
-        IcePHP_defineOperation($IceBox__t_ServiceManager, 'addObserver', 0, 0, 0, array(array($IceBox__t_ServiceObserverPrx, false, 0)), null, null, null);
-        IcePHP_defineOperation($IceBox__t_ServiceManager, 'shutdown', 0, 0, 0, null, null, null, null);
+        public static function ice_staticId()
+        {
+            return '::IceBox::ServiceManager';
+        }
     }
+
+    $IceBox__t_ServiceManager = IcePHP_defineClass('::IceBox::ServiceManager', 'IceBox_ServiceManager', -1, true, false, $Ice__t_Object, null, null);
+
+    $IceBox__t_ServiceManagerPrx = IcePHP_defineProxy($IceBox__t_ServiceManager);
+
+    IcePHP_defineOperation($IceBox__t_ServiceManager, 'getSliceChecksums', 2, 1, 0, null, null, array($Ice__t_SliceChecksumDict, false, 0), null);
+    IcePHP_defineOperation($IceBox__t_ServiceManager, 'startService', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, null, array($IceBox__t_AlreadyStartedException, $IceBox__t_NoSuchServiceException));
+    IcePHP_defineOperation($IceBox__t_ServiceManager, 'stopService', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, null, array($IceBox__t_AlreadyStoppedException, $IceBox__t_NoSuchServiceException));
+    IcePHP_defineOperation($IceBox__t_ServiceManager, 'addObserver', 0, 0, 0, array(array($IceBox__t_ServiceObserverPrx, false, 0)), null, null, null);
+    IcePHP_defineOperation($IceBox__t_ServiceManager, 'shutdown', 0, 0, 0, null, null, null, null);
 }
 ?>

@@ -20,63 +20,57 @@
 //
 
 
-namespace Ice
+global $Ice__t_ProtocolVersion;
+
+if(!class_exists('Ice_ProtocolVersion'))
 {
-    global $Ice__t_ProtocolVersion;
-
-    if(!class_exists('\\Ice\\ProtocolVersion'))
+    class Ice_ProtocolVersion
     {
-        class ProtocolVersion
+        public function __construct($major=0, $minor=0)
         {
-            public function __construct($major=0, $minor=0)
-            {
-                $this->major = $major;
-                $this->minor = $minor;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_ProtocolVersion;
-                return IcePHP_stringify($this, $Ice__t_ProtocolVersion);
-            }
-
-            public $major;
-            public $minor;
+            $this->major = $major;
+            $this->minor = $minor;
         }
 
-        $Ice__t_ProtocolVersion = IcePHP_defineStruct('::Ice::ProtocolVersion', '\\Ice\\ProtocolVersion', array(
-            array('major', $IcePHP__t_byte), 
-            array('minor', $IcePHP__t_byte)));
+        public function __toString()
+        {
+            global $Ice__t_ProtocolVersion;
+            return IcePHP_stringify($this, $Ice__t_ProtocolVersion);
+        }
+
+        public $major;
+        public $minor;
     }
+
+    $Ice__t_ProtocolVersion = IcePHP_defineStruct('::Ice::ProtocolVersion', 'Ice_ProtocolVersion', array(
+        array('major', $IcePHP__t_byte), 
+        array('minor', $IcePHP__t_byte)));
 }
 
-namespace Ice
+global $Ice__t_EncodingVersion;
+
+if(!class_exists('Ice_EncodingVersion'))
 {
-    global $Ice__t_EncodingVersion;
-
-    if(!class_exists('\\Ice\\EncodingVersion'))
+    class Ice_EncodingVersion
     {
-        class EncodingVersion
+        public function __construct($major=0, $minor=0)
         {
-            public function __construct($major=0, $minor=0)
-            {
-                $this->major = $major;
-                $this->minor = $minor;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_EncodingVersion;
-                return IcePHP_stringify($this, $Ice__t_EncodingVersion);
-            }
-
-            public $major;
-            public $minor;
+            $this->major = $major;
+            $this->minor = $minor;
         }
 
-        $Ice__t_EncodingVersion = IcePHP_defineStruct('::Ice::EncodingVersion', '\\Ice\\EncodingVersion', array(
-            array('major', $IcePHP__t_byte), 
-            array('minor', $IcePHP__t_byte)));
+        public function __toString()
+        {
+            global $Ice__t_EncodingVersion;
+            return IcePHP_stringify($this, $Ice__t_EncodingVersion);
+        }
+
+        public $major;
+        public $minor;
     }
+
+    $Ice__t_EncodingVersion = IcePHP_defineStruct('::Ice::EncodingVersion', 'Ice_EncodingVersion', array(
+        array('major', $IcePHP__t_byte), 
+        array('minor', $IcePHP__t_byte)));
 }
 ?>

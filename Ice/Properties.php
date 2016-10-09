@@ -19,36 +19,29 @@
 // </auto-generated>
 //
 
+require_once 'Ice/PropertiesAdmin.php';
 
-namespace
+global $Ice__t_Properties;
+
+if(!interface_exists('Ice_Properties'))
 {
-    require_once 'Ice/PropertiesAdmin.php';
-}
-
-namespace Ice
-{
-    global $Ice__t_Properties;
-
-    if(!interface_exists('\\Ice\\Properties'))
+    interface Ice_Properties
     {
-        interface Properties
-        {
-            public function getProperty($key);
-            public function getPropertyWithDefault($key, $value);
-            public function getPropertyAsInt($key);
-            public function getPropertyAsIntWithDefault($key, $value);
-            public function getPropertyAsList($key);
-            public function getPropertyAsListWithDefault($key, $value);
-            public function getPropertiesForPrefix($prefix);
-            public function setProperty($key, $value);
-            public function getCommandLineOptions();
-            public function parseCommandLineOptions($prefix, $options);
-            public function parseIceCommandLineOptions($options);
-            public function load($file);
-            public function _clone();
-        }
-
-        $Ice__t_Properties = IcePHP_defineClass('::Ice::Properties', '\\Ice\\Properties', -1, true, false, $Ice__t_Object, null, null);
+        public function getProperty($key);
+        public function getPropertyWithDefault($key, $value);
+        public function getPropertyAsInt($key);
+        public function getPropertyAsIntWithDefault($key, $value);
+        public function getPropertyAsList($key);
+        public function getPropertyAsListWithDefault($key, $value);
+        public function getPropertiesForPrefix($prefix);
+        public function setProperty($key, $value);
+        public function getCommandLineOptions();
+        public function parseCommandLineOptions($prefix, $options);
+        public function parseIceCommandLineOptions($options);
+        public function load($file);
+        public function _clone();
     }
+
+    $Ice__t_Properties = IcePHP_defineClass('::Ice::Properties', 'Ice_Properties', -1, true, false, $Ice__t_Object, null, null);
 }
 ?>

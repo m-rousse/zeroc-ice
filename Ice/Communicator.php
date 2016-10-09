@@ -19,64 +19,57 @@
 // </auto-generated>
 //
 
+require_once 'Ice/LoggerF.php';
+require_once 'Ice/InstrumentationF.php';
+require_once 'Ice/ObjectAdapterF.php';
+require_once 'Ice/ObjectFactoryF.php';
+require_once 'Ice/RouterF.php';
+require_once 'Ice/LocatorF.php';
+require_once 'Ice/PluginF.php';
+require_once 'Ice/ImplicitContextF.php';
+require_once 'Ice/Current.php';
+require_once 'Ice/Properties.php';
+require_once 'Ice/FacetMap.php';
 
-namespace
+global $Ice__t_Communicator;
+
+if(!interface_exists('Ice_Communicator'))
 {
-    require_once 'Ice/LoggerF.php';
-    require_once 'Ice/InstrumentationF.php';
-    require_once 'Ice/ObjectAdapterF.php';
-    require_once 'Ice/ObjectFactoryF.php';
-    require_once 'Ice/RouterF.php';
-    require_once 'Ice/LocatorF.php';
-    require_once 'Ice/PluginF.php';
-    require_once 'Ice/ImplicitContextF.php';
-    require_once 'Ice/Current.php';
-    require_once 'Ice/Properties.php';
-    require_once 'Ice/FacetMap.php';
-}
-
-namespace Ice
-{
-    global $Ice__t_Communicator;
-
-    if(!interface_exists('\\Ice\\Communicator'))
+    interface Ice_Communicator
     {
-        interface Communicator
-        {
-            public function destroy();
-            public function shutdown();
-            public function waitForShutdown();
-            public function isShutdown();
-            public function stringToProxy($str);
-            public function proxyToString($obj);
-            public function propertyToProxy($property);
-            public function proxyToProperty($proxy, $property);
-            public function stringToIdentity($str);
-            public function identityToString($ident);
-            public function createObjectAdapter($name);
-            public function createObjectAdapterWithEndpoints($name, $endpoints);
-            public function createObjectAdapterWithRouter($name, $rtr);
-            public function addObjectFactory($factory, $id);
-            public function findObjectFactory($id);
-            public function getImplicitContext();
-            public function getProperties();
-            public function getLogger();
-            public function getObserver();
-            public function getDefaultRouter();
-            public function setDefaultRouter($rtr);
-            public function getDefaultLocator();
-            public function setDefaultLocator($loc);
-            public function getPluginManager();
-            public function flushBatchRequests();
-            public function createAdmin($adminAdapter, $adminId);
-            public function getAdmin();
-            public function addAdminFacet($servant, $facet);
-            public function removeAdminFacet($facet);
-            public function findAdminFacet($facet);
-            public function findAllAdminFacets();
-        }
-
-        $Ice__t_Communicator = IcePHP_defineClass('::Ice::Communicator', '\\Ice\\Communicator', -1, true, false, $Ice__t_Object, null, null);
+        public function destroy();
+        public function shutdown();
+        public function waitForShutdown();
+        public function isShutdown();
+        public function stringToProxy($str);
+        public function proxyToString($obj);
+        public function propertyToProxy($property);
+        public function proxyToProperty($proxy, $property);
+        public function stringToIdentity($str);
+        public function identityToString($ident);
+        public function createObjectAdapter($name);
+        public function createObjectAdapterWithEndpoints($name, $endpoints);
+        public function createObjectAdapterWithRouter($name, $rtr);
+        public function addObjectFactory($factory, $id);
+        public function findObjectFactory($id);
+        public function getImplicitContext();
+        public function getProperties();
+        public function getLogger();
+        public function getObserver();
+        public function getDefaultRouter();
+        public function setDefaultRouter($rtr);
+        public function getDefaultLocator();
+        public function setDefaultLocator($loc);
+        public function getPluginManager();
+        public function flushBatchRequests();
+        public function createAdmin($adminAdapter, $adminId);
+        public function getAdmin();
+        public function addAdminFacet($servant, $facet);
+        public function removeAdminFacet($facet);
+        public function findAdminFacet($facet);
+        public function findAllAdminFacets();
     }
+
+    $Ice__t_Communicator = IcePHP_defineClass('::Ice::Communicator', 'Ice_Communicator', -1, true, false, $Ice__t_Object, null, null);
 }
 ?>

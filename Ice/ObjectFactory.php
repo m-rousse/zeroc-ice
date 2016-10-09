@@ -20,19 +20,16 @@
 //
 
 
-namespace Ice
+global $Ice__t_ObjectFactory;
+
+if(!interface_exists('Ice_ObjectFactory'))
 {
-    global $Ice__t_ObjectFactory;
-
-    if(!interface_exists('\\Ice\\ObjectFactory'))
+    interface Ice_ObjectFactory
     {
-        interface ObjectFactory
-        {
-            public function create($type);
-            public function destroy();
-        }
-
-        $Ice__t_ObjectFactory = IcePHP_defineClass('::Ice::ObjectFactory', '\\Ice\\ObjectFactory', -1, true, false, $Ice__t_Object, null, null);
+        public function create($type);
+        public function destroy();
     }
+
+    $Ice__t_ObjectFactory = IcePHP_defineClass('::Ice::ObjectFactory', 'Ice_ObjectFactory', -1, true, false, $Ice__t_Object, null, null);
 }
 ?>

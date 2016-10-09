@@ -20,14 +20,11 @@
 //
 
 
-namespace Ice
+global $Ice__t_Router;
+global $Ice__t_RouterPrx;
+if(!isset($Ice__t_Router))
 {
-    global $Ice__t_Router;
-    global $Ice__t_RouterPrx;
-    if(!isset($Ice__t_Router))
-    {
-        $Ice__t_Router = IcePHP_declareClass('::Ice::Router');
-        $Ice__t_RouterPrx = IcePHP_declareProxy('::Ice::Router');
-    }
+    $Ice__t_Router = IcePHP_declareClass('::Ice::Router');
+    $Ice__t_RouterPrx = IcePHP_declareProxy('::Ice::Router');
 }
 ?>

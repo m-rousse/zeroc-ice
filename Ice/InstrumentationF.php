@@ -20,21 +20,15 @@
 //
 
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_Observer;
+if(!isset($Ice_Instrumentation__t_Observer))
 {
-    global $Ice_Instrumentation__t_Observer;
-    if(!isset($Ice_Instrumentation__t_Observer))
-    {
-        $Ice_Instrumentation__t_Observer = IcePHP_declareClass('::Ice::Instrumentation::Observer');
-    }
+    $Ice_Instrumentation__t_Observer = IcePHP_declareClass('::Ice::Instrumentation::Observer');
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_CommunicatorObserver;
+if(!isset($Ice_Instrumentation__t_CommunicatorObserver))
 {
-    global $Ice_Instrumentation__t_CommunicatorObserver;
-    if(!isset($Ice_Instrumentation__t_CommunicatorObserver))
-    {
-        $Ice_Instrumentation__t_CommunicatorObserver = IcePHP_declareClass('::Ice::Instrumentation::CommunicatorObserver');
-    }
+    $Ice_Instrumentation__t_CommunicatorObserver = IcePHP_declareClass('::Ice::Instrumentation::CommunicatorObserver');
 }
 ?>

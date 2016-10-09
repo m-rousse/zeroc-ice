@@ -20,30 +20,21 @@
 //
 
 
-namespace Ice
+global $Ice__t_ConnectionInfo;
+if(!isset($Ice__t_ConnectionInfo))
 {
-    global $Ice__t_ConnectionInfo;
-    if(!isset($Ice__t_ConnectionInfo))
-    {
-        $Ice__t_ConnectionInfo = IcePHP_declareClass('::Ice::ConnectionInfo');
-    }
+    $Ice__t_ConnectionInfo = IcePHP_declareClass('::Ice::ConnectionInfo');
 }
 
-namespace Ice
+global $Ice__t_WSConnectionInfo;
+if(!isset($Ice__t_WSConnectionInfo))
 {
-    global $Ice__t_WSConnectionInfo;
-    if(!isset($Ice__t_WSConnectionInfo))
-    {
-        $Ice__t_WSConnectionInfo = IcePHP_declareClass('::Ice::WSConnectionInfo');
-    }
+    $Ice__t_WSConnectionInfo = IcePHP_declareClass('::Ice::WSConnectionInfo');
 }
 
-namespace Ice
+global $Ice__t_Connection;
+if(!isset($Ice__t_Connection))
 {
-    global $Ice__t_Connection;
-    if(!isset($Ice__t_Connection))
-    {
-        $Ice__t_Connection = IcePHP_declareClass('::Ice::Connection');
-    }
+    $Ice__t_Connection = IcePHP_declareClass('::Ice::Connection');
 }
 ?>

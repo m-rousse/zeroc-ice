@@ -19,90 +19,77 @@
 // </auto-generated>
 //
 
+require_once 'Ice/ObjectAdapterF.php';
+require_once 'Ice/ConnectionF.php';
+require_once 'Ice/Identity.php';
+require_once 'Ice/Version.php';
 
-namespace
+global $Ice__t_Context;
+
+if(!isset($Ice__t_Context))
 {
-    require_once 'Ice/ObjectAdapterF.php';
-    require_once 'Ice/ConnectionF.php';
-    require_once 'Ice/Identity.php';
-    require_once 'Ice/Version.php';
+    $Ice__t_Context = IcePHP_defineDictionary('::Ice::Context', $IcePHP__t_string, $IcePHP__t_string);
 }
 
-namespace Ice
-{
-    global $Ice__t_Context;
+global $Ice__t_OperationMode;
 
-    if(!isset($Ice__t_Context))
+if(!class_exists('Ice_OperationMode'))
+{
+    class Ice_OperationMode
     {
-        $Ice__t_Context = IcePHP_defineDictionary('::Ice::Context', $IcePHP__t_string, $IcePHP__t_string);
+        const Normal = 0;
+        const Nonmutating = 1;
+        const Idempotent = 2;
     }
+
+    $Ice__t_OperationMode = IcePHP_defineEnum('::Ice::OperationMode', array('Normal', 0, 'Nonmutating', 1, 'Idempotent', 2));
 }
 
-namespace Ice
-{
-    global $Ice__t_OperationMode;
+global $Ice__t_Current;
 
-    if(!class_exists('\\Ice\\OperationMode'))
+if(!class_exists('Ice_Current'))
+{
+    class Ice_Current
     {
-        class OperationMode
+        public function __construct($adapter=null, $con=null, $id=null, $facet='', $operation='', $mode=Ice_OperationMode::Normal, $ctx=null, $requestId=0, $encoding=null)
         {
-            const Normal = 0;
-            const Nonmutating = 1;
-            const Idempotent = 2;
+            $this->adapter = $adapter;
+            $this->con = $con;
+            $this->id = is_null($id) ? new Ice_Identity : $id;
+            $this->facet = $facet;
+            $this->operation = $operation;
+            $this->mode = $mode;
+            $this->ctx = $ctx;
+            $this->requestId = $requestId;
+            $this->encoding = is_null($encoding) ? new Ice_EncodingVersion : $encoding;
         }
 
-        $Ice__t_OperationMode = IcePHP_defineEnum('::Ice::OperationMode', array('Normal', 0, 'Nonmutating', 1, 'Idempotent', 2));
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_Current;
-
-    if(!class_exists('\\Ice\\Current'))
-    {
-        class Current
+        public function __toString()
         {
-            public function __construct($adapter=null, $con=null, $id=null, $facet='', $operation='', $mode=\Ice\OperationMode::Normal, $ctx=null, $requestId=0, $encoding=null)
-            {
-                $this->adapter = $adapter;
-                $this->con = $con;
-                $this->id = is_null($id) ? new \Ice\Identity : $id;
-                $this->facet = $facet;
-                $this->operation = $operation;
-                $this->mode = $mode;
-                $this->ctx = $ctx;
-                $this->requestId = $requestId;
-                $this->encoding = is_null($encoding) ? new \Ice\EncodingVersion : $encoding;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_Current;
-                return IcePHP_stringify($this, $Ice__t_Current);
-            }
-
-            public $adapter;
-            public $con;
-            public $id;
-            public $facet;
-            public $operation;
-            public $mode;
-            public $ctx;
-            public $requestId;
-            public $encoding;
+            global $Ice__t_Current;
+            return IcePHP_stringify($this, $Ice__t_Current);
         }
 
-        $Ice__t_Current = IcePHP_defineStruct('::Ice::Current', '\\Ice\\Current', array(
-            array('adapter', $Ice__t_ObjectAdapter), 
-            array('con', $Ice__t_Connection), 
-            array('id', $Ice__t_Identity), 
-            array('facet', $IcePHP__t_string), 
-            array('operation', $IcePHP__t_string), 
-            array('mode', $Ice__t_OperationMode), 
-            array('ctx', $Ice__t_Context), 
-            array('requestId', $IcePHP__t_int), 
-            array('encoding', $Ice__t_EncodingVersion)));
+        public $adapter;
+        public $con;
+        public $id;
+        public $facet;
+        public $operation;
+        public $mode;
+        public $ctx;
+        public $requestId;
+        public $encoding;
     }
+
+    $Ice__t_Current = IcePHP_defineStruct('::Ice::Current', 'Ice_Current', array(
+        array('adapter', $Ice__t_ObjectAdapter), 
+        array('con', $Ice__t_Connection), 
+        array('id', $Ice__t_Identity), 
+        array('facet', $IcePHP__t_string), 
+        array('operation', $IcePHP__t_string), 
+        array('mode', $Ice__t_OperationMode), 
+        array('ctx', $Ice__t_Context), 
+        array('requestId', $IcePHP__t_int), 
+        array('encoding', $Ice__t_EncodingVersion)));
 }
 ?>

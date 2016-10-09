@@ -19,620 +19,571 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $IceMX__t_StringIntDict;
+
+if(!isset($IceMX__t_StringIntDict))
 {
-    require_once 'Ice/BuiltinSequences.php';
+    $IceMX__t_StringIntDict = IcePHP_defineDictionary('::IceMX::StringIntDict', $IcePHP__t_string, $IcePHP__t_int);
 }
 
-namespace IceMX
-{
-    global $IceMX__t_StringIntDict;
+global $IceMX__t_Metrics;
+global $IceMX__t_MetricsPrx;
 
-    if(!isset($IceMX__t_StringIntDict))
+if(!class_exists('IceMX_Metrics'))
+{
+    class IceMX_Metrics extends Ice_ObjectImpl
     {
-        $IceMX__t_StringIntDict = IcePHP_defineDictionary('::IceMX::StringIntDict', $IcePHP__t_string, $IcePHP__t_int);
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0)
+        {
+            $this->id = $id;
+            $this->total = $total;
+            $this->current = $current;
+            $this->totalLifetime = $totalLifetime;
+            $this->failures = $failures;
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::Metrics';
+        }
+
+        public function __toString()
+        {
+            global $IceMX__t_Metrics;
+            return IcePHP_stringify($this, $IceMX__t_Metrics);
+        }
+
+        public $id;
+        public $total;
+        public $current;
+        public $totalLifetime;
+        public $failures;
     }
+
+    class IceMX_MetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::Metrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::Metrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::Metrics';
+        }
+    }
+
+    $IceMX__t_Metrics = IcePHP_defineClass('::IceMX::Metrics', 'IceMX_Metrics', -1, false, false, $Ice__t_Object, null, array(
+        array('id', $IcePHP__t_string, false, 0),
+        array('total', $IcePHP__t_long, false, 0),
+        array('current', $IcePHP__t_int, false, 0),
+        array('totalLifetime', $IcePHP__t_long, false, 0),
+        array('failures', $IcePHP__t_int, false, 0)));
+
+    $IceMX__t_MetricsPrx = IcePHP_defineProxy($IceMX__t_Metrics);
 }
 
-namespace IceMX
+global $IceMX__t_MetricsFailures;
+
+if(!class_exists('IceMX_MetricsFailures'))
 {
-    global $IceMX__t_Metrics;
-    global $IceMX__t_MetricsPrx;
-
-    if(!class_exists('\\IceMX\\Metrics'))
+    class IceMX_MetricsFailures
     {
-        class Metrics extends \Ice\ObjectImpl
+        public function __construct($id='', $failures=null)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0)
-            {
-                $this->id = $id;
-                $this->total = $total;
-                $this->current = $current;
-                $this->totalLifetime = $totalLifetime;
-                $this->failures = $failures;
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::Metrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_Metrics;
-                return IcePHP_stringify($this, $IceMX__t_Metrics);
-            }
-
-            public $id;
-            public $total;
-            public $current;
-            public $totalLifetime;
-            public $failures;
+            $this->id = $id;
+            $this->failures = $failures;
         }
 
-        class MetricsPrxHelper
+        public function __toString()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::Metrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::Metrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::Metrics';
-            }
+            global $IceMX__t_MetricsFailures;
+            return IcePHP_stringify($this, $IceMX__t_MetricsFailures);
         }
 
-        $IceMX__t_Metrics = IcePHP_defineClass('::IceMX::Metrics', '\\IceMX\\Metrics', -1, false, false, $Ice__t_Object, null, array(
-            array('id', $IcePHP__t_string, false, 0),
-            array('total', $IcePHP__t_long, false, 0),
-            array('current', $IcePHP__t_int, false, 0),
-            array('totalLifetime', $IcePHP__t_long, false, 0),
-            array('failures', $IcePHP__t_int, false, 0)));
-
-        $IceMX__t_MetricsPrx = IcePHP_defineProxy($IceMX__t_Metrics);
+        public $id;
+        public $failures;
     }
+
+    $IceMX__t_MetricsFailures = IcePHP_defineStruct('::IceMX::MetricsFailures', 'IceMX_MetricsFailures', array(
+        array('id', $IcePHP__t_string), 
+        array('failures', $IceMX__t_StringIntDict)));
 }
 
-namespace IceMX
+global $IceMX__t_MetricsFailuresSeq;
+
+if(!isset($IceMX__t_MetricsFailuresSeq))
 {
-    global $IceMX__t_MetricsFailures;
-
-    if(!class_exists('\\IceMX\\MetricsFailures'))
-    {
-        class MetricsFailures
-        {
-            public function __construct($id='', $failures=null)
-            {
-                $this->id = $id;
-                $this->failures = $failures;
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_MetricsFailures;
-                return IcePHP_stringify($this, $IceMX__t_MetricsFailures);
-            }
-
-            public $id;
-            public $failures;
-        }
-
-        $IceMX__t_MetricsFailures = IcePHP_defineStruct('::IceMX::MetricsFailures', '\\IceMX\\MetricsFailures', array(
-            array('id', $IcePHP__t_string), 
-            array('failures', $IceMX__t_StringIntDict)));
-    }
+    $IceMX__t_MetricsFailuresSeq = IcePHP_defineSequence('::IceMX::MetricsFailuresSeq', $IceMX__t_MetricsFailures);
 }
 
-namespace IceMX
-{
-    global $IceMX__t_MetricsFailuresSeq;
+global $IceMX__t_MetricsMap;
 
-    if(!isset($IceMX__t_MetricsFailuresSeq))
-    {
-        $IceMX__t_MetricsFailuresSeq = IcePHP_defineSequence('::IceMX::MetricsFailuresSeq', $IceMX__t_MetricsFailures);
-    }
+if(!isset($IceMX__t_MetricsMap))
+{
+    $IceMX__t_MetricsMap = IcePHP_defineSequence('::IceMX::MetricsMap', $IceMX__t_Metrics);
 }
 
-namespace IceMX
-{
-    global $IceMX__t_MetricsMap;
+global $IceMX__t_MetricsView;
 
-    if(!isset($IceMX__t_MetricsMap))
-    {
-        $IceMX__t_MetricsMap = IcePHP_defineSequence('::IceMX::MetricsMap', $IceMX__t_Metrics);
-    }
+if(!isset($IceMX__t_MetricsView))
+{
+    $IceMX__t_MetricsView = IcePHP_defineDictionary('::IceMX::MetricsView', $IcePHP__t_string, $IceMX__t_MetricsMap);
 }
 
-namespace IceMX
-{
-    global $IceMX__t_MetricsView;
+global $IceMX__t_UnknownMetricsView;
 
-    if(!isset($IceMX__t_MetricsView))
+if(!class_exists('IceMX_UnknownMetricsView'))
+{
+    class IceMX_UnknownMetricsView extends Ice_UserException
     {
-        $IceMX__t_MetricsView = IcePHP_defineDictionary('::IceMX::MetricsView', $IcePHP__t_string, $IceMX__t_MetricsMap);
+        public function __construct()
+        {
+        }
+
+        public function ice_name()
+        {
+            return 'IceMX::UnknownMetricsView';
+        }
+
+        public function __toString()
+        {
+            global $IceMX__t_UnknownMetricsView;
+            return IcePHP_stringifyException($this, $IceMX__t_UnknownMetricsView);
+        }
     }
+
+    $IceMX__t_UnknownMetricsView = IcePHP_defineException('::IceMX::UnknownMetricsView', 'IceMX_UnknownMetricsView', false, null, null);
 }
 
-namespace IceMX
+global $IceMX__t_MetricsAdmin;
+global $IceMX__t_MetricsAdminPrx;
+
+if(!interface_exists('IceMX_MetricsAdmin'))
 {
-    global $IceMX__t_UnknownMetricsView;
-
-    if(!class_exists('\\IceMX\\UnknownMetricsView'))
+    interface IceMX_MetricsAdmin extends Ice_Object
     {
-        class UnknownMetricsView extends \Ice\UserException
+        public function getMetricsViewNames($disabledViews);
+        public function enableMetricsView($name);
+        public function disableMetricsView($name);
+        public function getMetricsView($view, $timestamp);
+        public function getMapMetricsFailures($view, $map);
+        public function getMetricsFailures($view, $map, $id);
+    }
+
+    class IceMX_MetricsAdminPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'IceMX::UnknownMetricsView';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_UnknownMetricsView;
-                return IcePHP_stringifyException($this, $IceMX__t_UnknownMetricsView);
-            }
+            return $proxy->ice_checkedCast('::IceMX::MetricsAdmin', $facetOrCtx, $ctx);
         }
 
-        $IceMX__t_UnknownMetricsView = IcePHP_defineException('::IceMX::UnknownMetricsView', '\\IceMX\\UnknownMetricsView', false, null, null);
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::MetricsAdmin', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::MetricsAdmin';
+        }
     }
+
+    $IceMX__t_MetricsAdmin = IcePHP_defineClass('::IceMX::MetricsAdmin', 'IceMX_MetricsAdmin', -1, true, false, $Ice__t_Object, null, null);
+
+    $IceMX__t_MetricsAdminPrx = IcePHP_defineProxy($IceMX__t_MetricsAdmin);
+
+    IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMetricsViewNames', 0, 0, 2, null, array(array($Ice__t_StringSeq, false, 0)), array($Ice__t_StringSeq, false, 0), null);
+    IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'enableMetricsView', 0, 0, 2, array(array($IcePHP__t_string, false, 0)), null, null, array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'disableMetricsView', 0, 0, 2, array(array($IcePHP__t_string, false, 0)), null, null, array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMetricsView', 0, 0, 2, array(array($IcePHP__t_string, false, 0)), array(array($IcePHP__t_long, false, 0)), array($IceMX__t_MetricsView, false, 0), array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMapMetricsFailures', 0, 0, 2, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0)), null, array($IceMX__t_MetricsFailuresSeq, false, 0), array($IceMX__t_UnknownMetricsView));
+    IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMetricsFailures', 0, 0, 2, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0)), null, array($IceMX__t_MetricsFailures, false, 0), array($IceMX__t_UnknownMetricsView));
 }
 
-namespace IceMX
+global $IceMX__t_ThreadMetrics;
+global $IceMX__t_ThreadMetricsPrx;
+
+if(!class_exists('IceMX_ThreadMetrics'))
 {
-    global $IceMX__t_MetricsAdmin;
-    global $IceMX__t_MetricsAdminPrx;
-
-    if(!interface_exists('\\IceMX\\MetricsAdmin'))
+    class IceMX_ThreadMetrics extends IceMX_Metrics
     {
-        interface MetricsAdmin extends \Ice\Object
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $inUseForIO=0, $inUseForUser=0, $inUseForOther=0)
         {
-            public function getMetricsViewNames($disabledViews);
-            public function enableMetricsView($name);
-            public function disableMetricsView($name);
-            public function getMetricsView($view, $timestamp);
-            public function getMapMetricsFailures($view, $map);
-            public function getMetricsFailures($view, $map, $id);
+            parent::__construct($id, $total, $current, $totalLifetime, $failures);
+            $this->inUseForIO = $inUseForIO;
+            $this->inUseForUser = $inUseForUser;
+            $this->inUseForOther = $inUseForOther;
         }
 
-        class MetricsAdminPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::MetricsAdmin', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::MetricsAdmin', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::MetricsAdmin';
-            }
+            return '::IceMX::ThreadMetrics';
         }
 
-        $IceMX__t_MetricsAdmin = IcePHP_defineClass('::IceMX::MetricsAdmin', '\\IceMX\\MetricsAdmin', -1, true, false, $Ice__t_Object, null, null);
+        public function __toString()
+        {
+            global $IceMX__t_ThreadMetrics;
+            return IcePHP_stringify($this, $IceMX__t_ThreadMetrics);
+        }
 
-        $IceMX__t_MetricsAdminPrx = IcePHP_defineProxy($IceMX__t_MetricsAdmin);
-
-        IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMetricsViewNames', 0, 0, 2, null, array(array($Ice__t_StringSeq, false, 0)), array($Ice__t_StringSeq, false, 0), null);
-        IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'enableMetricsView', 0, 0, 2, array(array($IcePHP__t_string, false, 0)), null, null, array($IceMX__t_UnknownMetricsView));
-        IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'disableMetricsView', 0, 0, 2, array(array($IcePHP__t_string, false, 0)), null, null, array($IceMX__t_UnknownMetricsView));
-        IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMetricsView', 0, 0, 2, array(array($IcePHP__t_string, false, 0)), array(array($IcePHP__t_long, false, 0)), array($IceMX__t_MetricsView, false, 0), array($IceMX__t_UnknownMetricsView));
-        IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMapMetricsFailures', 0, 0, 2, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0)), null, array($IceMX__t_MetricsFailuresSeq, false, 0), array($IceMX__t_UnknownMetricsView));
-        IcePHP_defineOperation($IceMX__t_MetricsAdmin, 'getMetricsFailures', 0, 0, 2, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0)), null, array($IceMX__t_MetricsFailures, false, 0), array($IceMX__t_UnknownMetricsView));
+        public $inUseForIO;
+        public $inUseForUser;
+        public $inUseForOther;
     }
+
+    class IceMX_ThreadMetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::ThreadMetrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::ThreadMetrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::ThreadMetrics';
+        }
+    }
+
+    $IceMX__t_ThreadMetrics = IcePHP_defineClass('::IceMX::ThreadMetrics', 'IceMX_ThreadMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
+        array('inUseForIO', $IcePHP__t_int, false, 0),
+        array('inUseForUser', $IcePHP__t_int, false, 0),
+        array('inUseForOther', $IcePHP__t_int, false, 0)));
+
+    $IceMX__t_ThreadMetricsPrx = IcePHP_defineProxy($IceMX__t_ThreadMetrics);
 }
 
-namespace IceMX
+global $IceMX__t_DispatchMetrics;
+global $IceMX__t_DispatchMetricsPrx;
+
+if(!class_exists('IceMX_DispatchMetrics'))
 {
-    global $IceMX__t_ThreadMetrics;
-    global $IceMX__t_ThreadMetricsPrx;
-
-    if(!class_exists('\\IceMX\\ThreadMetrics'))
+    class IceMX_DispatchMetrics extends IceMX_Metrics
     {
-        class ThreadMetrics extends \IceMX\Metrics
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $userException=0, $size=0, $replySize=0)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $inUseForIO=0, $inUseForUser=0, $inUseForOther=0)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures);
-                $this->inUseForIO = $inUseForIO;
-                $this->inUseForUser = $inUseForUser;
-                $this->inUseForOther = $inUseForOther;
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::ThreadMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_ThreadMetrics;
-                return IcePHP_stringify($this, $IceMX__t_ThreadMetrics);
-            }
-
-            public $inUseForIO;
-            public $inUseForUser;
-            public $inUseForOther;
+            parent::__construct($id, $total, $current, $totalLifetime, $failures);
+            $this->userException = $userException;
+            $this->size = $size;
+            $this->replySize = $replySize;
         }
 
-        class ThreadMetricsPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::ThreadMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::ThreadMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::ThreadMetrics';
-            }
+            return '::IceMX::DispatchMetrics';
         }
 
-        $IceMX__t_ThreadMetrics = IcePHP_defineClass('::IceMX::ThreadMetrics', '\\IceMX\\ThreadMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
-            array('inUseForIO', $IcePHP__t_int, false, 0),
-            array('inUseForUser', $IcePHP__t_int, false, 0),
-            array('inUseForOther', $IcePHP__t_int, false, 0)));
+        public function __toString()
+        {
+            global $IceMX__t_DispatchMetrics;
+            return IcePHP_stringify($this, $IceMX__t_DispatchMetrics);
+        }
 
-        $IceMX__t_ThreadMetricsPrx = IcePHP_defineProxy($IceMX__t_ThreadMetrics);
+        public $userException;
+        public $size;
+        public $replySize;
     }
+
+    class IceMX_DispatchMetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::DispatchMetrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::DispatchMetrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::DispatchMetrics';
+        }
+    }
+
+    $IceMX__t_DispatchMetrics = IcePHP_defineClass('::IceMX::DispatchMetrics', 'IceMX_DispatchMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
+        array('userException', $IcePHP__t_int, false, 0),
+        array('size', $IcePHP__t_long, false, 0),
+        array('replySize', $IcePHP__t_long, false, 0)));
+
+    $IceMX__t_DispatchMetricsPrx = IcePHP_defineProxy($IceMX__t_DispatchMetrics);
 }
 
-namespace IceMX
+global $IceMX__t_ChildInvocationMetrics;
+global $IceMX__t_ChildInvocationMetricsPrx;
+
+if(!class_exists('IceMX_ChildInvocationMetrics'))
 {
-    global $IceMX__t_DispatchMetrics;
-    global $IceMX__t_DispatchMetricsPrx;
-
-    if(!class_exists('\\IceMX\\DispatchMetrics'))
+    class IceMX_ChildInvocationMetrics extends IceMX_Metrics
     {
-        class DispatchMetrics extends \IceMX\Metrics
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $userException=0, $size=0, $replySize=0)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures);
-                $this->userException = $userException;
-                $this->size = $size;
-                $this->replySize = $replySize;
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::DispatchMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_DispatchMetrics;
-                return IcePHP_stringify($this, $IceMX__t_DispatchMetrics);
-            }
-
-            public $userException;
-            public $size;
-            public $replySize;
+            parent::__construct($id, $total, $current, $totalLifetime, $failures);
+            $this->size = $size;
+            $this->replySize = $replySize;
         }
 
-        class DispatchMetricsPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::DispatchMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::DispatchMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::DispatchMetrics';
-            }
+            return '::IceMX::ChildInvocationMetrics';
         }
 
-        $IceMX__t_DispatchMetrics = IcePHP_defineClass('::IceMX::DispatchMetrics', '\\IceMX\\DispatchMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
-            array('userException', $IcePHP__t_int, false, 0),
-            array('size', $IcePHP__t_long, false, 0),
-            array('replySize', $IcePHP__t_long, false, 0)));
+        public function __toString()
+        {
+            global $IceMX__t_ChildInvocationMetrics;
+            return IcePHP_stringify($this, $IceMX__t_ChildInvocationMetrics);
+        }
 
-        $IceMX__t_DispatchMetricsPrx = IcePHP_defineProxy($IceMX__t_DispatchMetrics);
+        public $size;
+        public $replySize;
     }
+
+    class IceMX_ChildInvocationMetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::ChildInvocationMetrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::ChildInvocationMetrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::ChildInvocationMetrics';
+        }
+    }
+
+    $IceMX__t_ChildInvocationMetrics = IcePHP_defineClass('::IceMX::ChildInvocationMetrics', 'IceMX_ChildInvocationMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
+        array('size', $IcePHP__t_long, false, 0),
+        array('replySize', $IcePHP__t_long, false, 0)));
+
+    $IceMX__t_ChildInvocationMetricsPrx = IcePHP_defineProxy($IceMX__t_ChildInvocationMetrics);
 }
 
-namespace IceMX
+global $IceMX__t_CollocatedMetrics;
+global $IceMX__t_CollocatedMetricsPrx;
+
+if(!class_exists('IceMX_CollocatedMetrics'))
 {
-    global $IceMX__t_ChildInvocationMetrics;
-    global $IceMX__t_ChildInvocationMetricsPrx;
-
-    if(!class_exists('\\IceMX\\ChildInvocationMetrics'))
+    class IceMX_CollocatedMetrics extends IceMX_ChildInvocationMetrics
     {
-        class ChildInvocationMetrics extends \IceMX\Metrics
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures);
-                $this->size = $size;
-                $this->replySize = $replySize;
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::ChildInvocationMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_ChildInvocationMetrics;
-                return IcePHP_stringify($this, $IceMX__t_ChildInvocationMetrics);
-            }
-
-            public $size;
-            public $replySize;
+            parent::__construct($id, $total, $current, $totalLifetime, $failures, $size, $replySize);
         }
 
-        class ChildInvocationMetricsPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::ChildInvocationMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::ChildInvocationMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::ChildInvocationMetrics';
-            }
+            return '::IceMX::CollocatedMetrics';
         }
 
-        $IceMX__t_ChildInvocationMetrics = IcePHP_defineClass('::IceMX::ChildInvocationMetrics', '\\IceMX\\ChildInvocationMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
-            array('size', $IcePHP__t_long, false, 0),
-            array('replySize', $IcePHP__t_long, false, 0)));
-
-        $IceMX__t_ChildInvocationMetricsPrx = IcePHP_defineProxy($IceMX__t_ChildInvocationMetrics);
+        public function __toString()
+        {
+            global $IceMX__t_CollocatedMetrics;
+            return IcePHP_stringify($this, $IceMX__t_CollocatedMetrics);
+        }
     }
+
+    class IceMX_CollocatedMetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::CollocatedMetrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::CollocatedMetrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::CollocatedMetrics';
+        }
+    }
+
+    $IceMX__t_CollocatedMetrics = IcePHP_defineClass('::IceMX::CollocatedMetrics', 'IceMX_CollocatedMetrics', -1, false, false, $IceMX__t_ChildInvocationMetrics, null, null);
+
+    $IceMX__t_CollocatedMetricsPrx = IcePHP_defineProxy($IceMX__t_CollocatedMetrics);
 }
 
-namespace IceMX
+global $IceMX__t_RemoteMetrics;
+global $IceMX__t_RemoteMetricsPrx;
+
+if(!class_exists('IceMX_RemoteMetrics'))
 {
-    global $IceMX__t_CollocatedMetrics;
-    global $IceMX__t_CollocatedMetricsPrx;
-
-    if(!class_exists('\\IceMX\\CollocatedMetrics'))
+    class IceMX_RemoteMetrics extends IceMX_ChildInvocationMetrics
     {
-        class CollocatedMetrics extends \IceMX\ChildInvocationMetrics
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures, $size, $replySize);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::CollocatedMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_CollocatedMetrics;
-                return IcePHP_stringify($this, $IceMX__t_CollocatedMetrics);
-            }
+            parent::__construct($id, $total, $current, $totalLifetime, $failures, $size, $replySize);
         }
 
-        class CollocatedMetricsPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::CollocatedMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::CollocatedMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::CollocatedMetrics';
-            }
+            return '::IceMX::RemoteMetrics';
         }
 
-        $IceMX__t_CollocatedMetrics = IcePHP_defineClass('::IceMX::CollocatedMetrics', '\\IceMX\\CollocatedMetrics', -1, false, false, $IceMX__t_ChildInvocationMetrics, null, null);
-
-        $IceMX__t_CollocatedMetricsPrx = IcePHP_defineProxy($IceMX__t_CollocatedMetrics);
+        public function __toString()
+        {
+            global $IceMX__t_RemoteMetrics;
+            return IcePHP_stringify($this, $IceMX__t_RemoteMetrics);
+        }
     }
+
+    class IceMX_RemoteMetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::RemoteMetrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::RemoteMetrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::RemoteMetrics';
+        }
+    }
+
+    $IceMX__t_RemoteMetrics = IcePHP_defineClass('::IceMX::RemoteMetrics', 'IceMX_RemoteMetrics', -1, false, false, $IceMX__t_ChildInvocationMetrics, null, null);
+
+    $IceMX__t_RemoteMetricsPrx = IcePHP_defineProxy($IceMX__t_RemoteMetrics);
 }
 
-namespace IceMX
+global $IceMX__t_InvocationMetrics;
+global $IceMX__t_InvocationMetricsPrx;
+
+if(!class_exists('IceMX_InvocationMetrics'))
 {
-    global $IceMX__t_RemoteMetrics;
-    global $IceMX__t_RemoteMetricsPrx;
-
-    if(!class_exists('\\IceMX\\RemoteMetrics'))
+    class IceMX_InvocationMetrics extends IceMX_Metrics
     {
-        class RemoteMetrics extends \IceMX\ChildInvocationMetrics
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $retry=0, $userException=0, $remotes=null, $collocated=null)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $size=0, $replySize=0)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures, $size, $replySize);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::RemoteMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_RemoteMetrics;
-                return IcePHP_stringify($this, $IceMX__t_RemoteMetrics);
-            }
+            parent::__construct($id, $total, $current, $totalLifetime, $failures);
+            $this->retry = $retry;
+            $this->userException = $userException;
+            $this->remotes = $remotes;
+            $this->collocated = $collocated;
         }
 
-        class RemoteMetricsPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::RemoteMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::RemoteMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::RemoteMetrics';
-            }
+            return '::IceMX::InvocationMetrics';
         }
 
-        $IceMX__t_RemoteMetrics = IcePHP_defineClass('::IceMX::RemoteMetrics', '\\IceMX\\RemoteMetrics', -1, false, false, $IceMX__t_ChildInvocationMetrics, null, null);
+        public function __toString()
+        {
+            global $IceMX__t_InvocationMetrics;
+            return IcePHP_stringify($this, $IceMX__t_InvocationMetrics);
+        }
 
-        $IceMX__t_RemoteMetricsPrx = IcePHP_defineProxy($IceMX__t_RemoteMetrics);
+        public $retry;
+        public $userException;
+        public $remotes;
+        public $collocated;
     }
+
+    class IceMX_InvocationMetricsPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::IceMX::InvocationMetrics', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::IceMX::InvocationMetrics', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::IceMX::InvocationMetrics';
+        }
+    }
+
+    $IceMX__t_InvocationMetrics = IcePHP_declareClass('::IceMX::InvocationMetrics');
+    $IceMX__t_InvocationMetricsPrx = IcePHP_declareProxy('::IceMX::InvocationMetrics');
+
+    $IceMX__t_InvocationMetrics = IcePHP_defineClass('::IceMX::InvocationMetrics', 'IceMX_InvocationMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
+        array('retry', $IcePHP__t_int, false, 0),
+        array('userException', $IcePHP__t_int, false, 0),
+        array('remotes', $IceMX__t_MetricsMap, false, 0),
+        array('collocated', $IceMX__t_MetricsMap, false, 0)));
+
+    $IceMX__t_InvocationMetricsPrx = IcePHP_defineProxy($IceMX__t_InvocationMetrics);
 }
 
-namespace IceMX
+global $IceMX__t_ConnectionMetrics;
+global $IceMX__t_ConnectionMetricsPrx;
+
+if(!class_exists('IceMX_ConnectionMetrics'))
 {
-    global $IceMX__t_InvocationMetrics;
-    global $IceMX__t_InvocationMetricsPrx;
-
-    if(!class_exists('\\IceMX\\InvocationMetrics'))
+    class IceMX_ConnectionMetrics extends IceMX_Metrics
     {
-        class InvocationMetrics extends \IceMX\Metrics
+        public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $receivedBytes=0, $sentBytes=0)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $retry=0, $userException=0, $remotes=null, $collocated=null)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures);
-                $this->retry = $retry;
-                $this->userException = $userException;
-                $this->remotes = $remotes;
-                $this->collocated = $collocated;
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::InvocationMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_InvocationMetrics;
-                return IcePHP_stringify($this, $IceMX__t_InvocationMetrics);
-            }
-
-            public $retry;
-            public $userException;
-            public $remotes;
-            public $collocated;
+            parent::__construct($id, $total, $current, $totalLifetime, $failures);
+            $this->receivedBytes = $receivedBytes;
+            $this->sentBytes = $sentBytes;
         }
 
-        class InvocationMetricsPrxHelper
+        public static function ice_staticId()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::InvocationMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::InvocationMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::InvocationMetrics';
-            }
+            return '::IceMX::ConnectionMetrics';
         }
 
-        $IceMX__t_InvocationMetrics = IcePHP_declareClass('::IceMX::InvocationMetrics');
-        $IceMX__t_InvocationMetricsPrx = IcePHP_declareProxy('::IceMX::InvocationMetrics');
+        public function __toString()
+        {
+            global $IceMX__t_ConnectionMetrics;
+            return IcePHP_stringify($this, $IceMX__t_ConnectionMetrics);
+        }
 
-        $IceMX__t_InvocationMetrics = IcePHP_defineClass('::IceMX::InvocationMetrics', '\\IceMX\\InvocationMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
-            array('retry', $IcePHP__t_int, false, 0),
-            array('userException', $IcePHP__t_int, false, 0),
-            array('remotes', $IceMX__t_MetricsMap, false, 0),
-            array('collocated', $IceMX__t_MetricsMap, false, 0)));
-
-        $IceMX__t_InvocationMetricsPrx = IcePHP_defineProxy($IceMX__t_InvocationMetrics);
+        public $receivedBytes;
+        public $sentBytes;
     }
-}
 
-namespace IceMX
-{
-    global $IceMX__t_ConnectionMetrics;
-    global $IceMX__t_ConnectionMetricsPrx;
-
-    if(!class_exists('\\IceMX\\ConnectionMetrics'))
+    class IceMX_ConnectionMetricsPrxHelper
     {
-        class ConnectionMetrics extends \IceMX\Metrics
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function __construct($id='', $total=0, $current=0, $totalLifetime=0, $failures=0, $receivedBytes=0, $sentBytes=0)
-            {
-                parent::__construct($id, $total, $current, $totalLifetime, $failures);
-                $this->receivedBytes = $receivedBytes;
-                $this->sentBytes = $sentBytes;
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::ConnectionMetrics';
-            }
-
-            public function __toString()
-            {
-                global $IceMX__t_ConnectionMetrics;
-                return IcePHP_stringify($this, $IceMX__t_ConnectionMetrics);
-            }
-
-            public $receivedBytes;
-            public $sentBytes;
+            return $proxy->ice_checkedCast('::IceMX::ConnectionMetrics', $facetOrCtx, $ctx);
         }
 
-        class ConnectionMetricsPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceMX::ConnectionMetrics', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceMX::ConnectionMetrics', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceMX::ConnectionMetrics';
-            }
+            return $proxy->ice_uncheckedCast('::IceMX::ConnectionMetrics', $facet);
         }
 
-        $IceMX__t_ConnectionMetrics = IcePHP_defineClass('::IceMX::ConnectionMetrics', '\\IceMX\\ConnectionMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
-            array('receivedBytes', $IcePHP__t_long, false, 0),
-            array('sentBytes', $IcePHP__t_long, false, 0)));
-
-        $IceMX__t_ConnectionMetricsPrx = IcePHP_defineProxy($IceMX__t_ConnectionMetrics);
+        public static function ice_staticId()
+        {
+            return '::IceMX::ConnectionMetrics';
+        }
     }
+
+    $IceMX__t_ConnectionMetrics = IcePHP_defineClass('::IceMX::ConnectionMetrics', 'IceMX_ConnectionMetrics', -1, false, false, $IceMX__t_Metrics, null, array(
+        array('receivedBytes', $IcePHP__t_long, false, 0),
+        array('sentBytes', $IcePHP__t_long, false, 0)));
+
+    $IceMX__t_ConnectionMetricsPrx = IcePHP_defineProxy($IceMX__t_ConnectionMetrics);
 }
 ?>

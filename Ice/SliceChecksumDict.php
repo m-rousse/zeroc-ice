@@ -20,13 +20,10 @@
 //
 
 
-namespace Ice
-{
-    global $Ice__t_SliceChecksumDict;
+global $Ice__t_SliceChecksumDict;
 
-    if(!isset($Ice__t_SliceChecksumDict))
-    {
-        $Ice__t_SliceChecksumDict = IcePHP_defineDictionary('::Ice::SliceChecksumDict', $IcePHP__t_string, $IcePHP__t_string);
-    }
+if(!isset($Ice__t_SliceChecksumDict))
+{
+    $Ice__t_SliceChecksumDict = IcePHP_defineDictionary('::Ice::SliceChecksumDict', $IcePHP__t_string, $IcePHP__t_string);
 }
 ?>

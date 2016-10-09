@@ -20,103 +20,73 @@
 //
 
 
-namespace Ice
-{
-    global $Ice__t_BoolSeq;
+global $Ice__t_BoolSeq;
 
-    if(!isset($Ice__t_BoolSeq))
-    {
-        $Ice__t_BoolSeq = IcePHP_defineSequence('::Ice::BoolSeq', $IcePHP__t_bool);
-    }
+if(!isset($Ice__t_BoolSeq))
+{
+    $Ice__t_BoolSeq = IcePHP_defineSequence('::Ice::BoolSeq', $IcePHP__t_bool);
 }
 
-namespace Ice
-{
-    global $Ice__t_ByteSeq;
+global $Ice__t_ByteSeq;
 
-    if(!isset($Ice__t_ByteSeq))
-    {
-        $Ice__t_ByteSeq = IcePHP_defineSequence('::Ice::ByteSeq', $IcePHP__t_byte);
-    }
+if(!isset($Ice__t_ByteSeq))
+{
+    $Ice__t_ByteSeq = IcePHP_defineSequence('::Ice::ByteSeq', $IcePHP__t_byte);
 }
 
-namespace Ice
-{
-    global $Ice__t_ShortSeq;
+global $Ice__t_ShortSeq;
 
-    if(!isset($Ice__t_ShortSeq))
-    {
-        $Ice__t_ShortSeq = IcePHP_defineSequence('::Ice::ShortSeq', $IcePHP__t_short);
-    }
+if(!isset($Ice__t_ShortSeq))
+{
+    $Ice__t_ShortSeq = IcePHP_defineSequence('::Ice::ShortSeq', $IcePHP__t_short);
 }
 
-namespace Ice
-{
-    global $Ice__t_IntSeq;
+global $Ice__t_IntSeq;
 
-    if(!isset($Ice__t_IntSeq))
-    {
-        $Ice__t_IntSeq = IcePHP_defineSequence('::Ice::IntSeq', $IcePHP__t_int);
-    }
+if(!isset($Ice__t_IntSeq))
+{
+    $Ice__t_IntSeq = IcePHP_defineSequence('::Ice::IntSeq', $IcePHP__t_int);
 }
 
-namespace Ice
-{
-    global $Ice__t_LongSeq;
+global $Ice__t_LongSeq;
 
-    if(!isset($Ice__t_LongSeq))
-    {
-        $Ice__t_LongSeq = IcePHP_defineSequence('::Ice::LongSeq', $IcePHP__t_long);
-    }
+if(!isset($Ice__t_LongSeq))
+{
+    $Ice__t_LongSeq = IcePHP_defineSequence('::Ice::LongSeq', $IcePHP__t_long);
 }
 
-namespace Ice
-{
-    global $Ice__t_FloatSeq;
+global $Ice__t_FloatSeq;
 
-    if(!isset($Ice__t_FloatSeq))
-    {
-        $Ice__t_FloatSeq = IcePHP_defineSequence('::Ice::FloatSeq', $IcePHP__t_float);
-    }
+if(!isset($Ice__t_FloatSeq))
+{
+    $Ice__t_FloatSeq = IcePHP_defineSequence('::Ice::FloatSeq', $IcePHP__t_float);
 }
 
-namespace Ice
-{
-    global $Ice__t_DoubleSeq;
+global $Ice__t_DoubleSeq;
 
-    if(!isset($Ice__t_DoubleSeq))
-    {
-        $Ice__t_DoubleSeq = IcePHP_defineSequence('::Ice::DoubleSeq', $IcePHP__t_double);
-    }
+if(!isset($Ice__t_DoubleSeq))
+{
+    $Ice__t_DoubleSeq = IcePHP_defineSequence('::Ice::DoubleSeq', $IcePHP__t_double);
 }
 
-namespace Ice
-{
-    global $Ice__t_StringSeq;
+global $Ice__t_StringSeq;
 
-    if(!isset($Ice__t_StringSeq))
-    {
-        $Ice__t_StringSeq = IcePHP_defineSequence('::Ice::StringSeq', $IcePHP__t_string);
-    }
+if(!isset($Ice__t_StringSeq))
+{
+    $Ice__t_StringSeq = IcePHP_defineSequence('::Ice::StringSeq', $IcePHP__t_string);
 }
 
-namespace Ice
-{
-    global $Ice__t_ObjectSeq;
+global $Ice__t_ObjectSeq;
 
-    if(!isset($Ice__t_ObjectSeq))
-    {
-        $Ice__t_ObjectSeq = IcePHP_defineSequence('::Ice::ObjectSeq', $Ice__t_Object);
-    }
+if(!isset($Ice__t_ObjectSeq))
+{
+    $Ice__t_ObjectSeq = IcePHP_defineSequence('::Ice::ObjectSeq', $Ice__t_Object);
 }
 
-namespace Ice
-{
-    global $Ice__t_ObjectProxySeq;
+global $Ice__t_ObjectProxySeq;
 
-    if(!isset($Ice__t_ObjectProxySeq))
-    {
-        $Ice__t_ObjectProxySeq = IcePHP_defineSequence('::Ice::ObjectProxySeq', $Ice__t_ObjectPrx);
-    }
+if(!isset($Ice__t_ObjectProxySeq))
+{
+    $Ice__t_ObjectProxySeq = IcePHP_defineSequence('::Ice::ObjectProxySeq', $Ice__t_ObjectPrx);
 }
 ?>

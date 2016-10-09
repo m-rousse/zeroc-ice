@@ -19,193 +19,168 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $Ice__t_LogMessageType;
+
+if(!class_exists('Ice_LogMessageType'))
 {
-    require_once 'Ice/BuiltinSequences.php';
+    class Ice_LogMessageType
+    {
+        const PrintMessage = 0;
+        const TraceMessage = 1;
+        const WarningMessage = 2;
+        const ErrorMessage = 3;
+    }
+
+    $Ice__t_LogMessageType = IcePHP_defineEnum('::Ice::LogMessageType', array('PrintMessage', 0, 'TraceMessage', 1, 'WarningMessage', 2, 'ErrorMessage', 3));
 }
 
-namespace Ice
+global $Ice__t_LogMessageTypeSeq;
+
+if(!isset($Ice__t_LogMessageTypeSeq))
 {
-    global $Ice__t_LogMessageType;
-
-    if(!class_exists('\\Ice\\LogMessageType'))
-    {
-        class LogMessageType
-        {
-            const PrintMessage = 0;
-            const TraceMessage = 1;
-            const WarningMessage = 2;
-            const ErrorMessage = 3;
-        }
-
-        $Ice__t_LogMessageType = IcePHP_defineEnum('::Ice::LogMessageType', array('PrintMessage', 0, 'TraceMessage', 1, 'WarningMessage', 2, 'ErrorMessage', 3));
-    }
+    $Ice__t_LogMessageTypeSeq = IcePHP_defineSequence('::Ice::LogMessageTypeSeq', $Ice__t_LogMessageType);
 }
 
-namespace Ice
-{
-    global $Ice__t_LogMessageTypeSeq;
+global $Ice__t_LogMessage;
 
-    if(!isset($Ice__t_LogMessageTypeSeq))
+if(!class_exists('Ice_LogMessage'))
+{
+    class Ice_LogMessage
     {
-        $Ice__t_LogMessageTypeSeq = IcePHP_defineSequence('::Ice::LogMessageTypeSeq', $Ice__t_LogMessageType);
+        public function __construct($type=Ice_LogMessageType::PrintMessage, $timestamp=0, $traceCategory='', $message='')
+        {
+            $this->type = $type;
+            $this->timestamp = $timestamp;
+            $this->traceCategory = $traceCategory;
+            $this->message = $message;
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_LogMessage;
+            return IcePHP_stringify($this, $Ice__t_LogMessage);
+        }
+
+        public $type;
+        public $timestamp;
+        public $traceCategory;
+        public $message;
     }
+
+    $Ice__t_LogMessage = IcePHP_defineStruct('::Ice::LogMessage', 'Ice_LogMessage', array(
+        array('type', $Ice__t_LogMessageType), 
+        array('timestamp', $IcePHP__t_long), 
+        array('traceCategory', $IcePHP__t_string), 
+        array('message', $IcePHP__t_string)));
 }
 
-namespace Ice
+global $Ice__t_LogMessageSeq;
+
+if(!isset($Ice__t_LogMessageSeq))
 {
-    global $Ice__t_LogMessage;
-
-    if(!class_exists('\\Ice\\LogMessage'))
-    {
-        class LogMessage
-        {
-            public function __construct($type=\Ice\LogMessageType::PrintMessage, $timestamp=0, $traceCategory='', $message='')
-            {
-                $this->type = $type;
-                $this->timestamp = $timestamp;
-                $this->traceCategory = $traceCategory;
-                $this->message = $message;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_LogMessage;
-                return IcePHP_stringify($this, $Ice__t_LogMessage);
-            }
-
-            public $type;
-            public $timestamp;
-            public $traceCategory;
-            public $message;
-        }
-
-        $Ice__t_LogMessage = IcePHP_defineStruct('::Ice::LogMessage', '\\Ice\\LogMessage', array(
-            array('type', $Ice__t_LogMessageType), 
-            array('timestamp', $IcePHP__t_long), 
-            array('traceCategory', $IcePHP__t_string), 
-            array('message', $IcePHP__t_string)));
-    }
+    $Ice__t_LogMessageSeq = IcePHP_defineSequence('::Ice::LogMessageSeq', $Ice__t_LogMessage);
 }
 
-namespace Ice
-{
-    global $Ice__t_LogMessageSeq;
+global $Ice__t_RemoteLogger;
+global $Ice__t_RemoteLoggerPrx;
 
-    if(!isset($Ice__t_LogMessageSeq))
+if(!interface_exists('Ice_RemoteLogger'))
+{
+    interface Ice_RemoteLogger extends Ice_Object
     {
-        $Ice__t_LogMessageSeq = IcePHP_defineSequence('::Ice::LogMessageSeq', $Ice__t_LogMessage);
+        public function init($prefix, $logMessages);
+        public function log($message);
     }
+
+    class Ice_RemoteLoggerPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Ice::RemoteLogger', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Ice::RemoteLogger', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Ice::RemoteLogger';
+        }
+    }
+
+    $Ice__t_RemoteLogger = IcePHP_defineClass('::Ice::RemoteLogger', 'Ice_RemoteLogger', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_RemoteLoggerPrx = IcePHP_defineProxy($Ice__t_RemoteLogger);
+
+    IcePHP_defineOperation($Ice__t_RemoteLogger, 'init', 0, 0, 0, array(array($IcePHP__t_string, false, 0), array($Ice__t_LogMessageSeq, false, 0)), null, null, null);
+    IcePHP_defineOperation($Ice__t_RemoteLogger, 'log', 0, 0, 0, array(array($Ice__t_LogMessage, false, 0)), null, null, null);
 }
 
-namespace Ice
+global $Ice__t_RemoteLoggerAlreadyAttachedException;
+
+if(!class_exists('Ice_RemoteLoggerAlreadyAttachedException'))
 {
-    global $Ice__t_RemoteLogger;
-    global $Ice__t_RemoteLoggerPrx;
-
-    if(!interface_exists('\\Ice\\RemoteLogger'))
+    class Ice_RemoteLoggerAlreadyAttachedException extends Ice_UserException
     {
-        interface RemoteLogger extends \Ice\Object
+        public function __construct()
         {
-            public function init($prefix, $logMessages);
-            public function log($message);
         }
 
-        class RemoteLoggerPrxHelper
+        public function ice_name()
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::RemoteLogger', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::RemoteLogger', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::RemoteLogger';
-            }
+            return 'Ice::RemoteLoggerAlreadyAttachedException';
         }
 
-        $Ice__t_RemoteLogger = IcePHP_defineClass('::Ice::RemoteLogger', '\\Ice\\RemoteLogger', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_RemoteLoggerPrx = IcePHP_defineProxy($Ice__t_RemoteLogger);
-
-        IcePHP_defineOperation($Ice__t_RemoteLogger, 'init', 0, 0, 0, array(array($IcePHP__t_string, false, 0), array($Ice__t_LogMessageSeq, false, 0)), null, null, null);
-        IcePHP_defineOperation($Ice__t_RemoteLogger, 'log', 0, 0, 0, array(array($Ice__t_LogMessage, false, 0)), null, null, null);
+        public function __toString()
+        {
+            global $Ice__t_RemoteLoggerAlreadyAttachedException;
+            return IcePHP_stringifyException($this, $Ice__t_RemoteLoggerAlreadyAttachedException);
+        }
     }
+
+    $Ice__t_RemoteLoggerAlreadyAttachedException = IcePHP_defineException('::Ice::RemoteLoggerAlreadyAttachedException', 'Ice_RemoteLoggerAlreadyAttachedException', false, null, null);
 }
 
-namespace Ice
+global $Ice__t_LoggerAdmin;
+global $Ice__t_LoggerAdminPrx;
+
+if(!interface_exists('Ice_LoggerAdmin'))
 {
-    global $Ice__t_RemoteLoggerAlreadyAttachedException;
-
-    if(!class_exists('\\Ice\\RemoteLoggerAlreadyAttachedException'))
+    interface Ice_LoggerAdmin extends Ice_Object
     {
-        class RemoteLoggerAlreadyAttachedException extends \Ice\UserException
-        {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::RemoteLoggerAlreadyAttachedException';
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_RemoteLoggerAlreadyAttachedException;
-                return IcePHP_stringifyException($this, $Ice__t_RemoteLoggerAlreadyAttachedException);
-            }
-        }
-
-        $Ice__t_RemoteLoggerAlreadyAttachedException = IcePHP_defineException('::Ice::RemoteLoggerAlreadyAttachedException', '\\Ice\\RemoteLoggerAlreadyAttachedException', false, null, null);
+        public function attachRemoteLogger($prx, $messageTypes, $traceCategories, $messageMax);
+        public function detachRemoteLogger($prx);
+        public function getLog($messageTypes, $traceCategories, $messageMax, $prefix);
     }
-}
 
-namespace Ice
-{
-    global $Ice__t_LoggerAdmin;
-    global $Ice__t_LoggerAdminPrx;
-
-    if(!interface_exists('\\Ice\\LoggerAdmin'))
+    class Ice_LoggerAdminPrxHelper
     {
-        interface LoggerAdmin extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function attachRemoteLogger($prx, $messageTypes, $traceCategories, $messageMax);
-            public function detachRemoteLogger($prx);
-            public function getLog($messageTypes, $traceCategories, $messageMax, $prefix);
+            return $proxy->ice_checkedCast('::Ice::LoggerAdmin', $facetOrCtx, $ctx);
         }
 
-        class LoggerAdminPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::LoggerAdmin', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::LoggerAdmin', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::LoggerAdmin';
-            }
+            return $proxy->ice_uncheckedCast('::Ice::LoggerAdmin', $facet);
         }
 
-        $Ice__t_LoggerAdmin = IcePHP_defineClass('::Ice::LoggerAdmin', '\\Ice\\LoggerAdmin', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_LoggerAdminPrx = IcePHP_defineProxy($Ice__t_LoggerAdmin);
-
-        IcePHP_defineOperation($Ice__t_LoggerAdmin, 'attachRemoteLogger', 0, 0, 0, array(array($Ice__t_RemoteLoggerPrx, false, 0), array($Ice__t_LogMessageTypeSeq, false, 0), array($Ice__t_StringSeq, false, 0), array($IcePHP__t_int, false, 0)), null, null, array($Ice__t_RemoteLoggerAlreadyAttachedException));
-        IcePHP_defineOperation($Ice__t_LoggerAdmin, 'detachRemoteLogger', 0, 0, 0, array(array($Ice__t_RemoteLoggerPrx, false, 0)), null, array($IcePHP__t_bool, false, 0), null);
-        IcePHP_defineOperation($Ice__t_LoggerAdmin, 'getLog', 0, 0, 0, array(array($Ice__t_LogMessageTypeSeq, false, 0), array($Ice__t_StringSeq, false, 0), array($IcePHP__t_int, false, 0)), array(array($IcePHP__t_string, false, 0)), array($Ice__t_LogMessageSeq, false, 0), null);
+        public static function ice_staticId()
+        {
+            return '::Ice::LoggerAdmin';
+        }
     }
+
+    $Ice__t_LoggerAdmin = IcePHP_defineClass('::Ice::LoggerAdmin', 'Ice_LoggerAdmin', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_LoggerAdminPrx = IcePHP_defineProxy($Ice__t_LoggerAdmin);
+
+    IcePHP_defineOperation($Ice__t_LoggerAdmin, 'attachRemoteLogger', 0, 0, 0, array(array($Ice__t_RemoteLoggerPrx, false, 0), array($Ice__t_LogMessageTypeSeq, false, 0), array($Ice__t_StringSeq, false, 0), array($IcePHP__t_int, false, 0)), null, null, array($Ice__t_RemoteLoggerAlreadyAttachedException));
+    IcePHP_defineOperation($Ice__t_LoggerAdmin, 'detachRemoteLogger', 0, 0, 0, array(array($Ice__t_RemoteLoggerPrx, false, 0)), null, array($IcePHP__t_bool, false, 0), null);
+    IcePHP_defineOperation($Ice__t_LoggerAdmin, 'getLog', 0, 0, 0, array(array($Ice__t_LogMessageTypeSeq, false, 0), array($Ice__t_StringSeq, false, 0), array($IcePHP__t_int, false, 0)), array(array($IcePHP__t_string, false, 0)), array($Ice__t_LogMessageSeq, false, 0), null);
 }
 ?>

@@ -20,53 +20,44 @@
 //
 
 
-namespace Ice
+global $Ice__t_Identity;
+
+if(!class_exists('Ice_Identity'))
 {
-    global $Ice__t_Identity;
-
-    if(!class_exists('\\Ice\\Identity'))
+    class Ice_Identity
     {
-        class Identity
+        public function __construct($name='', $category='')
         {
-            public function __construct($name='', $category='')
-            {
-                $this->name = $name;
-                $this->category = $category;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_Identity;
-                return IcePHP_stringify($this, $Ice__t_Identity);
-            }
-
-            public $name;
-            public $category;
+            $this->name = $name;
+            $this->category = $category;
         }
 
-        $Ice__t_Identity = IcePHP_defineStruct('::Ice::Identity', '\\Ice\\Identity', array(
-            array('name', $IcePHP__t_string), 
-            array('category', $IcePHP__t_string)));
+        public function __toString()
+        {
+            global $Ice__t_Identity;
+            return IcePHP_stringify($this, $Ice__t_Identity);
+        }
+
+        public $name;
+        public $category;
     }
+
+    $Ice__t_Identity = IcePHP_defineStruct('::Ice::Identity', 'Ice_Identity', array(
+        array('name', $IcePHP__t_string), 
+        array('category', $IcePHP__t_string)));
 }
 
-namespace Ice
-{
-    global $Ice__t_ObjectDict;
+global $Ice__t_ObjectDict;
 
-    if(!isset($Ice__t_ObjectDict))
-    {
-        $Ice__t_ObjectDict = IcePHP_defineDictionary('::Ice::ObjectDict', $Ice__t_Identity, $Ice__t_Object);
-    }
+if(!isset($Ice__t_ObjectDict))
+{
+    $Ice__t_ObjectDict = IcePHP_defineDictionary('::Ice::ObjectDict', $Ice__t_Identity, $Ice__t_Object);
 }
 
-namespace Ice
-{
-    global $Ice__t_IdentitySeq;
+global $Ice__t_IdentitySeq;
 
-    if(!isset($Ice__t_IdentitySeq))
-    {
-        $Ice__t_IdentitySeq = IcePHP_defineSequence('::Ice::IdentitySeq', $Ice__t_Identity);
-    }
+if(!isset($Ice__t_IdentitySeq))
+{
+    $Ice__t_IdentitySeq = IcePHP_defineSequence('::Ice::IdentitySeq', $Ice__t_Identity);
 }
 ?>

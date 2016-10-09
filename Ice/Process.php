@@ -20,43 +20,40 @@
 //
 
 
-namespace Ice
+global $Ice__t_Process;
+global $Ice__t_ProcessPrx;
+
+if(!interface_exists('Ice_Process'))
 {
-    global $Ice__t_Process;
-    global $Ice__t_ProcessPrx;
-
-    if(!interface_exists('\\Ice\\Process'))
+    interface Ice_Process extends Ice_Object
     {
-        interface Process extends \Ice\Object
-        {
-            public function shutdown();
-            public function writeMessage($message, $fd);
-        }
-
-        class ProcessPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::Process', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::Process', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::Process';
-            }
-        }
-
-        $Ice__t_Process = IcePHP_defineClass('::Ice::Process', '\\Ice\\Process', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_ProcessPrx = IcePHP_defineProxy($Ice__t_Process);
-
-        IcePHP_defineOperation($Ice__t_Process, 'shutdown', 0, 0, 0, null, null, null, null);
-        IcePHP_defineOperation($Ice__t_Process, 'writeMessage', 0, 0, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_int, false, 0)), null, null, null);
+        public function shutdown();
+        public function writeMessage($message, $fd);
     }
+
+    class Ice_ProcessPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Ice::Process', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Ice::Process', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Ice::Process';
+        }
+    }
+
+    $Ice__t_Process = IcePHP_defineClass('::Ice::Process', 'Ice_Process', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_ProcessPrx = IcePHP_defineProxy($Ice__t_Process);
+
+    IcePHP_defineOperation($Ice__t_Process, 'shutdown', 0, 0, 0, null, null, null, null);
+    IcePHP_defineOperation($Ice__t_Process, 'writeMessage', 0, 0, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_int, false, 0)), null, null, null);
 }
 ?>

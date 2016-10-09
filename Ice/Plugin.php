@@ -19,45 +19,35 @@
 // </auto-generated>
 //
 
+require_once 'Ice/LoggerF.php';
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $Ice__t_Plugin;
+
+if(!interface_exists('Ice_Plugin'))
 {
-    require_once 'Ice/LoggerF.php';
-    require_once 'Ice/BuiltinSequences.php';
+    interface Ice_Plugin
+    {
+        public function initialize();
+        public function destroy();
+    }
+
+    $Ice__t_Plugin = IcePHP_defineClass('::Ice::Plugin', 'Ice_Plugin', -1, true, false, $Ice__t_Object, null, null);
 }
 
-namespace Ice
+global $Ice__t_PluginManager;
+
+if(!interface_exists('Ice_PluginManager'))
 {
-    global $Ice__t_Plugin;
-
-    if(!interface_exists('\\Ice\\Plugin'))
+    interface Ice_PluginManager
     {
-        interface Plugin
-        {
-            public function initialize();
-            public function destroy();
-        }
-
-        $Ice__t_Plugin = IcePHP_defineClass('::Ice::Plugin', '\\Ice\\Plugin', -1, true, false, $Ice__t_Object, null, null);
+        public function initializePlugins();
+        public function getPlugins();
+        public function getPlugin($name);
+        public function addPlugin($name, $pi);
+        public function destroy();
     }
-}
 
-namespace Ice
-{
-    global $Ice__t_PluginManager;
-
-    if(!interface_exists('\\Ice\\PluginManager'))
-    {
-        interface PluginManager
-        {
-            public function initializePlugins();
-            public function getPlugins();
-            public function getPlugin($name);
-            public function addPlugin($name, $pi);
-            public function destroy();
-        }
-
-        $Ice__t_PluginManager = IcePHP_defineClass('::Ice::PluginManager', '\\Ice\\PluginManager', -1, true, false, $Ice__t_Object, null, null);
-    }
+    $Ice__t_PluginManager = IcePHP_defineClass('::Ice::PluginManager', 'Ice_PluginManager', -1, true, false, $Ice__t_Object, null, null);
 }
 ?>

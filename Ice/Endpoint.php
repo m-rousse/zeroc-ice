@@ -19,249 +19,209 @@
 // </auto-generated>
 //
 
+require_once 'Ice/Version.php';
+require_once 'Ice/BuiltinSequences.php';
+require_once 'Ice/EndpointF.php';
 
-namespace
+if(!defined('Ice_TCPEndpointType'))
 {
-    require_once 'Ice/Version.php';
-    require_once 'Ice/BuiltinSequences.php';
-    require_once 'Ice/EndpointF.php';
+    define('Ice_TCPEndpointType', 1);
 }
 
-namespace Ice
+if(!defined('Ice_SSLEndpointType'))
 {
-    if(!defined('\\Ice\\TCPEndpointType'))
-    {
-        define(__NAMESPACE__ . '\\TCPEndpointType', 1);
-    }
+    define('Ice_SSLEndpointType', 2);
 }
 
-namespace Ice
+if(!defined('Ice_UDPEndpointType'))
 {
-    if(!defined('\\Ice\\SSLEndpointType'))
-    {
-        define(__NAMESPACE__ . '\\SSLEndpointType', 2);
-    }
+    define('Ice_UDPEndpointType', 3);
 }
 
-namespace Ice
+if(!defined('Ice_WSEndpointType'))
 {
-    if(!defined('\\Ice\\UDPEndpointType'))
-    {
-        define(__NAMESPACE__ . '\\UDPEndpointType', 3);
-    }
+    define('Ice_WSEndpointType', 4);
 }
 
-namespace Ice
+if(!defined('Ice_WSSEndpointType'))
 {
-    if(!defined('\\Ice\\WSEndpointType'))
-    {
-        define(__NAMESPACE__ . '\\WSEndpointType', 4);
-    }
+    define('Ice_WSSEndpointType', 5);
 }
 
-namespace Ice
-{
-    if(!defined('\\Ice\\WSSEndpointType'))
-    {
-        define(__NAMESPACE__ . '\\WSSEndpointType', 5);
-    }
-}
+global $Ice__t_EndpointInfo;
 
-namespace Ice
+if(!class_exists('Ice_EndpointInfo'))
 {
-    global $Ice__t_EndpointInfo;
-
-    if(!class_exists('\\Ice\\EndpointInfo'))
+    abstract class Ice_EndpointInfo
     {
-        abstract class EndpointInfo
+        public function __construct($timeout=0, $compress=false)
         {
-            public function __construct($timeout=0, $compress=false)
-            {
-                $this->timeout = $timeout;
-                $this->compress = $compress;
-            }
-
-            abstract public function type();
-            abstract public function datagram();
-            abstract public function secure();
-
-            public function __toString()
-            {
-                global $Ice__t_EndpointInfo;
-                return IcePHP_stringify($this, $Ice__t_EndpointInfo);
-            }
-
-            public $timeout;
-            public $compress;
+            $this->timeout = $timeout;
+            $this->compress = $compress;
         }
 
-        $Ice__t_EndpointInfo = IcePHP_defineClass('::Ice::EndpointInfo', '\\Ice\\EndpointInfo', -1, true, false, $Ice__t_Object, null, array(
-            array('timeout', $IcePHP__t_int, false, 0),
-            array('compress', $IcePHP__t_bool, false, 0)));
-    }
-}
+        abstract public function type();
+        abstract public function datagram();
+        abstract public function secure();
 
-namespace Ice
-{
-    global $Ice__t_Endpoint;
-
-    if(!interface_exists('\\Ice\\Endpoint'))
-    {
-        interface Endpoint
+        public function __toString()
         {
-            public function toString();
-            public function getInfo();
+            global $Ice__t_EndpointInfo;
+            return IcePHP_stringify($this, $Ice__t_EndpointInfo);
         }
 
-        $Ice__t_Endpoint = IcePHP_defineClass('::Ice::Endpoint', '\\Ice\\Endpoint', -1, true, false, $Ice__t_Object, null, null);
+        public $timeout;
+        public $compress;
     }
+
+    $Ice__t_EndpointInfo = IcePHP_defineClass('::Ice::EndpointInfo', 'Ice_EndpointInfo', -1, true, false, $Ice__t_Object, null, array(
+        array('timeout', $IcePHP__t_int, false, 0),
+        array('compress', $IcePHP__t_bool, false, 0)));
 }
 
-namespace Ice
+global $Ice__t_Endpoint;
+
+if(!interface_exists('Ice_Endpoint'))
 {
-    global $Ice__t_IPEndpointInfo;
-
-    if(!class_exists('\\Ice\\IPEndpointInfo'))
+    interface Ice_Endpoint
     {
-        abstract class IPEndpointInfo extends \Ice\EndpointInfo
-        {
-            public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='')
-            {
-                parent::__construct($timeout, $compress);
-                $this->host = $host;
-                $this->port = $port;
-                $this->sourceAddress = $sourceAddress;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_IPEndpointInfo;
-                return IcePHP_stringify($this, $Ice__t_IPEndpointInfo);
-            }
-
-            public $host;
-            public $port;
-            public $sourceAddress;
-        }
-
-        $Ice__t_IPEndpointInfo = IcePHP_defineClass('::Ice::IPEndpointInfo', '\\Ice\\IPEndpointInfo', -1, true, false, $Ice__t_EndpointInfo, null, array(
-            array('host', $IcePHP__t_string, false, 0),
-            array('port', $IcePHP__t_int, false, 0),
-            array('sourceAddress', $IcePHP__t_string, false, 0)));
+        public function toString();
+        public function getInfo();
     }
+
+    $Ice__t_Endpoint = IcePHP_defineClass('::Ice::Endpoint', 'Ice_Endpoint', -1, true, false, $Ice__t_Object, null, null);
 }
 
-namespace Ice
+global $Ice__t_IPEndpointInfo;
+
+if(!class_exists('Ice_IPEndpointInfo'))
 {
-    global $Ice__t_TCPEndpointInfo;
-
-    if(!class_exists('\\Ice\\TCPEndpointInfo'))
+    abstract class Ice_IPEndpointInfo extends Ice_EndpointInfo
     {
-        abstract class TCPEndpointInfo extends \Ice\IPEndpointInfo
+        public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='')
         {
-            public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='')
-            {
-                parent::__construct($timeout, $compress, $host, $port, $sourceAddress);
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_TCPEndpointInfo;
-                return IcePHP_stringify($this, $Ice__t_TCPEndpointInfo);
-            }
+            parent::__construct($timeout, $compress);
+            $this->host = $host;
+            $this->port = $port;
+            $this->sourceAddress = $sourceAddress;
         }
 
-        $Ice__t_TCPEndpointInfo = IcePHP_defineClass('::Ice::TCPEndpointInfo', '\\Ice\\TCPEndpointInfo', -1, true, false, $Ice__t_IPEndpointInfo, null, null);
+        public function __toString()
+        {
+            global $Ice__t_IPEndpointInfo;
+            return IcePHP_stringify($this, $Ice__t_IPEndpointInfo);
+        }
+
+        public $host;
+        public $port;
+        public $sourceAddress;
     }
+
+    $Ice__t_IPEndpointInfo = IcePHP_defineClass('::Ice::IPEndpointInfo', 'Ice_IPEndpointInfo', -1, true, false, $Ice__t_EndpointInfo, null, array(
+        array('host', $IcePHP__t_string, false, 0),
+        array('port', $IcePHP__t_int, false, 0),
+        array('sourceAddress', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
+global $Ice__t_TCPEndpointInfo;
+
+if(!class_exists('Ice_TCPEndpointInfo'))
 {
-    global $Ice__t_UDPEndpointInfo;
-
-    if(!class_exists('\\Ice\\UDPEndpointInfo'))
+    abstract class Ice_TCPEndpointInfo extends Ice_IPEndpointInfo
     {
-        abstract class UDPEndpointInfo extends \Ice\IPEndpointInfo
+        public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='')
         {
-            public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='', $mcastInterface='', $mcastTtl=0)
-            {
-                parent::__construct($timeout, $compress, $host, $port, $sourceAddress);
-                $this->mcastInterface = $mcastInterface;
-                $this->mcastTtl = $mcastTtl;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_UDPEndpointInfo;
-                return IcePHP_stringify($this, $Ice__t_UDPEndpointInfo);
-            }
-
-            public $mcastInterface;
-            public $mcastTtl;
+            parent::__construct($timeout, $compress, $host, $port, $sourceAddress);
         }
 
-        $Ice__t_UDPEndpointInfo = IcePHP_defineClass('::Ice::UDPEndpointInfo', '\\Ice\\UDPEndpointInfo', -1, true, false, $Ice__t_IPEndpointInfo, null, array(
-            array('mcastInterface', $IcePHP__t_string, false, 0),
-            array('mcastTtl', $IcePHP__t_int, false, 0)));
+        public function __toString()
+        {
+            global $Ice__t_TCPEndpointInfo;
+            return IcePHP_stringify($this, $Ice__t_TCPEndpointInfo);
+        }
     }
+
+    $Ice__t_TCPEndpointInfo = IcePHP_defineClass('::Ice::TCPEndpointInfo', 'Ice_TCPEndpointInfo', -1, true, false, $Ice__t_IPEndpointInfo, null, null);
 }
 
-namespace Ice
+global $Ice__t_UDPEndpointInfo;
+
+if(!class_exists('Ice_UDPEndpointInfo'))
 {
-    global $Ice__t_WSEndpointInfo;
-
-    if(!class_exists('\\Ice\\WSEndpointInfo'))
+    abstract class Ice_UDPEndpointInfo extends Ice_IPEndpointInfo
     {
-        abstract class WSEndpointInfo extends \Ice\TCPEndpointInfo
+        public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='', $mcastInterface='', $mcastTtl=0)
         {
-            public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='', $resource='')
-            {
-                parent::__construct($timeout, $compress, $host, $port, $sourceAddress);
-                $this->resource = $resource;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_WSEndpointInfo;
-                return IcePHP_stringify($this, $Ice__t_WSEndpointInfo);
-            }
-
-            public $resource;
+            parent::__construct($timeout, $compress, $host, $port, $sourceAddress);
+            $this->mcastInterface = $mcastInterface;
+            $this->mcastTtl = $mcastTtl;
         }
 
-        $Ice__t_WSEndpointInfo = IcePHP_defineClass('::Ice::WSEndpointInfo', '\\Ice\\WSEndpointInfo', -1, true, false, $Ice__t_TCPEndpointInfo, null, array(
-            array('resource', $IcePHP__t_string, false, 0)));
+        public function __toString()
+        {
+            global $Ice__t_UDPEndpointInfo;
+            return IcePHP_stringify($this, $Ice__t_UDPEndpointInfo);
+        }
+
+        public $mcastInterface;
+        public $mcastTtl;
     }
+
+    $Ice__t_UDPEndpointInfo = IcePHP_defineClass('::Ice::UDPEndpointInfo', 'Ice_UDPEndpointInfo', -1, true, false, $Ice__t_IPEndpointInfo, null, array(
+        array('mcastInterface', $IcePHP__t_string, false, 0),
+        array('mcastTtl', $IcePHP__t_int, false, 0)));
 }
 
-namespace Ice
+global $Ice__t_WSEndpointInfo;
+
+if(!class_exists('Ice_WSEndpointInfo'))
 {
-    global $Ice__t_OpaqueEndpointInfo;
-
-    if(!class_exists('\\Ice\\OpaqueEndpointInfo'))
+    abstract class Ice_WSEndpointInfo extends Ice_TCPEndpointInfo
     {
-        abstract class OpaqueEndpointInfo extends \Ice\EndpointInfo
+        public function __construct($timeout=0, $compress=false, $host='', $port=0, $sourceAddress='', $resource='')
         {
-            public function __construct($timeout=0, $compress=false, $rawEncoding=null, $rawBytes=null)
-            {
-                parent::__construct($timeout, $compress);
-                $this->rawEncoding = is_null($rawEncoding) ? new \Ice\EncodingVersion : $rawEncoding;
-                $this->rawBytes = $rawBytes;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_OpaqueEndpointInfo;
-                return IcePHP_stringify($this, $Ice__t_OpaqueEndpointInfo);
-            }
-
-            public $rawEncoding;
-            public $rawBytes;
+            parent::__construct($timeout, $compress, $host, $port, $sourceAddress);
+            $this->resource = $resource;
         }
 
-        $Ice__t_OpaqueEndpointInfo = IcePHP_defineClass('::Ice::OpaqueEndpointInfo', '\\Ice\\OpaqueEndpointInfo', -1, true, false, $Ice__t_EndpointInfo, null, array(
-            array('rawEncoding', $Ice__t_EncodingVersion, false, 0),
-            array('rawBytes', $Ice__t_ByteSeq, false, 0)));
+        public function __toString()
+        {
+            global $Ice__t_WSEndpointInfo;
+            return IcePHP_stringify($this, $Ice__t_WSEndpointInfo);
+        }
+
+        public $resource;
     }
+
+    $Ice__t_WSEndpointInfo = IcePHP_defineClass('::Ice::WSEndpointInfo', 'Ice_WSEndpointInfo', -1, true, false, $Ice__t_TCPEndpointInfo, null, array(
+        array('resource', $IcePHP__t_string, false, 0)));
+}
+
+global $Ice__t_OpaqueEndpointInfo;
+
+if(!class_exists('Ice_OpaqueEndpointInfo'))
+{
+    abstract class Ice_OpaqueEndpointInfo extends Ice_EndpointInfo
+    {
+        public function __construct($timeout=0, $compress=false, $rawEncoding=null, $rawBytes=null)
+        {
+            parent::__construct($timeout, $compress);
+            $this->rawEncoding = is_null($rawEncoding) ? new Ice_EncodingVersion : $rawEncoding;
+            $this->rawBytes = $rawBytes;
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_OpaqueEndpointInfo;
+            return IcePHP_stringify($this, $Ice__t_OpaqueEndpointInfo);
+        }
+
+        public $rawEncoding;
+        public $rawBytes;
+    }
+
+    $Ice__t_OpaqueEndpointInfo = IcePHP_defineClass('::Ice::OpaqueEndpointInfo', 'Ice_OpaqueEndpointInfo', -1, true, false, $Ice__t_EndpointInfo, null, array(
+        array('rawEncoding', $Ice__t_EncodingVersion, false, 0),
+        array('rawBytes', $Ice__t_ByteSeq, false, 0)));
 }
 ?>

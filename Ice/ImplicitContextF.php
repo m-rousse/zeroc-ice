@@ -20,12 +20,9 @@
 //
 
 
-namespace Ice
+global $Ice__t_ImplicitContext;
+if(!isset($Ice__t_ImplicitContext))
 {
-    global $Ice__t_ImplicitContext;
-    if(!isset($Ice__t_ImplicitContext))
-    {
-        $Ice__t_ImplicitContext = IcePHP_declareClass('::Ice::ImplicitContext');
-    }
+    $Ice__t_ImplicitContext = IcePHP_declareClass('::Ice::ImplicitContext');
 }
 ?>

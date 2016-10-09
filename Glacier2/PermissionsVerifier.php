@@ -19,117 +19,104 @@
 // </auto-generated>
 //
 
+require_once 'Glacier2/SSLInfo.php';
 
-namespace
+global $Glacier2__t_PermissionDeniedException;
+
+if(!class_exists('Glacier2_PermissionDeniedException'))
 {
-    require_once 'Glacier2/SSLInfo.php';
+    class Glacier2_PermissionDeniedException extends Ice_UserException
+    {
+        public function __construct($reason='')
+        {
+            $this->reason = $reason;
+        }
+
+        public function ice_name()
+        {
+            return 'Glacier2::PermissionDeniedException';
+        }
+
+        public function __toString()
+        {
+            global $Glacier2__t_PermissionDeniedException;
+            return IcePHP_stringifyException($this, $Glacier2__t_PermissionDeniedException);
+        }
+
+        public $reason;
+    }
+
+    $Glacier2__t_PermissionDeniedException = IcePHP_defineException('::Glacier2::PermissionDeniedException', 'Glacier2_PermissionDeniedException', true, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Glacier2
+global $Glacier2__t_PermissionsVerifier;
+global $Glacier2__t_PermissionsVerifierPrx;
+
+if(!interface_exists('Glacier2_PermissionsVerifier'))
 {
-    global $Glacier2__t_PermissionDeniedException;
-
-    if(!class_exists('\\Glacier2\\PermissionDeniedException'))
+    interface Glacier2_PermissionsVerifier extends Ice_Object
     {
-        class PermissionDeniedException extends \Ice\UserException
+        public function checkPermissions($userId, $password, $reason);
+    }
+
+    class Glacier2_PermissionsVerifierPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Glacier2::PermissionDeniedException';
-            }
-
-            public function __toString()
-            {
-                global $Glacier2__t_PermissionDeniedException;
-                return IcePHP_stringifyException($this, $Glacier2__t_PermissionDeniedException);
-            }
-
-            public $reason;
+            return $proxy->ice_checkedCast('::Glacier2::PermissionsVerifier', $facetOrCtx, $ctx);
         }
 
-        $Glacier2__t_PermissionDeniedException = IcePHP_defineException('::Glacier2::PermissionDeniedException', '\\Glacier2\\PermissionDeniedException', true, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Glacier2::PermissionsVerifier', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Glacier2::PermissionsVerifier';
+        }
     }
+
+    $Glacier2__t_PermissionsVerifier = IcePHP_defineClass('::Glacier2::PermissionsVerifier', 'Glacier2_PermissionsVerifier', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_PermissionsVerifierPrx = IcePHP_defineProxy($Glacier2__t_PermissionsVerifier);
+
+    IcePHP_defineOperation($Glacier2__t_PermissionsVerifier, 'checkPermissions', 2, 1, 2, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0)), array(array($IcePHP__t_string, false, 0)), array($IcePHP__t_bool, false, 0), array($Glacier2__t_PermissionDeniedException));
 }
 
-namespace Glacier2
+global $Glacier2__t_SSLPermissionsVerifier;
+global $Glacier2__t_SSLPermissionsVerifierPrx;
+
+if(!interface_exists('Glacier2_SSLPermissionsVerifier'))
 {
-    global $Glacier2__t_PermissionsVerifier;
-    global $Glacier2__t_PermissionsVerifierPrx;
-
-    if(!interface_exists('\\Glacier2\\PermissionsVerifier'))
+    interface Glacier2_SSLPermissionsVerifier extends Ice_Object
     {
-        interface PermissionsVerifier extends \Ice\Object
-        {
-            public function checkPermissions($userId, $password, $reason);
-        }
-
-        class PermissionsVerifierPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::PermissionsVerifier', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::PermissionsVerifier', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::PermissionsVerifier';
-            }
-        }
-
-        $Glacier2__t_PermissionsVerifier = IcePHP_defineClass('::Glacier2::PermissionsVerifier', '\\Glacier2\\PermissionsVerifier', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_PermissionsVerifierPrx = IcePHP_defineProxy($Glacier2__t_PermissionsVerifier);
-
-        IcePHP_defineOperation($Glacier2__t_PermissionsVerifier, 'checkPermissions', 2, 1, 2, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0)), array(array($IcePHP__t_string, false, 0)), array($IcePHP__t_bool, false, 0), array($Glacier2__t_PermissionDeniedException));
+        public function authorize($info, $reason);
     }
-}
 
-namespace Glacier2
-{
-    global $Glacier2__t_SSLPermissionsVerifier;
-    global $Glacier2__t_SSLPermissionsVerifierPrx;
-
-    if(!interface_exists('\\Glacier2\\SSLPermissionsVerifier'))
+    class Glacier2_SSLPermissionsVerifierPrxHelper
     {
-        interface SSLPermissionsVerifier extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function authorize($info, $reason);
+            return $proxy->ice_checkedCast('::Glacier2::SSLPermissionsVerifier', $facetOrCtx, $ctx);
         }
 
-        class SSLPermissionsVerifierPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Glacier2::SSLPermissionsVerifier', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Glacier2::SSLPermissionsVerifier', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Glacier2::SSLPermissionsVerifier';
-            }
+            return $proxy->ice_uncheckedCast('::Glacier2::SSLPermissionsVerifier', $facet);
         }
 
-        $Glacier2__t_SSLPermissionsVerifier = IcePHP_defineClass('::Glacier2::SSLPermissionsVerifier', '\\Glacier2\\SSLPermissionsVerifier', -1, true, false, $Ice__t_Object, null, null);
-
-        $Glacier2__t_SSLPermissionsVerifierPrx = IcePHP_defineProxy($Glacier2__t_SSLPermissionsVerifier);
-
-        IcePHP_defineOperation($Glacier2__t_SSLPermissionsVerifier, 'authorize', 2, 1, 2, array(array($Glacier2__t_SSLInfo, false, 0)), array(array($IcePHP__t_string, false, 0)), array($IcePHP__t_bool, false, 0), array($Glacier2__t_PermissionDeniedException));
+        public static function ice_staticId()
+        {
+            return '::Glacier2::SSLPermissionsVerifier';
+        }
     }
+
+    $Glacier2__t_SSLPermissionsVerifier = IcePHP_defineClass('::Glacier2::SSLPermissionsVerifier', 'Glacier2_SSLPermissionsVerifier', -1, true, false, $Ice__t_Object, null, null);
+
+    $Glacier2__t_SSLPermissionsVerifierPrx = IcePHP_defineProxy($Glacier2__t_SSLPermissionsVerifier);
+
+    IcePHP_defineOperation($Glacier2__t_SSLPermissionsVerifier, 'authorize', 2, 1, 2, array(array($Glacier2__t_SSLInfo, false, 0)), array(array($IcePHP__t_string, false, 0)), array($IcePHP__t_bool, false, 0), array($Glacier2__t_PermissionDeniedException));
 }
 ?>

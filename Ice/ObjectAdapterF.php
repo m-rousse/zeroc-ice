@@ -20,12 +20,9 @@
 //
 
 
-namespace Ice
+global $Ice__t_ObjectAdapter;
+if(!isset($Ice__t_ObjectAdapter))
 {
-    global $Ice__t_ObjectAdapter;
-    if(!isset($Ice__t_ObjectAdapter))
-    {
-        $Ice__t_ObjectAdapter = IcePHP_declareClass('::Ice::ObjectAdapter');
-    }
+    $Ice__t_ObjectAdapter = IcePHP_declareClass('::Ice::ObjectAdapter');
 }
 ?>

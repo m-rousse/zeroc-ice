@@ -19,303 +19,263 @@
 // </auto-generated>
 //
 
+require_once 'Ice/ObjectAdapterF.php';
+require_once 'Ice/Identity.php';
+require_once 'Ice/Endpoint.php';
 
-namespace
+global $Ice__t_ConnectionInfo;
+
+if(!class_exists('Ice_ConnectionInfo'))
 {
-    require_once 'Ice/ObjectAdapterF.php';
-    require_once 'Ice/Identity.php';
-    require_once 'Ice/Endpoint.php';
-}
-
-namespace Ice
-{
-    global $Ice__t_ConnectionInfo;
-
-    if(!class_exists('\\Ice\\ConnectionInfo'))
+    class Ice_ConnectionInfo
     {
-        class ConnectionInfo
+        public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0)
         {
-            public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0)
-            {
-                $this->incoming = $incoming;
-                $this->adapterName = $adapterName;
-                $this->connectionId = $connectionId;
-                $this->rcvSize = $rcvSize;
-                $this->sndSize = $sndSize;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_ConnectionInfo;
-                return IcePHP_stringify($this, $Ice__t_ConnectionInfo);
-            }
-
-            public $incoming;
-            public $adapterName;
-            public $connectionId;
-            public $rcvSize;
-            public $sndSize;
+            $this->incoming = $incoming;
+            $this->adapterName = $adapterName;
+            $this->connectionId = $connectionId;
+            $this->rcvSize = $rcvSize;
+            $this->sndSize = $sndSize;
         }
 
-        $Ice__t_ConnectionInfo = IcePHP_defineClass('::Ice::ConnectionInfo', '\\Ice\\ConnectionInfo', -1, false, false, $Ice__t_Object, null, array(
-            array('incoming', $IcePHP__t_bool, false, 0),
-            array('adapterName', $IcePHP__t_string, false, 0),
-            array('connectionId', $IcePHP__t_string, false, 0),
-            array('rcvSize', $IcePHP__t_int, false, 0),
-            array('sndSize', $IcePHP__t_int, false, 0)));
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_Connection;
-    if(!isset($Ice__t_Connection))
-    {
-        $Ice__t_Connection = IcePHP_declareClass('::Ice::Connection');
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_ConnectionCallback;
-
-    if(!interface_exists('\\Ice\\ConnectionCallback'))
-    {
-        interface ConnectionCallback
+        public function __toString()
         {
-            public function heartbeat($con);
-            public function closed($con);
+            global $Ice__t_ConnectionInfo;
+            return IcePHP_stringify($this, $Ice__t_ConnectionInfo);
         }
 
-        $Ice__t_ConnectionCallback = IcePHP_defineClass('::Ice::ConnectionCallback', '\\Ice\\ConnectionCallback', -1, true, false, $Ice__t_Object, null, null);
+        public $incoming;
+        public $adapterName;
+        public $connectionId;
+        public $rcvSize;
+        public $sndSize;
     }
+
+    $Ice__t_ConnectionInfo = IcePHP_defineClass('::Ice::ConnectionInfo', 'Ice_ConnectionInfo', -1, false, false, $Ice__t_Object, null, array(
+        array('incoming', $IcePHP__t_bool, false, 0),
+        array('adapterName', $IcePHP__t_string, false, 0),
+        array('connectionId', $IcePHP__t_string, false, 0),
+        array('rcvSize', $IcePHP__t_int, false, 0),
+        array('sndSize', $IcePHP__t_int, false, 0)));
 }
 
-namespace Ice
+global $Ice__t_Connection;
+if(!isset($Ice__t_Connection))
 {
-    global $Ice__t_ACMClose;
+    $Ice__t_Connection = IcePHP_declareClass('::Ice::Connection');
+}
 
-    if(!class_exists('\\Ice\\ACMClose'))
+global $Ice__t_ConnectionCallback;
+
+if(!interface_exists('Ice_ConnectionCallback'))
+{
+    interface Ice_ConnectionCallback
     {
-        class ACMClose
+        public function heartbeat($con);
+        public function closed($con);
+    }
+
+    $Ice__t_ConnectionCallback = IcePHP_defineClass('::Ice::ConnectionCallback', 'Ice_ConnectionCallback', -1, true, false, $Ice__t_Object, null, null);
+}
+
+global $Ice__t_ACMClose;
+
+if(!class_exists('Ice_ACMClose'))
+{
+    class Ice_ACMClose
+    {
+        const CloseOff = 0;
+        const CloseOnIdle = 1;
+        const CloseOnInvocation = 2;
+        const CloseOnInvocationAndIdle = 3;
+        const CloseOnIdleForceful = 4;
+    }
+
+    $Ice__t_ACMClose = IcePHP_defineEnum('::Ice::ACMClose', array('CloseOff', 0, 'CloseOnIdle', 1, 'CloseOnInvocation', 2, 'CloseOnInvocationAndIdle', 3, 'CloseOnIdleForceful', 4));
+}
+
+global $Ice__t_ACMHeartbeat;
+
+if(!class_exists('Ice_ACMHeartbeat'))
+{
+    class Ice_ACMHeartbeat
+    {
+        const HeartbeatOff = 0;
+        const HeartbeatOnInvocation = 1;
+        const HeartbeatOnIdle = 2;
+        const HeartbeatAlways = 3;
+    }
+
+    $Ice__t_ACMHeartbeat = IcePHP_defineEnum('::Ice::ACMHeartbeat', array('HeartbeatOff', 0, 'HeartbeatOnInvocation', 1, 'HeartbeatOnIdle', 2, 'HeartbeatAlways', 3));
+}
+
+global $Ice__t_ACM;
+
+if(!class_exists('Ice_ACM'))
+{
+    class Ice_ACM
+    {
+        public function __construct($timeout=0, $close=Ice_ACMClose::CloseOff, $heartbeat=Ice_ACMHeartbeat::HeartbeatOff)
         {
-            const CloseOff = 0;
-            const CloseOnIdle = 1;
-            const CloseOnInvocation = 2;
-            const CloseOnInvocationAndIdle = 3;
-            const CloseOnIdleForceful = 4;
+            $this->timeout = $timeout;
+            $this->close = $close;
+            $this->heartbeat = $heartbeat;
         }
 
-        $Ice__t_ACMClose = IcePHP_defineEnum('::Ice::ACMClose', array('CloseOff', 0, 'CloseOnIdle', 1, 'CloseOnInvocation', 2, 'CloseOnInvocationAndIdle', 3, 'CloseOnIdleForceful', 4));
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_ACMHeartbeat;
-
-    if(!class_exists('\\Ice\\ACMHeartbeat'))
-    {
-        class ACMHeartbeat
+        public function __toString()
         {
-            const HeartbeatOff = 0;
-            const HeartbeatOnInvocation = 1;
-            const HeartbeatOnIdle = 2;
-            const HeartbeatAlways = 3;
+            global $Ice__t_ACM;
+            return IcePHP_stringify($this, $Ice__t_ACM);
         }
 
-        $Ice__t_ACMHeartbeat = IcePHP_defineEnum('::Ice::ACMHeartbeat', array('HeartbeatOff', 0, 'HeartbeatOnInvocation', 1, 'HeartbeatOnIdle', 2, 'HeartbeatAlways', 3));
+        public $timeout;
+        public $close;
+        public $heartbeat;
     }
+
+    $Ice__t_ACM = IcePHP_defineStruct('::Ice::ACM', 'Ice_ACM', array(
+        array('timeout', $IcePHP__t_int), 
+        array('close', $Ice__t_ACMClose), 
+        array('heartbeat', $Ice__t_ACMHeartbeat)));
 }
 
-namespace Ice
+global $Ice__t_Connection;
+
+if(!interface_exists('Ice_Connection'))
 {
-    global $Ice__t_ACM;
-
-    if(!class_exists('\\Ice\\ACM'))
+    interface Ice_Connection
     {
-        class ACM
+        public function close($force);
+        public function createProxy($id);
+        public function setAdapter($adapter);
+        public function getAdapter();
+        public function getEndpoint();
+        public function flushBatchRequests();
+        public function setCallback($callback);
+        public function setACM($timeout, $close, $heartbeat);
+        public function getACM();
+        public function type();
+        public function timeout();
+        public function toString();
+        public function getInfo();
+        public function setBufferSize($rcvSize, $sndSize);
+    }
+
+    $Ice__t_Connection = IcePHP_defineClass('::Ice::Connection', 'Ice_Connection', -1, true, false, $Ice__t_Object, null, null);
+}
+
+global $Ice__t_IPConnectionInfo;
+
+if(!class_exists('Ice_IPConnectionInfo'))
+{
+    class Ice_IPConnectionInfo extends Ice_ConnectionInfo
+    {
+        public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1)
         {
-            public function __construct($timeout=0, $close=\Ice\ACMClose::CloseOff, $heartbeat=\Ice\ACMHeartbeat::HeartbeatOff)
-            {
-                $this->timeout = $timeout;
-                $this->close = $close;
-                $this->heartbeat = $heartbeat;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_ACM;
-                return IcePHP_stringify($this, $Ice__t_ACM);
-            }
-
-            public $timeout;
-            public $close;
-            public $heartbeat;
+            parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize);
+            $this->localAddress = $localAddress;
+            $this->localPort = $localPort;
+            $this->remoteAddress = $remoteAddress;
+            $this->remotePort = $remotePort;
         }
 
-        $Ice__t_ACM = IcePHP_defineStruct('::Ice::ACM', '\\Ice\\ACM', array(
-            array('timeout', $IcePHP__t_int), 
-            array('close', $Ice__t_ACMClose), 
-            array('heartbeat', $Ice__t_ACMHeartbeat)));
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_Connection;
-
-    if(!interface_exists('\\Ice\\Connection'))
-    {
-        interface Connection
+        public function __toString()
         {
-            public function close($force);
-            public function createProxy($id);
-            public function setAdapter($adapter);
-            public function getAdapter();
-            public function getEndpoint();
-            public function flushBatchRequests();
-            public function setCallback($callback);
-            public function setACM($timeout, $close, $heartbeat);
-            public function getACM();
-            public function type();
-            public function timeout();
-            public function toString();
-            public function getInfo();
-            public function setBufferSize($rcvSize, $sndSize);
+            global $Ice__t_IPConnectionInfo;
+            return IcePHP_stringify($this, $Ice__t_IPConnectionInfo);
         }
 
-        $Ice__t_Connection = IcePHP_defineClass('::Ice::Connection', '\\Ice\\Connection', -1, true, false, $Ice__t_Object, null, null);
+        public $localAddress;
+        public $localPort;
+        public $remoteAddress;
+        public $remotePort;
     }
+
+    $Ice__t_IPConnectionInfo = IcePHP_defineClass('::Ice::IPConnectionInfo', 'Ice_IPConnectionInfo', -1, false, false, $Ice__t_ConnectionInfo, null, array(
+        array('localAddress', $IcePHP__t_string, false, 0),
+        array('localPort', $IcePHP__t_int, false, 0),
+        array('remoteAddress', $IcePHP__t_string, false, 0),
+        array('remotePort', $IcePHP__t_int, false, 0)));
 }
 
-namespace Ice
+global $Ice__t_TCPConnectionInfo;
+
+if(!class_exists('Ice_TCPConnectionInfo'))
 {
-    global $Ice__t_IPConnectionInfo;
-
-    if(!class_exists('\\Ice\\IPConnectionInfo'))
+    class Ice_TCPConnectionInfo extends Ice_IPConnectionInfo
     {
-        class IPConnectionInfo extends \Ice\ConnectionInfo
+        public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1)
         {
-            public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1)
-            {
-                parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize);
-                $this->localAddress = $localAddress;
-                $this->localPort = $localPort;
-                $this->remoteAddress = $remoteAddress;
-                $this->remotePort = $remotePort;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_IPConnectionInfo;
-                return IcePHP_stringify($this, $Ice__t_IPConnectionInfo);
-            }
-
-            public $localAddress;
-            public $localPort;
-            public $remoteAddress;
-            public $remotePort;
+            parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize, $localAddress, $localPort, $remoteAddress, $remotePort);
         }
 
-        $Ice__t_IPConnectionInfo = IcePHP_defineClass('::Ice::IPConnectionInfo', '\\Ice\\IPConnectionInfo', -1, false, false, $Ice__t_ConnectionInfo, null, array(
-            array('localAddress', $IcePHP__t_string, false, 0),
-            array('localPort', $IcePHP__t_int, false, 0),
-            array('remoteAddress', $IcePHP__t_string, false, 0),
-            array('remotePort', $IcePHP__t_int, false, 0)));
+        public function __toString()
+        {
+            global $Ice__t_TCPConnectionInfo;
+            return IcePHP_stringify($this, $Ice__t_TCPConnectionInfo);
+        }
     }
+
+    $Ice__t_TCPConnectionInfo = IcePHP_defineClass('::Ice::TCPConnectionInfo', 'Ice_TCPConnectionInfo', -1, false, false, $Ice__t_IPConnectionInfo, null, null);
 }
 
-namespace Ice
+global $Ice__t_UDPConnectionInfo;
+
+if(!class_exists('Ice_UDPConnectionInfo'))
 {
-    global $Ice__t_TCPConnectionInfo;
-
-    if(!class_exists('\\Ice\\TCPConnectionInfo'))
+    class Ice_UDPConnectionInfo extends Ice_IPConnectionInfo
     {
-        class TCPConnectionInfo extends \Ice\IPConnectionInfo
+        public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1, $mcastAddress='', $mcastPort=-1)
         {
-            public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1)
-            {
-                parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize, $localAddress, $localPort, $remoteAddress, $remotePort);
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_TCPConnectionInfo;
-                return IcePHP_stringify($this, $Ice__t_TCPConnectionInfo);
-            }
+            parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize, $localAddress, $localPort, $remoteAddress, $remotePort);
+            $this->mcastAddress = $mcastAddress;
+            $this->mcastPort = $mcastPort;
         }
 
-        $Ice__t_TCPConnectionInfo = IcePHP_defineClass('::Ice::TCPConnectionInfo', '\\Ice\\TCPConnectionInfo', -1, false, false, $Ice__t_IPConnectionInfo, null, null);
-    }
-}
-
-namespace Ice
-{
-    global $Ice__t_UDPConnectionInfo;
-
-    if(!class_exists('\\Ice\\UDPConnectionInfo'))
-    {
-        class UDPConnectionInfo extends \Ice\IPConnectionInfo
+        public function __toString()
         {
-            public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1, $mcastAddress='', $mcastPort=-1)
-            {
-                parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize, $localAddress, $localPort, $remoteAddress, $remotePort);
-                $this->mcastAddress = $mcastAddress;
-                $this->mcastPort = $mcastPort;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_UDPConnectionInfo;
-                return IcePHP_stringify($this, $Ice__t_UDPConnectionInfo);
-            }
-
-            public $mcastAddress;
-            public $mcastPort;
+            global $Ice__t_UDPConnectionInfo;
+            return IcePHP_stringify($this, $Ice__t_UDPConnectionInfo);
         }
 
-        $Ice__t_UDPConnectionInfo = IcePHP_defineClass('::Ice::UDPConnectionInfo', '\\Ice\\UDPConnectionInfo', -1, false, false, $Ice__t_IPConnectionInfo, null, array(
-            array('mcastAddress', $IcePHP__t_string, false, 0),
-            array('mcastPort', $IcePHP__t_int, false, 0)));
+        public $mcastAddress;
+        public $mcastPort;
     }
+
+    $Ice__t_UDPConnectionInfo = IcePHP_defineClass('::Ice::UDPConnectionInfo', 'Ice_UDPConnectionInfo', -1, false, false, $Ice__t_IPConnectionInfo, null, array(
+        array('mcastAddress', $IcePHP__t_string, false, 0),
+        array('mcastPort', $IcePHP__t_int, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_HeaderDict;
+global $Ice__t_HeaderDict;
 
-    if(!isset($Ice__t_HeaderDict))
-    {
-        $Ice__t_HeaderDict = IcePHP_defineDictionary('::Ice::HeaderDict', $IcePHP__t_string, $IcePHP__t_string);
-    }
+if(!isset($Ice__t_HeaderDict))
+{
+    $Ice__t_HeaderDict = IcePHP_defineDictionary('::Ice::HeaderDict', $IcePHP__t_string, $IcePHP__t_string);
 }
 
-namespace Ice
-{
-    global $Ice__t_WSConnectionInfo;
+global $Ice__t_WSConnectionInfo;
 
-    if(!class_exists('\\Ice\\WSConnectionInfo'))
+if(!class_exists('Ice_WSConnectionInfo'))
+{
+    class Ice_WSConnectionInfo extends Ice_TCPConnectionInfo
     {
-        class WSConnectionInfo extends \Ice\TCPConnectionInfo
+        public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1, $headers=null)
         {
-            public function __construct($incoming=false, $adapterName='', $connectionId='', $rcvSize=0, $sndSize=0, $localAddress="", $localPort=-1, $remoteAddress="", $remotePort=-1, $headers=null)
-            {
-                parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize, $localAddress, $localPort, $remoteAddress, $remotePort);
-                $this->headers = $headers;
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_WSConnectionInfo;
-                return IcePHP_stringify($this, $Ice__t_WSConnectionInfo);
-            }
-
-            public $headers;
+            parent::__construct($incoming, $adapterName, $connectionId, $rcvSize, $sndSize, $localAddress, $localPort, $remoteAddress, $remotePort);
+            $this->headers = $headers;
         }
 
-        $Ice__t_WSConnectionInfo = IcePHP_defineClass('::Ice::WSConnectionInfo', '\\Ice\\WSConnectionInfo', -1, false, false, $Ice__t_TCPConnectionInfo, null, array(
-            array('headers', $Ice__t_HeaderDict, false, 0)));
+        public function __toString()
+        {
+            global $Ice__t_WSConnectionInfo;
+            return IcePHP_stringify($this, $Ice__t_WSConnectionInfo);
+        }
+
+        public $headers;
     }
+
+    $Ice__t_WSConnectionInfo = IcePHP_defineClass('::Ice::WSConnectionInfo', 'Ice_WSConnectionInfo', -1, false, false, $Ice__t_TCPConnectionInfo, null, array(
+        array('headers', $Ice__t_HeaderDict, false, 0)));
 }
 ?>

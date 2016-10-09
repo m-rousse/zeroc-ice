@@ -19,30 +19,23 @@
 // </auto-generated>
 //
 
+require_once 'Ice/LocalException.php';
+require_once 'Ice/Current.php';
 
-namespace
+global $Ice__t_ImplicitContext;
+
+if(!interface_exists('Ice_ImplicitContext'))
 {
-    require_once 'Ice/LocalException.php';
-    require_once 'Ice/Current.php';
-}
-
-namespace Ice
-{
-    global $Ice__t_ImplicitContext;
-
-    if(!interface_exists('\\Ice\\ImplicitContext'))
+    interface Ice_ImplicitContext
     {
-        interface ImplicitContext
-        {
-            public function getContext();
-            public function setContext($newContext);
-            public function containsKey($key);
-            public function get($key);
-            public function put($key, $value);
-            public function remove($key);
-        }
-
-        $Ice__t_ImplicitContext = IcePHP_defineClass('::Ice::ImplicitContext', '\\Ice\\ImplicitContext', -1, true, false, $Ice__t_Object, null, null);
+        public function getContext();
+        public function setContext($newContext);
+        public function containsKey($key);
+        public function get($key);
+        public function put($key, $value);
+        public function remove($key);
     }
+
+    $Ice__t_ImplicitContext = IcePHP_defineClass('::Ice::ImplicitContext', 'Ice_ImplicitContext', -1, true, false, $Ice__t_Object, null, null);
 }
 ?>

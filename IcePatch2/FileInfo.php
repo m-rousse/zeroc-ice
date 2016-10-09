@@ -19,101 +19,85 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $IcePatch2__t_FileInfo;
+
+if(!class_exists('IcePatch2_FileInfo'))
 {
-    require_once 'Ice/BuiltinSequences.php';
-}
-
-namespace IcePatch2
-{
-    global $IcePatch2__t_FileInfo;
-
-    if(!class_exists('\\IcePatch2\\FileInfo'))
+    class IcePatch2_FileInfo
     {
-        class FileInfo
+        public function __construct($path='', $checksum=null, $size=0, $executable=false)
         {
-            public function __construct($path='', $checksum=null, $size=0, $executable=false)
-            {
-                $this->path = $path;
-                $this->checksum = $checksum;
-                $this->size = $size;
-                $this->executable = $executable;
-            }
-
-            public function __toString()
-            {
-                global $IcePatch2__t_FileInfo;
-                return IcePHP_stringify($this, $IcePatch2__t_FileInfo);
-            }
-
-            public $path;
-            public $checksum;
-            public $size;
-            public $executable;
+            $this->path = $path;
+            $this->checksum = $checksum;
+            $this->size = $size;
+            $this->executable = $executable;
         }
 
-        $IcePatch2__t_FileInfo = IcePHP_defineStruct('::IcePatch2::FileInfo', '\\IcePatch2\\FileInfo', array(
-            array('path', $IcePHP__t_string), 
-            array('checksum', $Ice__t_ByteSeq), 
-            array('size', $IcePHP__t_int), 
-            array('executable', $IcePHP__t_bool)));
-    }
-}
-
-namespace IcePatch2
-{
-    global $IcePatch2__t_FileInfoSeq;
-
-    if(!isset($IcePatch2__t_FileInfoSeq))
-    {
-        $IcePatch2__t_FileInfoSeq = IcePHP_defineSequence('::IcePatch2::FileInfoSeq', $IcePatch2__t_FileInfo);
-    }
-}
-
-namespace IcePatch2
-{
-    global $IcePatch2__t_LargeFileInfo;
-
-    if(!class_exists('\\IcePatch2\\LargeFileInfo'))
-    {
-        class LargeFileInfo
+        public function __toString()
         {
-            public function __construct($path='', $checksum=null, $size=0, $executable=false)
-            {
-                $this->path = $path;
-                $this->checksum = $checksum;
-                $this->size = $size;
-                $this->executable = $executable;
-            }
-
-            public function __toString()
-            {
-                global $IcePatch2__t_LargeFileInfo;
-                return IcePHP_stringify($this, $IcePatch2__t_LargeFileInfo);
-            }
-
-            public $path;
-            public $checksum;
-            public $size;
-            public $executable;
+            global $IcePatch2__t_FileInfo;
+            return IcePHP_stringify($this, $IcePatch2__t_FileInfo);
         }
 
-        $IcePatch2__t_LargeFileInfo = IcePHP_defineStruct('::IcePatch2::LargeFileInfo', '\\IcePatch2\\LargeFileInfo', array(
-            array('path', $IcePHP__t_string), 
-            array('checksum', $Ice__t_ByteSeq), 
-            array('size', $IcePHP__t_long), 
-            array('executable', $IcePHP__t_bool)));
+        public $path;
+        public $checksum;
+        public $size;
+        public $executable;
     }
+
+    $IcePatch2__t_FileInfo = IcePHP_defineStruct('::IcePatch2::FileInfo', 'IcePatch2_FileInfo', array(
+        array('path', $IcePHP__t_string), 
+        array('checksum', $Ice__t_ByteSeq), 
+        array('size', $IcePHP__t_int), 
+        array('executable', $IcePHP__t_bool)));
 }
 
-namespace IcePatch2
-{
-    global $IcePatch2__t_LargeFileInfoSeq;
+global $IcePatch2__t_FileInfoSeq;
 
-    if(!isset($IcePatch2__t_LargeFileInfoSeq))
+if(!isset($IcePatch2__t_FileInfoSeq))
+{
+    $IcePatch2__t_FileInfoSeq = IcePHP_defineSequence('::IcePatch2::FileInfoSeq', $IcePatch2__t_FileInfo);
+}
+
+global $IcePatch2__t_LargeFileInfo;
+
+if(!class_exists('IcePatch2_LargeFileInfo'))
+{
+    class IcePatch2_LargeFileInfo
     {
-        $IcePatch2__t_LargeFileInfoSeq = IcePHP_defineSequence('::IcePatch2::LargeFileInfoSeq', $IcePatch2__t_LargeFileInfo);
+        public function __construct($path='', $checksum=null, $size=0, $executable=false)
+        {
+            $this->path = $path;
+            $this->checksum = $checksum;
+            $this->size = $size;
+            $this->executable = $executable;
+        }
+
+        public function __toString()
+        {
+            global $IcePatch2__t_LargeFileInfo;
+            return IcePHP_stringify($this, $IcePatch2__t_LargeFileInfo);
+        }
+
+        public $path;
+        public $checksum;
+        public $size;
+        public $executable;
     }
+
+    $IcePatch2__t_LargeFileInfo = IcePHP_defineStruct('::IcePatch2::LargeFileInfo', 'IcePatch2_LargeFileInfo', array(
+        array('path', $IcePHP__t_string), 
+        array('checksum', $Ice__t_ByteSeq), 
+        array('size', $IcePHP__t_long), 
+        array('executable', $IcePHP__t_bool)));
+}
+
+global $IcePatch2__t_LargeFileInfoSeq;
+
+if(!isset($IcePatch2__t_LargeFileInfoSeq))
+{
+    $IcePatch2__t_LargeFileInfoSeq = IcePHP_defineSequence('::IcePatch2::LargeFileInfoSeq', $IcePatch2__t_LargeFileInfo);
 }
 ?>

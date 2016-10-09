@@ -19,51 +19,44 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $Glacier2__t_SSLInfo;
+
+if(!class_exists('Glacier2_SSLInfo'))
 {
-    require_once 'Ice/BuiltinSequences.php';
-}
-
-namespace Glacier2
-{
-    global $Glacier2__t_SSLInfo;
-
-    if(!class_exists('\\Glacier2\\SSLInfo'))
+    class Glacier2_SSLInfo
     {
-        class SSLInfo
+        public function __construct($remoteHost='', $remotePort=0, $localHost='', $localPort=0, $cipher='', $certs=null)
         {
-            public function __construct($remoteHost='', $remotePort=0, $localHost='', $localPort=0, $cipher='', $certs=null)
-            {
-                $this->remoteHost = $remoteHost;
-                $this->remotePort = $remotePort;
-                $this->localHost = $localHost;
-                $this->localPort = $localPort;
-                $this->cipher = $cipher;
-                $this->certs = $certs;
-            }
-
-            public function __toString()
-            {
-                global $Glacier2__t_SSLInfo;
-                return IcePHP_stringify($this, $Glacier2__t_SSLInfo);
-            }
-
-            public $remoteHost;
-            public $remotePort;
-            public $localHost;
-            public $localPort;
-            public $cipher;
-            public $certs;
+            $this->remoteHost = $remoteHost;
+            $this->remotePort = $remotePort;
+            $this->localHost = $localHost;
+            $this->localPort = $localPort;
+            $this->cipher = $cipher;
+            $this->certs = $certs;
         }
 
-        $Glacier2__t_SSLInfo = IcePHP_defineStruct('::Glacier2::SSLInfo', '\\Glacier2\\SSLInfo', array(
-            array('remoteHost', $IcePHP__t_string), 
-            array('remotePort', $IcePHP__t_int), 
-            array('localHost', $IcePHP__t_string), 
-            array('localPort', $IcePHP__t_int), 
-            array('cipher', $IcePHP__t_string), 
-            array('certs', $Ice__t_StringSeq)));
+        public function __toString()
+        {
+            global $Glacier2__t_SSLInfo;
+            return IcePHP_stringify($this, $Glacier2__t_SSLInfo);
+        }
+
+        public $remoteHost;
+        public $remotePort;
+        public $localHost;
+        public $localPort;
+        public $cipher;
+        public $certs;
     }
+
+    $Glacier2__t_SSLInfo = IcePHP_defineStruct('::Glacier2::SSLInfo', 'Glacier2_SSLInfo', array(
+        array('remoteHost', $IcePHP__t_string), 
+        array('remotePort', $IcePHP__t_int), 
+        array('localHost', $IcePHP__t_string), 
+        array('localPort', $IcePHP__t_int), 
+        array('cipher', $IcePHP__t_string), 
+        array('certs', $Ice__t_StringSeq)));
 }
 ?>

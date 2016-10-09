@@ -20,25 +20,19 @@
 //
 
 
-namespace Glacier2
+global $Glacier2__t_PermissionsVerifier;
+global $Glacier2__t_PermissionsVerifierPrx;
+if(!isset($Glacier2__t_PermissionsVerifier))
 {
-    global $Glacier2__t_PermissionsVerifier;
-    global $Glacier2__t_PermissionsVerifierPrx;
-    if(!isset($Glacier2__t_PermissionsVerifier))
-    {
-        $Glacier2__t_PermissionsVerifier = IcePHP_declareClass('::Glacier2::PermissionsVerifier');
-        $Glacier2__t_PermissionsVerifierPrx = IcePHP_declareProxy('::Glacier2::PermissionsVerifier');
-    }
+    $Glacier2__t_PermissionsVerifier = IcePHP_declareClass('::Glacier2::PermissionsVerifier');
+    $Glacier2__t_PermissionsVerifierPrx = IcePHP_declareProxy('::Glacier2::PermissionsVerifier');
 }
 
-namespace Glacier2
+global $Glacier2__t_SSLPermissionsVerifier;
+global $Glacier2__t_SSLPermissionsVerifierPrx;
+if(!isset($Glacier2__t_SSLPermissionsVerifier))
 {
-    global $Glacier2__t_SSLPermissionsVerifier;
-    global $Glacier2__t_SSLPermissionsVerifierPrx;
-    if(!isset($Glacier2__t_SSLPermissionsVerifier))
-    {
-        $Glacier2__t_SSLPermissionsVerifier = IcePHP_declareClass('::Glacier2::SSLPermissionsVerifier');
-        $Glacier2__t_SSLPermissionsVerifierPrx = IcePHP_declareProxy('::Glacier2::SSLPermissionsVerifier');
-    }
+    $Glacier2__t_SSLPermissionsVerifier = IcePHP_declareClass('::Glacier2::SSLPermissionsVerifier');
+    $Glacier2__t_SSLPermissionsVerifierPrx = IcePHP_declareProxy('::Glacier2::SSLPermissionsVerifier');
 }
 ?>

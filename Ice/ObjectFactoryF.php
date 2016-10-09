@@ -20,12 +20,9 @@
 //
 
 
-namespace Ice
+global $Ice__t_ObjectFactory;
+if(!isset($Ice__t_ObjectFactory))
 {
-    global $Ice__t_ObjectFactory;
-    if(!isset($Ice__t_ObjectFactory))
-    {
-        $Ice__t_ObjectFactory = IcePHP_declareClass('::Ice::ObjectFactory');
-    }
+    $Ice__t_ObjectFactory = IcePHP_declareClass('::Ice::ObjectFactory');
 }
 ?>

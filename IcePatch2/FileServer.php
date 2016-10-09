@@ -19,156 +19,137 @@
 // </auto-generated>
 //
 
+require_once 'IcePatch2/FileInfo.php';
 
-namespace
+global $IcePatch2__t_ByteSeqSeq;
+
+if(!isset($IcePatch2__t_ByteSeqSeq))
 {
-    require_once 'IcePatch2/FileInfo.php';
+    $IcePatch2__t_ByteSeqSeq = IcePHP_defineSequence('::IcePatch2::ByteSeqSeq', $Ice__t_ByteSeq);
 }
 
-namespace IcePatch2
-{
-    global $IcePatch2__t_ByteSeqSeq;
+global $IcePatch2__t_PartitionOutOfRangeException;
 
-    if(!isset($IcePatch2__t_ByteSeqSeq))
+if(!class_exists('IcePatch2_PartitionOutOfRangeException'))
+{
+    class IcePatch2_PartitionOutOfRangeException extends Ice_UserException
     {
-        $IcePatch2__t_ByteSeqSeq = IcePHP_defineSequence('::IcePatch2::ByteSeqSeq', $Ice__t_ByteSeq);
+        public function __construct()
+        {
+        }
+
+        public function ice_name()
+        {
+            return 'IcePatch2::PartitionOutOfRangeException';
+        }
+
+        public function __toString()
+        {
+            global $IcePatch2__t_PartitionOutOfRangeException;
+            return IcePHP_stringifyException($this, $IcePatch2__t_PartitionOutOfRangeException);
+        }
     }
+
+    $IcePatch2__t_PartitionOutOfRangeException = IcePHP_defineException('::IcePatch2::PartitionOutOfRangeException', 'IcePatch2_PartitionOutOfRangeException', false, null, null);
 }
 
-namespace IcePatch2
+global $IcePatch2__t_FileAccessException;
+
+if(!class_exists('IcePatch2_FileAccessException'))
 {
-    global $IcePatch2__t_PartitionOutOfRangeException;
-
-    if(!class_exists('\\IcePatch2\\PartitionOutOfRangeException'))
+    class IcePatch2_FileAccessException extends Ice_UserException
     {
-        class PartitionOutOfRangeException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'IcePatch2::PartitionOutOfRangeException';
-            }
-
-            public function __toString()
-            {
-                global $IcePatch2__t_PartitionOutOfRangeException;
-                return IcePHP_stringifyException($this, $IcePatch2__t_PartitionOutOfRangeException);
-            }
+            $this->reason = $reason;
         }
 
-        $IcePatch2__t_PartitionOutOfRangeException = IcePHP_defineException('::IcePatch2::PartitionOutOfRangeException', '\\IcePatch2\\PartitionOutOfRangeException', false, null, null);
+        public function ice_name()
+        {
+            return 'IcePatch2::FileAccessException';
+        }
+
+        public function __toString()
+        {
+            global $IcePatch2__t_FileAccessException;
+            return IcePHP_stringifyException($this, $IcePatch2__t_FileAccessException);
+        }
+
+        public $reason;
     }
+
+    $IcePatch2__t_FileAccessException = IcePHP_defineException('::IcePatch2::FileAccessException', 'IcePatch2_FileAccessException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IcePatch2
+global $IcePatch2__t_FileSizeRangeException;
+
+if(!class_exists('IcePatch2_FileSizeRangeException'))
 {
-    global $IcePatch2__t_FileAccessException;
-
-    if(!class_exists('\\IcePatch2\\FileAccessException'))
+    class IcePatch2_FileSizeRangeException extends IcePatch2_FileAccessException
     {
-        class FileAccessException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IcePatch2::FileAccessException';
-            }
-
-            public function __toString()
-            {
-                global $IcePatch2__t_FileAccessException;
-                return IcePHP_stringifyException($this, $IcePatch2__t_FileAccessException);
-            }
-
-            public $reason;
+            parent::__construct($reason);
         }
 
-        $IcePatch2__t_FileAccessException = IcePHP_defineException('::IcePatch2::FileAccessException', '\\IcePatch2\\FileAccessException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IcePatch2::FileSizeRangeException';
+        }
+
+        public function __toString()
+        {
+            global $IcePatch2__t_FileSizeRangeException;
+            return IcePHP_stringifyException($this, $IcePatch2__t_FileSizeRangeException);
+        }
     }
+
+    $IcePatch2__t_FileSizeRangeException = IcePHP_defineException('::IcePatch2::FileSizeRangeException', 'IcePatch2_FileSizeRangeException', false, $IcePatch2__t_FileAccessException, null);
 }
 
-namespace IcePatch2
+global $IcePatch2__t_FileServer;
+global $IcePatch2__t_FileServerPrx;
+
+if(!interface_exists('IcePatch2_FileServer'))
 {
-    global $IcePatch2__t_FileSizeRangeException;
-
-    if(!class_exists('\\IcePatch2\\FileSizeRangeException'))
+    interface IcePatch2_FileServer extends Ice_Object
     {
-        class FileSizeRangeException extends \IcePatch2\FileAccessException
-        {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'IcePatch2::FileSizeRangeException';
-            }
-
-            public function __toString()
-            {
-                global $IcePatch2__t_FileSizeRangeException;
-                return IcePHP_stringifyException($this, $IcePatch2__t_FileSizeRangeException);
-            }
-        }
-
-        $IcePatch2__t_FileSizeRangeException = IcePHP_defineException('::IcePatch2::FileSizeRangeException', '\\IcePatch2\\FileSizeRangeException', false, $IcePatch2__t_FileAccessException, null);
+        public function getFileInfoSeq($partition);
+        public function getLargeFileInfoSeq($partition);
+        public function getChecksumSeq();
+        public function getChecksum();
+        public function getFileCompressed($path, $pos, $num);
+        public function getLargeFileCompressed($path, $pos, $num);
     }
-}
 
-namespace IcePatch2
-{
-    global $IcePatch2__t_FileServer;
-    global $IcePatch2__t_FileServerPrx;
-
-    if(!interface_exists('\\IcePatch2\\FileServer'))
+    class IcePatch2_FileServerPrxHelper
     {
-        interface FileServer extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function getFileInfoSeq($partition);
-            public function getLargeFileInfoSeq($partition);
-            public function getChecksumSeq();
-            public function getChecksum();
-            public function getFileCompressed($path, $pos, $num);
-            public function getLargeFileCompressed($path, $pos, $num);
+            return $proxy->ice_checkedCast('::IcePatch2::FileServer', $facetOrCtx, $ctx);
         }
 
-        class FileServerPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IcePatch2::FileServer', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IcePatch2::FileServer', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IcePatch2::FileServer';
-            }
+            return $proxy->ice_uncheckedCast('::IcePatch2::FileServer', $facet);
         }
 
-        $IcePatch2__t_FileServer = IcePHP_defineClass('::IcePatch2::FileServer', '\\IcePatch2\\FileServer', -1, true, false, $Ice__t_Object, null, null);
-
-        $IcePatch2__t_FileServerPrx = IcePHP_defineProxy($IcePatch2__t_FileServer);
-
-        IcePHP_defineOperation($IcePatch2__t_FileServer, 'getFileInfoSeq', 2, 1, 0, array(array($IcePHP__t_int, false, 0)), null, array($IcePatch2__t_FileInfoSeq, false, 0), array($IcePatch2__t_PartitionOutOfRangeException, $IcePatch2__t_FileSizeRangeException));
-        IcePHP_defineOperation($IcePatch2__t_FileServer, 'getLargeFileInfoSeq', 2, 1, 0, array(array($IcePHP__t_int, false, 0)), null, array($IcePatch2__t_LargeFileInfoSeq, false, 0), array($IcePatch2__t_PartitionOutOfRangeException));
-        IcePHP_defineOperation($IcePatch2__t_FileServer, 'getChecksumSeq', 2, 1, 0, null, null, array($IcePatch2__t_ByteSeqSeq, false, 0), null);
-        IcePHP_defineOperation($IcePatch2__t_FileServer, 'getChecksum', 2, 1, 0, null, null, array($Ice__t_ByteSeq, false, 0), null);
-        IcePHP_defineOperation($IcePatch2__t_FileServer, 'getFileCompressed', 2, 1, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_int, false, 0), array($IcePHP__t_int, false, 0)), null, array($Ice__t_ByteSeq, false, 0), array($IcePatch2__t_FileAccessException, $IcePatch2__t_FileSizeRangeException));
-        IcePHP_defineOperation($IcePatch2__t_FileServer, 'getLargeFileCompressed', 2, 1, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_long, false, 0), array($IcePHP__t_int, false, 0)), null, array($Ice__t_ByteSeq, false, 0), array($IcePatch2__t_FileAccessException));
+        public static function ice_staticId()
+        {
+            return '::IcePatch2::FileServer';
+        }
     }
+
+    $IcePatch2__t_FileServer = IcePHP_defineClass('::IcePatch2::FileServer', 'IcePatch2_FileServer', -1, true, false, $Ice__t_Object, null, null);
+
+    $IcePatch2__t_FileServerPrx = IcePHP_defineProxy($IcePatch2__t_FileServer);
+
+    IcePHP_defineOperation($IcePatch2__t_FileServer, 'getFileInfoSeq', 2, 1, 0, array(array($IcePHP__t_int, false, 0)), null, array($IcePatch2__t_FileInfoSeq, false, 0), array($IcePatch2__t_PartitionOutOfRangeException, $IcePatch2__t_FileSizeRangeException));
+    IcePHP_defineOperation($IcePatch2__t_FileServer, 'getLargeFileInfoSeq', 2, 1, 0, array(array($IcePHP__t_int, false, 0)), null, array($IcePatch2__t_LargeFileInfoSeq, false, 0), array($IcePatch2__t_PartitionOutOfRangeException));
+    IcePHP_defineOperation($IcePatch2__t_FileServer, 'getChecksumSeq', 2, 1, 0, null, null, array($IcePatch2__t_ByteSeqSeq, false, 0), null);
+    IcePHP_defineOperation($IcePatch2__t_FileServer, 'getChecksum', 2, 1, 0, null, null, array($Ice__t_ByteSeq, false, 0), null);
+    IcePHP_defineOperation($IcePatch2__t_FileServer, 'getFileCompressed', 2, 1, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_int, false, 0), array($IcePHP__t_int, false, 0)), null, array($Ice__t_ByteSeq, false, 0), array($IcePatch2__t_FileAccessException, $IcePatch2__t_FileSizeRangeException));
+    IcePHP_defineOperation($IcePatch2__t_FileServer, 'getLargeFileCompressed', 2, 1, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_long, false, 0), array($IcePHP__t_int, false, 0)), null, array($Ice__t_ByteSeq, false, 0), array($IcePatch2__t_FileAccessException));
 }
 ?>

@@ -19,210 +19,170 @@
 // </auto-generated>
 //
 
+require_once 'Ice/EndpointF.php';
+require_once 'Ice/ConnectionF.php';
+require_once 'Ice/Current.php';
 
-namespace
+global $Ice_Instrumentation__t_Observer;
+
+if(!interface_exists('Ice_Instrumentation_Observer'))
 {
-    require_once 'Ice/EndpointF.php';
-    require_once 'Ice/ConnectionF.php';
-    require_once 'Ice/Current.php';
+    interface Ice_Instrumentation_Observer
+    {
+        public function attach();
+        public function detach();
+        public function failed($exceptionName);
+    }
+
+    $Ice_Instrumentation__t_Observer = IcePHP_defineClass('::Ice::Instrumentation::Observer', 'Ice_Instrumentation_Observer', -1, true, false, $Ice__t_Object, null, null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_ThreadState;
+
+if(!class_exists('Ice_Instrumentation_ThreadState'))
 {
-    global $Ice_Instrumentation__t_Observer;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\Observer'))
+    class Ice_Instrumentation_ThreadState
     {
-        interface Observer
-        {
-            public function attach();
-            public function detach();
-            public function failed($exceptionName);
-        }
-
-        $Ice_Instrumentation__t_Observer = IcePHP_defineClass('::Ice::Instrumentation::Observer', '\\Ice\\Instrumentation\\Observer', -1, true, false, $Ice__t_Object, null, null);
+        const ThreadStateIdle = 0;
+        const ThreadStateInUseForIO = 1;
+        const ThreadStateInUseForUser = 2;
+        const ThreadStateInUseForOther = 3;
     }
+
+    $Ice_Instrumentation__t_ThreadState = IcePHP_defineEnum('::Ice::Instrumentation::ThreadState', array('ThreadStateIdle', 0, 'ThreadStateInUseForIO', 1, 'ThreadStateInUseForUser', 2, 'ThreadStateInUseForOther', 3));
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_ThreadObserver;
+
+if(!interface_exists('Ice_Instrumentation_ThreadObserver'))
 {
-    global $Ice_Instrumentation__t_ThreadState;
-
-    if(!class_exists('\\Ice\\Instrumentation\\ThreadState'))
+    interface Ice_Instrumentation_ThreadObserver extends Ice_Instrumentation_Observer
     {
-        class ThreadState
-        {
-            const ThreadStateIdle = 0;
-            const ThreadStateInUseForIO = 1;
-            const ThreadStateInUseForUser = 2;
-            const ThreadStateInUseForOther = 3;
-        }
-
-        $Ice_Instrumentation__t_ThreadState = IcePHP_defineEnum('::Ice::Instrumentation::ThreadState', array('ThreadStateIdle', 0, 'ThreadStateInUseForIO', 1, 'ThreadStateInUseForUser', 2, 'ThreadStateInUseForOther', 3));
+        public function stateChanged($oldState, $newState);
     }
+
+    $Ice_Instrumentation__t_ThreadObserver = IcePHP_defineClass('::Ice::Instrumentation::ThreadObserver', 'Ice_Instrumentation_ThreadObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_ConnectionState;
+
+if(!class_exists('Ice_Instrumentation_ConnectionState'))
 {
-    global $Ice_Instrumentation__t_ThreadObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\ThreadObserver'))
+    class Ice_Instrumentation_ConnectionState
     {
-        interface ThreadObserver extends \Ice\Instrumentation\Observer
-        {
-            public function stateChanged($oldState, $newState);
-        }
-
-        $Ice_Instrumentation__t_ThreadObserver = IcePHP_defineClass('::Ice::Instrumentation::ThreadObserver', '\\Ice\\Instrumentation\\ThreadObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
+        const ConnectionStateValidating = 0;
+        const ConnectionStateHolding = 1;
+        const ConnectionStateActive = 2;
+        const ConnectionStateClosing = 3;
+        const ConnectionStateClosed = 4;
     }
+
+    $Ice_Instrumentation__t_ConnectionState = IcePHP_defineEnum('::Ice::Instrumentation::ConnectionState', array('ConnectionStateValidating', 0, 'ConnectionStateHolding', 1, 'ConnectionStateActive', 2, 'ConnectionStateClosing', 3, 'ConnectionStateClosed', 4));
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_ConnectionObserver;
+
+if(!interface_exists('Ice_Instrumentation_ConnectionObserver'))
 {
-    global $Ice_Instrumentation__t_ConnectionState;
-
-    if(!class_exists('\\Ice\\Instrumentation\\ConnectionState'))
+    interface Ice_Instrumentation_ConnectionObserver extends Ice_Instrumentation_Observer
     {
-        class ConnectionState
-        {
-            const ConnectionStateValidating = 0;
-            const ConnectionStateHolding = 1;
-            const ConnectionStateActive = 2;
-            const ConnectionStateClosing = 3;
-            const ConnectionStateClosed = 4;
-        }
-
-        $Ice_Instrumentation__t_ConnectionState = IcePHP_defineEnum('::Ice::Instrumentation::ConnectionState', array('ConnectionStateValidating', 0, 'ConnectionStateHolding', 1, 'ConnectionStateActive', 2, 'ConnectionStateClosing', 3, 'ConnectionStateClosed', 4));
+        public function sentBytes($num);
+        public function receivedBytes($num);
     }
+
+    $Ice_Instrumentation__t_ConnectionObserver = IcePHP_defineClass('::Ice::Instrumentation::ConnectionObserver', 'Ice_Instrumentation_ConnectionObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_DispatchObserver;
+
+if(!interface_exists('Ice_Instrumentation_DispatchObserver'))
 {
-    global $Ice_Instrumentation__t_ConnectionObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\ConnectionObserver'))
+    interface Ice_Instrumentation_DispatchObserver extends Ice_Instrumentation_Observer
     {
-        interface ConnectionObserver extends \Ice\Instrumentation\Observer
-        {
-            public function sentBytes($num);
-            public function receivedBytes($num);
-        }
-
-        $Ice_Instrumentation__t_ConnectionObserver = IcePHP_defineClass('::Ice::Instrumentation::ConnectionObserver', '\\Ice\\Instrumentation\\ConnectionObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
+        public function userException();
+        public function reply($size);
     }
+
+    $Ice_Instrumentation__t_DispatchObserver = IcePHP_defineClass('::Ice::Instrumentation::DispatchObserver', 'Ice_Instrumentation_DispatchObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_ChildInvocationObserver;
+
+if(!interface_exists('Ice_Instrumentation_ChildInvocationObserver'))
 {
-    global $Ice_Instrumentation__t_DispatchObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\DispatchObserver'))
+    interface Ice_Instrumentation_ChildInvocationObserver extends Ice_Instrumentation_Observer
     {
-        interface DispatchObserver extends \Ice\Instrumentation\Observer
-        {
-            public function userException();
-            public function reply($size);
-        }
-
-        $Ice_Instrumentation__t_DispatchObserver = IcePHP_defineClass('::Ice::Instrumentation::DispatchObserver', '\\Ice\\Instrumentation\\DispatchObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
+        public function reply($size);
     }
+
+    $Ice_Instrumentation__t_ChildInvocationObserver = IcePHP_defineClass('::Ice::Instrumentation::ChildInvocationObserver', 'Ice_Instrumentation_ChildInvocationObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_RemoteObserver;
+
+if(!interface_exists('Ice_Instrumentation_RemoteObserver'))
 {
-    global $Ice_Instrumentation__t_ChildInvocationObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\ChildInvocationObserver'))
+    interface Ice_Instrumentation_RemoteObserver extends Ice_Instrumentation_ChildInvocationObserver
     {
-        interface ChildInvocationObserver extends \Ice\Instrumentation\Observer
-        {
-            public function reply($size);
-        }
-
-        $Ice_Instrumentation__t_ChildInvocationObserver = IcePHP_defineClass('::Ice::Instrumentation::ChildInvocationObserver', '\\Ice\\Instrumentation\\ChildInvocationObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
     }
+
+    $Ice_Instrumentation__t_RemoteObserver = IcePHP_defineClass('::Ice::Instrumentation::RemoteObserver', 'Ice_Instrumentation_RemoteObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_ChildInvocationObserver), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_CollocatedObserver;
+
+if(!interface_exists('Ice_Instrumentation_CollocatedObserver'))
 {
-    global $Ice_Instrumentation__t_RemoteObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\RemoteObserver'))
+    interface Ice_Instrumentation_CollocatedObserver extends Ice_Instrumentation_ChildInvocationObserver
     {
-        interface RemoteObserver extends \Ice\Instrumentation\ChildInvocationObserver
-        {
-        }
-
-        $Ice_Instrumentation__t_RemoteObserver = IcePHP_defineClass('::Ice::Instrumentation::RemoteObserver', '\\Ice\\Instrumentation\\RemoteObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_ChildInvocationObserver), null);
     }
+
+    $Ice_Instrumentation__t_CollocatedObserver = IcePHP_defineClass('::Ice::Instrumentation::CollocatedObserver', 'Ice_Instrumentation_CollocatedObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_ChildInvocationObserver), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_InvocationObserver;
+
+if(!interface_exists('Ice_Instrumentation_InvocationObserver'))
 {
-    global $Ice_Instrumentation__t_CollocatedObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\CollocatedObserver'))
+    interface Ice_Instrumentation_InvocationObserver extends Ice_Instrumentation_Observer
     {
-        interface CollocatedObserver extends \Ice\Instrumentation\ChildInvocationObserver
-        {
-        }
-
-        $Ice_Instrumentation__t_CollocatedObserver = IcePHP_defineClass('::Ice::Instrumentation::CollocatedObserver', '\\Ice\\Instrumentation\\CollocatedObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_ChildInvocationObserver), null);
+        public function retried();
+        public function userException();
+        public function getRemoteObserver($con, $endpt, $requestId, $size);
+        public function getCollocatedObserver($adapter, $requestId, $size);
     }
+
+    $Ice_Instrumentation__t_InvocationObserver = IcePHP_defineClass('::Ice::Instrumentation::InvocationObserver', 'Ice_Instrumentation_InvocationObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_ObserverUpdater;
+
+if(!interface_exists('Ice_Instrumentation_ObserverUpdater'))
 {
-    global $Ice_Instrumentation__t_InvocationObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\InvocationObserver'))
+    interface Ice_Instrumentation_ObserverUpdater
     {
-        interface InvocationObserver extends \Ice\Instrumentation\Observer
-        {
-            public function retried();
-            public function userException();
-            public function getRemoteObserver($con, $endpt, $requestId, $size);
-            public function getCollocatedObserver($adapter, $requestId, $size);
-        }
-
-        $Ice_Instrumentation__t_InvocationObserver = IcePHP_defineClass('::Ice::Instrumentation::InvocationObserver', '\\Ice\\Instrumentation\\InvocationObserver', -1, true, false, $Ice__t_Object, array($Ice_Instrumentation__t_Observer), null);
+        public function updateConnectionObservers();
+        public function updateThreadObservers();
     }
+
+    $Ice_Instrumentation__t_ObserverUpdater = IcePHP_defineClass('::Ice::Instrumentation::ObserverUpdater', 'Ice_Instrumentation_ObserverUpdater', -1, true, false, $Ice__t_Object, null, null);
 }
 
-namespace Ice\Instrumentation
+global $Ice_Instrumentation__t_CommunicatorObserver;
+
+if(!interface_exists('Ice_Instrumentation_CommunicatorObserver'))
 {
-    global $Ice_Instrumentation__t_ObserverUpdater;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\ObserverUpdater'))
+    interface Ice_Instrumentation_CommunicatorObserver
     {
-        interface ObserverUpdater
-        {
-            public function updateConnectionObservers();
-            public function updateThreadObservers();
-        }
-
-        $Ice_Instrumentation__t_ObserverUpdater = IcePHP_defineClass('::Ice::Instrumentation::ObserverUpdater', '\\Ice\\Instrumentation\\ObserverUpdater', -1, true, false, $Ice__t_Object, null, null);
+        public function getConnectionEstablishmentObserver($endpt, $connector);
+        public function getEndpointLookupObserver($endpt);
+        public function getConnectionObserver($c, $e, $s, $o);
+        public function getThreadObserver($parent, $id, $s, $o);
+        public function getInvocationObserver($prx, $operation, $ctx);
+        public function getDispatchObserver($c, $size);
+        public function setObserverUpdater($updater);
     }
-}
 
-namespace Ice\Instrumentation
-{
-    global $Ice_Instrumentation__t_CommunicatorObserver;
-
-    if(!interface_exists('\\Ice\\Instrumentation\\CommunicatorObserver'))
-    {
-        interface CommunicatorObserver
-        {
-            public function getConnectionEstablishmentObserver($endpt, $connector);
-            public function getEndpointLookupObserver($endpt);
-            public function getConnectionObserver($c, $e, $s, $o);
-            public function getThreadObserver($parent, $id, $s, $o);
-            public function getInvocationObserver($prx, $operation, $ctx);
-            public function getDispatchObserver($c, $size);
-            public function setObserverUpdater($updater);
-        }
-
-        $Ice_Instrumentation__t_CommunicatorObserver = IcePHP_defineClass('::Ice::Instrumentation::CommunicatorObserver', '\\Ice\\Instrumentation\\CommunicatorObserver', -1, true, false, $Ice__t_Object, null, null);
-    }
+    $Ice_Instrumentation__t_CommunicatorObserver = IcePHP_defineClass('::Ice::Instrumentation::CommunicatorObserver', 'Ice_Instrumentation_CommunicatorObserver', -1, true, false, $Ice__t_Object, null, null);
 }
 ?>

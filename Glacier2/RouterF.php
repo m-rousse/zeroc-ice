@@ -20,14 +20,11 @@
 //
 
 
-namespace Glacier2
+global $Glacier2__t_Router;
+global $Glacier2__t_RouterPrx;
+if(!isset($Glacier2__t_Router))
 {
-    global $Glacier2__t_Router;
-    global $Glacier2__t_RouterPrx;
-    if(!isset($Glacier2__t_Router))
-    {
-        $Glacier2__t_Router = IcePHP_declareClass('::Glacier2::Router');
-        $Glacier2__t_RouterPrx = IcePHP_declareProxy('::Glacier2::Router');
-    }
+    $Glacier2__t_Router = IcePHP_declareClass('::Glacier2::Router');
+    $Glacier2__t_RouterPrx = IcePHP_declareProxy('::Glacier2::Router');
 }
 ?>

@@ -19,61 +19,51 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $Ice__t_PropertyDict;
+
+if(!isset($Ice__t_PropertyDict))
 {
-    require_once 'Ice/BuiltinSequences.php';
+    $Ice__t_PropertyDict = IcePHP_defineDictionary('::Ice::PropertyDict', $IcePHP__t_string, $IcePHP__t_string);
 }
 
-namespace Ice
-{
-    global $Ice__t_PropertyDict;
+global $Ice__t_PropertiesAdmin;
+global $Ice__t_PropertiesAdminPrx;
 
-    if(!isset($Ice__t_PropertyDict))
+if(!interface_exists('Ice_PropertiesAdmin'))
+{
+    interface Ice_PropertiesAdmin extends Ice_Object
     {
-        $Ice__t_PropertyDict = IcePHP_defineDictionary('::Ice::PropertyDict', $IcePHP__t_string, $IcePHP__t_string);
+        public function getProperty($key);
+        public function getPropertiesForPrefix($prefix);
+        public function setProperties($newProperties);
     }
-}
 
-namespace Ice
-{
-    global $Ice__t_PropertiesAdmin;
-    global $Ice__t_PropertiesAdminPrx;
-
-    if(!interface_exists('\\Ice\\PropertiesAdmin'))
+    class Ice_PropertiesAdminPrxHelper
     {
-        interface PropertiesAdmin extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function getProperty($key);
-            public function getPropertiesForPrefix($prefix);
-            public function setProperties($newProperties);
+            return $proxy->ice_checkedCast('::Ice::PropertiesAdmin', $facetOrCtx, $ctx);
         }
 
-        class PropertiesAdminPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::PropertiesAdmin', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::PropertiesAdmin', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::PropertiesAdmin';
-            }
+            return $proxy->ice_uncheckedCast('::Ice::PropertiesAdmin', $facet);
         }
 
-        $Ice__t_PropertiesAdmin = IcePHP_defineClass('::Ice::PropertiesAdmin', '\\Ice\\PropertiesAdmin', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_PropertiesAdminPrx = IcePHP_defineProxy($Ice__t_PropertiesAdmin);
-
-        IcePHP_defineOperation($Ice__t_PropertiesAdmin, 'getProperty', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, array($IcePHP__t_string, false, 0), null);
-        IcePHP_defineOperation($Ice__t_PropertiesAdmin, 'getPropertiesForPrefix', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, array($Ice__t_PropertyDict, false, 0), null);
-        IcePHP_defineOperation($Ice__t_PropertiesAdmin, 'setProperties', 0, 0, 0, array(array($Ice__t_PropertyDict, false, 0)), null, null, null);
+        public static function ice_staticId()
+        {
+            return '::Ice::PropertiesAdmin';
+        }
     }
+
+    $Ice__t_PropertiesAdmin = IcePHP_defineClass('::Ice::PropertiesAdmin', 'Ice_PropertiesAdmin', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_PropertiesAdminPrx = IcePHP_defineProxy($Ice__t_PropertiesAdmin);
+
+    IcePHP_defineOperation($Ice__t_PropertiesAdmin, 'getProperty', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, array($IcePHP__t_string, false, 0), null);
+    IcePHP_defineOperation($Ice__t_PropertiesAdmin, 'getPropertiesForPrefix', 0, 0, 0, array(array($IcePHP__t_string, false, 0)), null, array($Ice__t_PropertyDict, false, 0), null);
+    IcePHP_defineOperation($Ice__t_PropertiesAdmin, 'setProperties', 0, 0, 0, array(array($Ice__t_PropertyDict, false, 0)), null, null, null);
 }
 ?>

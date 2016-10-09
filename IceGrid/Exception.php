@@ -19,694 +19,627 @@
 // </auto-generated>
 //
 
+require_once 'Ice/Identity.php';
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $IceGrid__t_ApplicationNotExistException;
+
+if(!class_exists('IceGrid_ApplicationNotExistException'))
 {
-    require_once 'Ice/Identity.php';
-    require_once 'Ice/BuiltinSequences.php';
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_ApplicationNotExistException;
-
-    if(!class_exists('\\IceGrid\\ApplicationNotExistException'))
+    class IceGrid_ApplicationNotExistException extends Ice_UserException
     {
-        class ApplicationNotExistException extends \Ice\UserException
+        public function __construct($name='')
         {
-            public function __construct($name='')
-            {
-                $this->name = $name;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ApplicationNotExistException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ApplicationNotExistException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ApplicationNotExistException);
-            }
-
-            public $name;
+            $this->name = $name;
         }
 
-        $IceGrid__t_ApplicationNotExistException = IcePHP_defineException('::IceGrid::ApplicationNotExistException', '\\IceGrid\\ApplicationNotExistException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0)));
-    }
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_ServerNotExistException;
-
-    if(!class_exists('\\IceGrid\\ServerNotExistException'))
-    {
-        class ServerNotExistException extends \Ice\UserException
+        public function ice_name()
         {
-            public function __construct($id='')
-            {
-                $this->id = $id;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ServerNotExistException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ServerNotExistException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ServerNotExistException);
-            }
-
-            public $id;
+            return 'IceGrid::ApplicationNotExistException';
         }
 
-        $IceGrid__t_ServerNotExistException = IcePHP_defineException('::IceGrid::ServerNotExistException', '\\IceGrid\\ServerNotExistException', false, null, array(
-            array('id', $IcePHP__t_string, false, 0)));
-    }
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_ServerStartException;
-
-    if(!class_exists('\\IceGrid\\ServerStartException'))
-    {
-        class ServerStartException extends \Ice\UserException
+        public function __toString()
         {
-            public function __construct($id='', $reason='')
-            {
-                $this->id = $id;
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ServerStartException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ServerStartException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ServerStartException);
-            }
-
-            public $id;
-            public $reason;
+            global $IceGrid__t_ApplicationNotExistException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ApplicationNotExistException);
         }
 
-        $IceGrid__t_ServerStartException = IcePHP_defineException('::IceGrid::ServerStartException', '\\IceGrid\\ServerStartException', false, null, array(
-            array('id', $IcePHP__t_string, false, 0),
-            array('reason', $IcePHP__t_string, false, 0)));
+        public $name;
     }
+
+    $IceGrid__t_ApplicationNotExistException = IcePHP_defineException('::IceGrid::ApplicationNotExistException', 'IceGrid_ApplicationNotExistException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_ServerNotExistException;
+
+if(!class_exists('IceGrid_ServerNotExistException'))
 {
-    global $IceGrid__t_ServerStopException;
-
-    if(!class_exists('\\IceGrid\\ServerStopException'))
+    class IceGrid_ServerNotExistException extends Ice_UserException
     {
-        class ServerStopException extends \Ice\UserException
+        public function __construct($id='')
         {
-            public function __construct($id='', $reason='')
-            {
-                $this->id = $id;
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ServerStopException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ServerStopException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ServerStopException);
-            }
-
-            public $id;
-            public $reason;
+            $this->id = $id;
         }
 
-        $IceGrid__t_ServerStopException = IcePHP_defineException('::IceGrid::ServerStopException', '\\IceGrid\\ServerStopException', false, null, array(
-            array('id', $IcePHP__t_string, false, 0),
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::ServerNotExistException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ServerNotExistException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ServerNotExistException);
+        }
+
+        public $id;
     }
+
+    $IceGrid__t_ServerNotExistException = IcePHP_defineException('::IceGrid::ServerNotExistException', 'IceGrid_ServerNotExistException', false, null, array(
+        array('id', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_ServerStartException;
+
+if(!class_exists('IceGrid_ServerStartException'))
 {
-    global $IceGrid__t_AdapterNotExistException;
-
-    if(!class_exists('\\IceGrid\\AdapterNotExistException'))
+    class IceGrid_ServerStartException extends Ice_UserException
     {
-        class AdapterNotExistException extends \Ice\UserException
+        public function __construct($id='', $reason='')
         {
-            public function __construct($id='')
-            {
-                $this->id = $id;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::AdapterNotExistException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_AdapterNotExistException;
-                return IcePHP_stringifyException($this, $IceGrid__t_AdapterNotExistException);
-            }
-
-            public $id;
+            $this->id = $id;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_AdapterNotExistException = IcePHP_defineException('::IceGrid::AdapterNotExistException', '\\IceGrid\\AdapterNotExistException', false, null, array(
-            array('id', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::ServerStartException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ServerStartException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ServerStartException);
+        }
+
+        public $id;
+        public $reason;
     }
+
+    $IceGrid__t_ServerStartException = IcePHP_defineException('::IceGrid::ServerStartException', 'IceGrid_ServerStartException', false, null, array(
+        array('id', $IcePHP__t_string, false, 0),
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_ServerStopException;
+
+if(!class_exists('IceGrid_ServerStopException'))
 {
-    global $IceGrid__t_ObjectExistsException;
-
-    if(!class_exists('\\IceGrid\\ObjectExistsException'))
+    class IceGrid_ServerStopException extends Ice_UserException
     {
-        class ObjectExistsException extends \Ice\UserException
+        public function __construct($id='', $reason='')
         {
-            public function __construct($id=null)
-            {
-                $this->id = is_null($id) ? new \Ice\Identity : $id;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ObjectExistsException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ObjectExistsException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ObjectExistsException);
-            }
-
-            public $id;
+            $this->id = $id;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_ObjectExistsException = IcePHP_defineException('::IceGrid::ObjectExistsException', '\\IceGrid\\ObjectExistsException', false, null, array(
-            array('id', $Ice__t_Identity, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::ServerStopException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ServerStopException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ServerStopException);
+        }
+
+        public $id;
+        public $reason;
     }
+
+    $IceGrid__t_ServerStopException = IcePHP_defineException('::IceGrid::ServerStopException', 'IceGrid_ServerStopException', false, null, array(
+        array('id', $IcePHP__t_string, false, 0),
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_AdapterNotExistException;
+
+if(!class_exists('IceGrid_AdapterNotExistException'))
 {
-    global $IceGrid__t_ObjectNotRegisteredException;
-
-    if(!class_exists('\\IceGrid\\ObjectNotRegisteredException'))
+    class IceGrid_AdapterNotExistException extends Ice_UserException
     {
-        class ObjectNotRegisteredException extends \Ice\UserException
+        public function __construct($id='')
         {
-            public function __construct($id=null)
-            {
-                $this->id = is_null($id) ? new \Ice\Identity : $id;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ObjectNotRegisteredException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ObjectNotRegisteredException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ObjectNotRegisteredException);
-            }
-
-            public $id;
+            $this->id = $id;
         }
 
-        $IceGrid__t_ObjectNotRegisteredException = IcePHP_defineException('::IceGrid::ObjectNotRegisteredException', '\\IceGrid\\ObjectNotRegisteredException', false, null, array(
-            array('id', $Ice__t_Identity, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::AdapterNotExistException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_AdapterNotExistException;
+            return IcePHP_stringifyException($this, $IceGrid__t_AdapterNotExistException);
+        }
+
+        public $id;
     }
+
+    $IceGrid__t_AdapterNotExistException = IcePHP_defineException('::IceGrid::AdapterNotExistException', 'IceGrid_AdapterNotExistException', false, null, array(
+        array('id', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_ObjectExistsException;
+
+if(!class_exists('IceGrid_ObjectExistsException'))
 {
-    global $IceGrid__t_NodeNotExistException;
-
-    if(!class_exists('\\IceGrid\\NodeNotExistException'))
+    class IceGrid_ObjectExistsException extends Ice_UserException
     {
-        class NodeNotExistException extends \Ice\UserException
+        public function __construct($id=null)
         {
-            public function __construct($name='')
-            {
-                $this->name = $name;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::NodeNotExistException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_NodeNotExistException;
-                return IcePHP_stringifyException($this, $IceGrid__t_NodeNotExistException);
-            }
-
-            public $name;
+            $this->id = is_null($id) ? new Ice_Identity : $id;
         }
 
-        $IceGrid__t_NodeNotExistException = IcePHP_defineException('::IceGrid::NodeNotExistException', '\\IceGrid\\NodeNotExistException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::ObjectExistsException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ObjectExistsException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ObjectExistsException);
+        }
+
+        public $id;
     }
+
+    $IceGrid__t_ObjectExistsException = IcePHP_defineException('::IceGrid::ObjectExistsException', 'IceGrid_ObjectExistsException', false, null, array(
+        array('id', $Ice__t_Identity, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_ObjectNotRegisteredException;
+
+if(!class_exists('IceGrid_ObjectNotRegisteredException'))
 {
-    global $IceGrid__t_RegistryNotExistException;
-
-    if(!class_exists('\\IceGrid\\RegistryNotExistException'))
+    class IceGrid_ObjectNotRegisteredException extends Ice_UserException
     {
-        class RegistryNotExistException extends \Ice\UserException
+        public function __construct($id=null)
         {
-            public function __construct($name='')
-            {
-                $this->name = $name;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::RegistryNotExistException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_RegistryNotExistException;
-                return IcePHP_stringifyException($this, $IceGrid__t_RegistryNotExistException);
-            }
-
-            public $name;
+            $this->id = is_null($id) ? new Ice_Identity : $id;
         }
 
-        $IceGrid__t_RegistryNotExistException = IcePHP_defineException('::IceGrid::RegistryNotExistException', '\\IceGrid\\RegistryNotExistException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::ObjectNotRegisteredException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ObjectNotRegisteredException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ObjectNotRegisteredException);
+        }
+
+        public $id;
     }
+
+    $IceGrid__t_ObjectNotRegisteredException = IcePHP_defineException('::IceGrid::ObjectNotRegisteredException', 'IceGrid_ObjectNotRegisteredException', false, null, array(
+        array('id', $Ice__t_Identity, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_NodeNotExistException;
+
+if(!class_exists('IceGrid_NodeNotExistException'))
 {
-    global $IceGrid__t_DeploymentException;
-
-    if(!class_exists('\\IceGrid\\DeploymentException'))
+    class IceGrid_NodeNotExistException extends Ice_UserException
     {
-        class DeploymentException extends \Ice\UserException
+        public function __construct($name='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::DeploymentException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_DeploymentException;
-                return IcePHP_stringifyException($this, $IceGrid__t_DeploymentException);
-            }
-
-            public $reason;
+            $this->name = $name;
         }
 
-        $IceGrid__t_DeploymentException = IcePHP_defineException('::IceGrid::DeploymentException', '\\IceGrid\\DeploymentException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::NodeNotExistException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_NodeNotExistException;
+            return IcePHP_stringifyException($this, $IceGrid__t_NodeNotExistException);
+        }
+
+        public $name;
     }
+
+    $IceGrid__t_NodeNotExistException = IcePHP_defineException('::IceGrid::NodeNotExistException', 'IceGrid_NodeNotExistException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_RegistryNotExistException;
+
+if(!class_exists('IceGrid_RegistryNotExistException'))
 {
-    global $IceGrid__t_NodeUnreachableException;
-
-    if(!class_exists('\\IceGrid\\NodeUnreachableException'))
+    class IceGrid_RegistryNotExistException extends Ice_UserException
     {
-        class NodeUnreachableException extends \Ice\UserException
+        public function __construct($name='')
         {
-            public function __construct($name='', $reason='')
-            {
-                $this->name = $name;
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::NodeUnreachableException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_NodeUnreachableException;
-                return IcePHP_stringifyException($this, $IceGrid__t_NodeUnreachableException);
-            }
-
-            public $name;
-            public $reason;
+            $this->name = $name;
         }
 
-        $IceGrid__t_NodeUnreachableException = IcePHP_defineException('::IceGrid::NodeUnreachableException', '\\IceGrid\\NodeUnreachableException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0),
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::RegistryNotExistException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_RegistryNotExistException;
+            return IcePHP_stringifyException($this, $IceGrid__t_RegistryNotExistException);
+        }
+
+        public $name;
     }
+
+    $IceGrid__t_RegistryNotExistException = IcePHP_defineException('::IceGrid::RegistryNotExistException', 'IceGrid_RegistryNotExistException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_DeploymentException;
+
+if(!class_exists('IceGrid_DeploymentException'))
 {
-    global $IceGrid__t_ServerUnreachableException;
-
-    if(!class_exists('\\IceGrid\\ServerUnreachableException'))
+    class IceGrid_DeploymentException extends Ice_UserException
     {
-        class ServerUnreachableException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct($name='', $reason='')
-            {
-                $this->name = $name;
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ServerUnreachableException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ServerUnreachableException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ServerUnreachableException);
-            }
-
-            public $name;
-            public $reason;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_ServerUnreachableException = IcePHP_defineException('::IceGrid::ServerUnreachableException', '\\IceGrid\\ServerUnreachableException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0),
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::DeploymentException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_DeploymentException;
+            return IcePHP_stringifyException($this, $IceGrid__t_DeploymentException);
+        }
+
+        public $reason;
     }
+
+    $IceGrid__t_DeploymentException = IcePHP_defineException('::IceGrid::DeploymentException', 'IceGrid_DeploymentException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_NodeUnreachableException;
+
+if(!class_exists('IceGrid_NodeUnreachableException'))
 {
-    global $IceGrid__t_RegistryUnreachableException;
-
-    if(!class_exists('\\IceGrid\\RegistryUnreachableException'))
+    class IceGrid_NodeUnreachableException extends Ice_UserException
     {
-        class RegistryUnreachableException extends \Ice\UserException
+        public function __construct($name='', $reason='')
         {
-            public function __construct($name='', $reason='')
-            {
-                $this->name = $name;
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::RegistryUnreachableException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_RegistryUnreachableException;
-                return IcePHP_stringifyException($this, $IceGrid__t_RegistryUnreachableException);
-            }
-
-            public $name;
-            public $reason;
+            $this->name = $name;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_RegistryUnreachableException = IcePHP_defineException('::IceGrid::RegistryUnreachableException', '\\IceGrid\\RegistryUnreachableException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0),
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::NodeUnreachableException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_NodeUnreachableException;
+            return IcePHP_stringifyException($this, $IceGrid__t_NodeUnreachableException);
+        }
+
+        public $name;
+        public $reason;
     }
+
+    $IceGrid__t_NodeUnreachableException = IcePHP_defineException('::IceGrid::NodeUnreachableException', 'IceGrid_NodeUnreachableException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0),
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_ServerUnreachableException;
+
+if(!class_exists('IceGrid_ServerUnreachableException'))
 {
-    global $IceGrid__t_BadSignalException;
-
-    if(!class_exists('\\IceGrid\\BadSignalException'))
+    class IceGrid_ServerUnreachableException extends Ice_UserException
     {
-        class BadSignalException extends \Ice\UserException
+        public function __construct($name='', $reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::BadSignalException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_BadSignalException;
-                return IcePHP_stringifyException($this, $IceGrid__t_BadSignalException);
-            }
-
-            public $reason;
+            $this->name = $name;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_BadSignalException = IcePHP_defineException('::IceGrid::BadSignalException', '\\IceGrid\\BadSignalException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::ServerUnreachableException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ServerUnreachableException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ServerUnreachableException);
+        }
+
+        public $name;
+        public $reason;
     }
+
+    $IceGrid__t_ServerUnreachableException = IcePHP_defineException('::IceGrid::ServerUnreachableException', 'IceGrid_ServerUnreachableException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0),
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_RegistryUnreachableException;
+
+if(!class_exists('IceGrid_RegistryUnreachableException'))
 {
-    global $IceGrid__t_PatchException;
-
-    if(!class_exists('\\IceGrid\\PatchException'))
+    class IceGrid_RegistryUnreachableException extends Ice_UserException
     {
-        class PatchException extends \Ice\UserException
+        public function __construct($name='', $reason='')
         {
-            public function __construct($reasons=null)
-            {
-                $this->reasons = $reasons;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::PatchException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_PatchException;
-                return IcePHP_stringifyException($this, $IceGrid__t_PatchException);
-            }
-
-            public $reasons;
+            $this->name = $name;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_PatchException = IcePHP_defineException('::IceGrid::PatchException', '\\IceGrid\\PatchException', false, null, array(
-            array('reasons', $Ice__t_StringSeq, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::RegistryUnreachableException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_RegistryUnreachableException;
+            return IcePHP_stringifyException($this, $IceGrid__t_RegistryUnreachableException);
+        }
+
+        public $name;
+        public $reason;
     }
+
+    $IceGrid__t_RegistryUnreachableException = IcePHP_defineException('::IceGrid::RegistryUnreachableException', 'IceGrid_RegistryUnreachableException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0),
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_BadSignalException;
+
+if(!class_exists('IceGrid_BadSignalException'))
 {
-    global $IceGrid__t_AccessDeniedException;
-
-    if(!class_exists('\\IceGrid\\AccessDeniedException'))
+    class IceGrid_BadSignalException extends Ice_UserException
     {
-        class AccessDeniedException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct($lockUserId='')
-            {
-                $this->lockUserId = $lockUserId;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::AccessDeniedException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_AccessDeniedException;
-                return IcePHP_stringifyException($this, $IceGrid__t_AccessDeniedException);
-            }
-
-            public $lockUserId;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_AccessDeniedException = IcePHP_defineException('::IceGrid::AccessDeniedException', '\\IceGrid\\AccessDeniedException', false, null, array(
-            array('lockUserId', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::BadSignalException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_BadSignalException;
+            return IcePHP_stringifyException($this, $IceGrid__t_BadSignalException);
+        }
+
+        public $reason;
     }
+
+    $IceGrid__t_BadSignalException = IcePHP_defineException('::IceGrid::BadSignalException', 'IceGrid_BadSignalException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_PatchException;
+
+if(!class_exists('IceGrid_PatchException'))
 {
-    global $IceGrid__t_AllocationException;
-
-    if(!class_exists('\\IceGrid\\AllocationException'))
+    class IceGrid_PatchException extends Ice_UserException
     {
-        class AllocationException extends \Ice\UserException
+        public function __construct($reasons=null)
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::AllocationException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_AllocationException;
-                return IcePHP_stringifyException($this, $IceGrid__t_AllocationException);
-            }
-
-            public $reason;
+            $this->reasons = $reasons;
         }
 
-        $IceGrid__t_AllocationException = IcePHP_defineException('::IceGrid::AllocationException', '\\IceGrid\\AllocationException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::PatchException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_PatchException;
+            return IcePHP_stringifyException($this, $IceGrid__t_PatchException);
+        }
+
+        public $reasons;
     }
+
+    $IceGrid__t_PatchException = IcePHP_defineException('::IceGrid::PatchException', 'IceGrid_PatchException', false, null, array(
+        array('reasons', $Ice__t_StringSeq, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_AccessDeniedException;
+
+if(!class_exists('IceGrid_AccessDeniedException'))
 {
-    global $IceGrid__t_AllocationTimeoutException;
-
-    if(!class_exists('\\IceGrid\\AllocationTimeoutException'))
+    class IceGrid_AccessDeniedException extends Ice_UserException
     {
-        class AllocationTimeoutException extends \IceGrid\AllocationException
+        public function __construct($lockUserId='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::AllocationTimeoutException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_AllocationTimeoutException;
-                return IcePHP_stringifyException($this, $IceGrid__t_AllocationTimeoutException);
-            }
+            $this->lockUserId = $lockUserId;
         }
 
-        $IceGrid__t_AllocationTimeoutException = IcePHP_defineException('::IceGrid::AllocationTimeoutException', '\\IceGrid\\AllocationTimeoutException', false, $IceGrid__t_AllocationException, null);
+        public function ice_name()
+        {
+            return 'IceGrid::AccessDeniedException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_AccessDeniedException;
+            return IcePHP_stringifyException($this, $IceGrid__t_AccessDeniedException);
+        }
+
+        public $lockUserId;
     }
+
+    $IceGrid__t_AccessDeniedException = IcePHP_defineException('::IceGrid::AccessDeniedException', 'IceGrid_AccessDeniedException', false, null, array(
+        array('lockUserId', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_AllocationException;
+
+if(!class_exists('IceGrid_AllocationException'))
 {
-    global $IceGrid__t_PermissionDeniedException;
-
-    if(!class_exists('\\IceGrid\\PermissionDeniedException'))
+    class IceGrid_AllocationException extends Ice_UserException
     {
-        class PermissionDeniedException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::PermissionDeniedException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_PermissionDeniedException;
-                return IcePHP_stringifyException($this, $IceGrid__t_PermissionDeniedException);
-            }
-
-            public $reason;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_PermissionDeniedException = IcePHP_defineException('::IceGrid::PermissionDeniedException', '\\IceGrid\\PermissionDeniedException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::AllocationException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_AllocationException;
+            return IcePHP_stringifyException($this, $IceGrid__t_AllocationException);
+        }
+
+        public $reason;
     }
+
+    $IceGrid__t_AllocationException = IcePHP_defineException('::IceGrid::AllocationException', 'IceGrid_AllocationException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_AllocationTimeoutException;
+
+if(!class_exists('IceGrid_AllocationTimeoutException'))
 {
-    global $IceGrid__t_ObserverAlreadyRegisteredException;
-
-    if(!class_exists('\\IceGrid\\ObserverAlreadyRegisteredException'))
+    class IceGrid_AllocationTimeoutException extends IceGrid_AllocationException
     {
-        class ObserverAlreadyRegisteredException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct($id=null)
-            {
-                $this->id = is_null($id) ? new \Ice\Identity : $id;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ObserverAlreadyRegisteredException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ObserverAlreadyRegisteredException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ObserverAlreadyRegisteredException);
-            }
-
-            public $id;
+            parent::__construct($reason);
         }
 
-        $IceGrid__t_ObserverAlreadyRegisteredException = IcePHP_defineException('::IceGrid::ObserverAlreadyRegisteredException', '\\IceGrid\\ObserverAlreadyRegisteredException', false, null, array(
-            array('id', $Ice__t_Identity, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::AllocationTimeoutException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_AllocationTimeoutException;
+            return IcePHP_stringifyException($this, $IceGrid__t_AllocationTimeoutException);
+        }
     }
+
+    $IceGrid__t_AllocationTimeoutException = IcePHP_defineException('::IceGrid::AllocationTimeoutException', 'IceGrid_AllocationTimeoutException', false, $IceGrid__t_AllocationException, null);
 }
 
-namespace IceGrid
+global $IceGrid__t_PermissionDeniedException;
+
+if(!class_exists('IceGrid_PermissionDeniedException'))
 {
-    global $IceGrid__t_FileNotAvailableException;
-
-    if(!class_exists('\\IceGrid\\FileNotAvailableException'))
+    class IceGrid_PermissionDeniedException extends Ice_UserException
     {
-        class FileNotAvailableException extends \Ice\UserException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::FileNotAvailableException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_FileNotAvailableException;
-                return IcePHP_stringifyException($this, $IceGrid__t_FileNotAvailableException);
-            }
-
-            public $reason;
+            $this->reason = $reason;
         }
 
-        $IceGrid__t_FileNotAvailableException = IcePHP_defineException('::IceGrid::FileNotAvailableException', '\\IceGrid\\FileNotAvailableException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function ice_name()
+        {
+            return 'IceGrid::PermissionDeniedException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_PermissionDeniedException;
+            return IcePHP_stringifyException($this, $IceGrid__t_PermissionDeniedException);
+        }
+
+        public $reason;
     }
+
+    $IceGrid__t_PermissionDeniedException = IcePHP_defineException('::IceGrid::PermissionDeniedException', 'IceGrid_PermissionDeniedException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
+}
+
+global $IceGrid__t_ObserverAlreadyRegisteredException;
+
+if(!class_exists('IceGrid_ObserverAlreadyRegisteredException'))
+{
+    class IceGrid_ObserverAlreadyRegisteredException extends Ice_UserException
+    {
+        public function __construct($id=null)
+        {
+            $this->id = is_null($id) ? new Ice_Identity : $id;
+        }
+
+        public function ice_name()
+        {
+            return 'IceGrid::ObserverAlreadyRegisteredException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ObserverAlreadyRegisteredException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ObserverAlreadyRegisteredException);
+        }
+
+        public $id;
+    }
+
+    $IceGrid__t_ObserverAlreadyRegisteredException = IcePHP_defineException('::IceGrid::ObserverAlreadyRegisteredException', 'IceGrid_ObserverAlreadyRegisteredException', false, null, array(
+        array('id', $Ice__t_Identity, false, 0)));
+}
+
+global $IceGrid__t_FileNotAvailableException;
+
+if(!class_exists('IceGrid_FileNotAvailableException'))
+{
+    class IceGrid_FileNotAvailableException extends Ice_UserException
+    {
+        public function __construct($reason='')
+        {
+            $this->reason = $reason;
+        }
+
+        public function ice_name()
+        {
+            return 'IceGrid::FileNotAvailableException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_FileNotAvailableException;
+            return IcePHP_stringifyException($this, $IceGrid__t_FileNotAvailableException);
+        }
+
+        public $reason;
+    }
+
+    $IceGrid__t_FileNotAvailableException = IcePHP_defineException('::IceGrid::FileNotAvailableException', 'IceGrid_FileNotAvailableException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 ?>

@@ -20,25 +20,19 @@
 //
 
 
-namespace Ice
+global $Ice__t_Locator;
+global $Ice__t_LocatorPrx;
+if(!isset($Ice__t_Locator))
 {
-    global $Ice__t_Locator;
-    global $Ice__t_LocatorPrx;
-    if(!isset($Ice__t_Locator))
-    {
-        $Ice__t_Locator = IcePHP_declareClass('::Ice::Locator');
-        $Ice__t_LocatorPrx = IcePHP_declareProxy('::Ice::Locator');
-    }
+    $Ice__t_Locator = IcePHP_declareClass('::Ice::Locator');
+    $Ice__t_LocatorPrx = IcePHP_declareProxy('::Ice::Locator');
 }
 
-namespace Ice
+global $Ice__t_LocatorRegistry;
+global $Ice__t_LocatorRegistryPrx;
+if(!isset($Ice__t_LocatorRegistry))
 {
-    global $Ice__t_LocatorRegistry;
-    global $Ice__t_LocatorRegistryPrx;
-    if(!isset($Ice__t_LocatorRegistry))
-    {
-        $Ice__t_LocatorRegistry = IcePHP_declareClass('::Ice::LocatorRegistry');
-        $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
-    }
+    $Ice__t_LocatorRegistry = IcePHP_declareClass('::Ice::LocatorRegistry');
+    $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
 }
 ?>

@@ -19,71 +19,58 @@
 // </auto-generated>
 //
 
+require_once 'Ice/Locator.php';
 
-namespace
+global $IceGrid__t_Registry;
+global $IceGrid__t_RegistryPrx;
+if(!isset($IceGrid__t_Registry))
 {
-    require_once 'Ice/Locator.php';
+    $IceGrid__t_Registry = IcePHP_declareClass('::IceGrid::Registry');
+    $IceGrid__t_RegistryPrx = IcePHP_declareProxy('::IceGrid::Registry');
 }
 
-namespace IceGrid
+global $IceGrid__t_Query;
+global $IceGrid__t_QueryPrx;
+if(!isset($IceGrid__t_Query))
 {
-    global $IceGrid__t_Registry;
-    global $IceGrid__t_RegistryPrx;
-    if(!isset($IceGrid__t_Registry))
+    $IceGrid__t_Query = IcePHP_declareClass('::IceGrid::Query');
+    $IceGrid__t_QueryPrx = IcePHP_declareProxy('::IceGrid::Query');
+}
+
+global $IceGrid__t_Locator;
+global $IceGrid__t_LocatorPrx;
+
+if(!interface_exists('IceGrid_Locator'))
+{
+    interface IceGrid_Locator extends Ice_Locator
     {
-        $IceGrid__t_Registry = IcePHP_declareClass('::IceGrid::Registry');
-        $IceGrid__t_RegistryPrx = IcePHP_declareProxy('::IceGrid::Registry');
+        public function getLocalRegistry();
+        public function getLocalQuery();
     }
-}
 
-namespace IceGrid
-{
-    global $IceGrid__t_Query;
-    global $IceGrid__t_QueryPrx;
-    if(!isset($IceGrid__t_Query))
+    class IceGrid_LocatorPrxHelper
     {
-        $IceGrid__t_Query = IcePHP_declareClass('::IceGrid::Query');
-        $IceGrid__t_QueryPrx = IcePHP_declareProxy('::IceGrid::Query');
-    }
-}
-
-namespace IceGrid
-{
-    global $IceGrid__t_Locator;
-    global $IceGrid__t_LocatorPrx;
-
-    if(!interface_exists('\\IceGrid\\Locator'))
-    {
-        interface Locator extends \Ice\Locator
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function getLocalRegistry();
-            public function getLocalQuery();
+            return $proxy->ice_checkedCast('::IceGrid::Locator', $facetOrCtx, $ctx);
         }
 
-        class LocatorPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceGrid::Locator', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceGrid::Locator', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceGrid::Locator';
-            }
+            return $proxy->ice_uncheckedCast('::IceGrid::Locator', $facet);
         }
 
-        $IceGrid__t_Locator = IcePHP_defineClass('::IceGrid::Locator', '\\IceGrid\\Locator', -1, true, false, $Ice__t_Object, array($Ice__t_Locator), null);
-
-        $IceGrid__t_LocatorPrx = IcePHP_defineProxy($IceGrid__t_Locator);
-
-        IcePHP_defineOperation($IceGrid__t_Locator, 'getLocalRegistry', 2, 2, 0, null, null, array($IceGrid__t_RegistryPrx, false, 0), null);
-        IcePHP_defineOperation($IceGrid__t_Locator, 'getLocalQuery', 2, 2, 0, null, null, array($IceGrid__t_QueryPrx, false, 0), null);
+        public static function ice_staticId()
+        {
+            return '::IceGrid::Locator';
+        }
     }
+
+    $IceGrid__t_Locator = IcePHP_defineClass('::IceGrid::Locator', 'IceGrid_Locator', -1, true, false, $Ice__t_Object, array($Ice__t_Locator), null);
+
+    $IceGrid__t_LocatorPrx = IcePHP_defineProxy($IceGrid__t_Locator);
+
+    IcePHP_defineOperation($IceGrid__t_Locator, 'getLocalRegistry', 2, 2, 0, null, null, array($IceGrid__t_RegistryPrx, false, 0), null);
+    IcePHP_defineOperation($IceGrid__t_Locator, 'getLocalQuery', 2, 2, 0, null, null, array($IceGrid__t_QueryPrx, false, 0), null);
 }
 ?>

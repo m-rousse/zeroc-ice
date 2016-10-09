@@ -20,19 +20,16 @@
 //
 
 
-namespace Ice
+global $Ice__t_EndpointSelectionType;
+
+if(!class_exists('Ice_EndpointSelectionType'))
 {
-    global $Ice__t_EndpointSelectionType;
-
-    if(!class_exists('\\Ice\\EndpointSelectionType'))
+    class Ice_EndpointSelectionType
     {
-        class EndpointSelectionType
-        {
-            const Random = 0;
-            const Ordered = 1;
-        }
-
-        $Ice__t_EndpointSelectionType = IcePHP_defineEnum('::Ice::EndpointSelectionType', array('Random', 0, 'Ordered', 1));
+        const Random = 0;
+        const Ordered = 1;
     }
+
+    $Ice__t_EndpointSelectionType = IcePHP_defineEnum('::Ice::EndpointSelectionType', array('Random', 0, 'Ordered', 1));
 }
 ?>

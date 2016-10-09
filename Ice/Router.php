@@ -19,89 +19,79 @@
 // </auto-generated>
 //
 
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
+global $Ice__t_Router;
+global $Ice__t_RouterPrx;
+
+if(!interface_exists('Ice_Router'))
 {
-    require_once 'Ice/BuiltinSequences.php';
+    interface Ice_Router extends Ice_Object
+    {
+        public function getClientProxy();
+        public function getServerProxy();
+        public function addProxies($proxies);
+    }
+
+    class Ice_RouterPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Ice::Router', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Ice::Router', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Ice::Router';
+        }
+    }
+
+    $Ice__t_Router = IcePHP_defineClass('::Ice::Router', 'Ice_Router', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_RouterPrx = IcePHP_defineProxy($Ice__t_Router);
+
+    IcePHP_defineOperation($Ice__t_Router, 'getClientProxy', 2, 1, 0, null, null, array($Ice__t_ObjectPrx, false, 0), null);
+    IcePHP_defineOperation($Ice__t_Router, 'getServerProxy', 2, 1, 0, null, null, array($Ice__t_ObjectPrx, false, 0), null);
+    IcePHP_defineOperation($Ice__t_Router, 'addProxies', 2, 2, 0, array(array($Ice__t_ObjectProxySeq, false, 0)), null, array($Ice__t_ObjectProxySeq, false, 0), null);
 }
 
-namespace Ice
+global $Ice__t_RouterFinder;
+global $Ice__t_RouterFinderPrx;
+
+if(!interface_exists('Ice_RouterFinder'))
 {
-    global $Ice__t_Router;
-    global $Ice__t_RouterPrx;
-
-    if(!interface_exists('\\Ice\\Router'))
+    interface Ice_RouterFinder extends Ice_Object
     {
-        interface Router extends \Ice\Object
-        {
-            public function getClientProxy();
-            public function getServerProxy();
-            public function addProxies($proxies);
-        }
-
-        class RouterPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::Router', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::Router', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::Router';
-            }
-        }
-
-        $Ice__t_Router = IcePHP_defineClass('::Ice::Router', '\\Ice\\Router', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_RouterPrx = IcePHP_defineProxy($Ice__t_Router);
-
-        IcePHP_defineOperation($Ice__t_Router, 'getClientProxy', 2, 1, 0, null, null, array($Ice__t_ObjectPrx, false, 0), null);
-        IcePHP_defineOperation($Ice__t_Router, 'getServerProxy', 2, 1, 0, null, null, array($Ice__t_ObjectPrx, false, 0), null);
-        IcePHP_defineOperation($Ice__t_Router, 'addProxies', 2, 2, 0, array(array($Ice__t_ObjectProxySeq, false, 0)), null, array($Ice__t_ObjectProxySeq, false, 0), null);
+        public function getRouter();
     }
-}
 
-namespace Ice
-{
-    global $Ice__t_RouterFinder;
-    global $Ice__t_RouterFinderPrx;
-
-    if(!interface_exists('\\Ice\\RouterFinder'))
+    class Ice_RouterFinderPrxHelper
     {
-        interface RouterFinder extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function getRouter();
+            return $proxy->ice_checkedCast('::Ice::RouterFinder', $facetOrCtx, $ctx);
         }
 
-        class RouterFinderPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::RouterFinder', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::RouterFinder', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::RouterFinder';
-            }
+            return $proxy->ice_uncheckedCast('::Ice::RouterFinder', $facet);
         }
 
-        $Ice__t_RouterFinder = IcePHP_defineClass('::Ice::RouterFinder', '\\Ice\\RouterFinder', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_RouterFinderPrx = IcePHP_defineProxy($Ice__t_RouterFinder);
-
-        IcePHP_defineOperation($Ice__t_RouterFinder, 'getRouter', 0, 0, 0, null, null, array($Ice__t_RouterPrx, false, 0), null);
+        public static function ice_staticId()
+        {
+            return '::Ice::RouterFinder';
+        }
     }
+
+    $Ice__t_RouterFinder = IcePHP_defineClass('::Ice::RouterFinder', 'Ice_RouterFinder', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_RouterFinderPrx = IcePHP_defineProxy($Ice__t_RouterFinder);
+
+    IcePHP_defineOperation($Ice__t_RouterFinder, 'getRouter', 0, 0, 0, null, null, array($Ice__t_RouterPrx, false, 0), null);
 }
 ?>

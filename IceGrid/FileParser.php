@@ -19,79 +19,69 @@
 // </auto-generated>
 //
 
+require_once 'IceGrid/Admin.php';
 
-namespace
+global $IceGrid__t_ParseException;
+
+if(!class_exists('IceGrid_ParseException'))
 {
-    require_once 'IceGrid/Admin.php';
+    class IceGrid_ParseException extends Ice_UserException
+    {
+        public function __construct($reason='')
+        {
+            $this->reason = $reason;
+        }
+
+        public function ice_name()
+        {
+            return 'IceGrid::ParseException';
+        }
+
+        public function __toString()
+        {
+            global $IceGrid__t_ParseException;
+            return IcePHP_stringifyException($this, $IceGrid__t_ParseException);
+        }
+
+        public $reason;
+    }
+
+    $IceGrid__t_ParseException = IcePHP_defineException('::IceGrid::ParseException', 'IceGrid_ParseException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace IceGrid
+global $IceGrid__t_FileParser;
+global $IceGrid__t_FileParserPrx;
+
+if(!interface_exists('IceGrid_FileParser'))
 {
-    global $IceGrid__t_ParseException;
-
-    if(!class_exists('\\IceGrid\\ParseException'))
+    interface IceGrid_FileParser extends Ice_Object
     {
-        class ParseException extends \Ice\UserException
-        {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'IceGrid::ParseException';
-            }
-
-            public function __toString()
-            {
-                global $IceGrid__t_ParseException;
-                return IcePHP_stringifyException($this, $IceGrid__t_ParseException);
-            }
-
-            public $reason;
-        }
-
-        $IceGrid__t_ParseException = IcePHP_defineException('::IceGrid::ParseException', '\\IceGrid\\ParseException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public function parse($xmlFile, $adminProxy);
     }
-}
 
-namespace IceGrid
-{
-    global $IceGrid__t_FileParser;
-    global $IceGrid__t_FileParserPrx;
-
-    if(!interface_exists('\\IceGrid\\FileParser'))
+    class IceGrid_FileParserPrxHelper
     {
-        interface FileParser extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function parse($xmlFile, $adminProxy);
+            return $proxy->ice_checkedCast('::IceGrid::FileParser', $facetOrCtx, $ctx);
         }
 
-        class FileParserPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::IceGrid::FileParser', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::IceGrid::FileParser', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::IceGrid::FileParser';
-            }
+            return $proxy->ice_uncheckedCast('::IceGrid::FileParser', $facet);
         }
 
-        $IceGrid__t_FileParser = IcePHP_defineClass('::IceGrid::FileParser', '\\IceGrid\\FileParser', -1, true, false, $Ice__t_Object, null, null);
-
-        $IceGrid__t_FileParserPrx = IcePHP_defineProxy($IceGrid__t_FileParser);
-
-        IcePHP_defineOperation($IceGrid__t_FileParser, 'parse', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($IceGrid__t_AdminPrx, false, 0)), null, array($IceGrid__t_ApplicationDescriptor, false, 0), array($IceGrid__t_ParseException));
+        public static function ice_staticId()
+        {
+            return '::IceGrid::FileParser';
+        }
     }
+
+    $IceGrid__t_FileParser = IcePHP_defineClass('::IceGrid::FileParser', 'IceGrid_FileParser', -1, true, false, $Ice__t_Object, null, null);
+
+    $IceGrid__t_FileParserPrx = IcePHP_defineProxy($IceGrid__t_FileParser);
+
+    IcePHP_defineOperation($IceGrid__t_FileParser, 'parse', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($IceGrid__t_AdminPrx, false, 0)), null, array($IceGrid__t_ApplicationDescriptor, false, 0), array($IceGrid__t_ParseException));
 }
 ?>

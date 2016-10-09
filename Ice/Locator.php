@@ -19,283 +19,252 @@
 // </auto-generated>
 //
 
+require_once 'Ice/Identity.php';
+require_once 'Ice/ProcessF.php';
 
-namespace
+global $Ice__t_AdapterNotFoundException;
+
+if(!class_exists('Ice_AdapterNotFoundException'))
 {
-    require_once 'Ice/Identity.php';
-    require_once 'Ice/ProcessF.php';
+    class Ice_AdapterNotFoundException extends Ice_UserException
+    {
+        public function __construct()
+        {
+        }
+
+        public function ice_name()
+        {
+            return 'Ice::AdapterNotFoundException';
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_AdapterNotFoundException;
+            return IcePHP_stringifyException($this, $Ice__t_AdapterNotFoundException);
+        }
+    }
+
+    $Ice__t_AdapterNotFoundException = IcePHP_defineException('::Ice::AdapterNotFoundException', 'Ice_AdapterNotFoundException', false, null, null);
 }
 
-namespace Ice
+global $Ice__t_InvalidReplicaGroupIdException;
+
+if(!class_exists('Ice_InvalidReplicaGroupIdException'))
 {
-    global $Ice__t_AdapterNotFoundException;
-
-    if(!class_exists('\\Ice\\AdapterNotFoundException'))
+    class Ice_InvalidReplicaGroupIdException extends Ice_UserException
     {
-        class AdapterNotFoundException extends \Ice\UserException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::AdapterNotFoundException';
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_AdapterNotFoundException;
-                return IcePHP_stringifyException($this, $Ice__t_AdapterNotFoundException);
-            }
         }
 
-        $Ice__t_AdapterNotFoundException = IcePHP_defineException('::Ice::AdapterNotFoundException', '\\Ice\\AdapterNotFoundException', false, null, null);
+        public function ice_name()
+        {
+            return 'Ice::InvalidReplicaGroupIdException';
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_InvalidReplicaGroupIdException;
+            return IcePHP_stringifyException($this, $Ice__t_InvalidReplicaGroupIdException);
+        }
     }
+
+    $Ice__t_InvalidReplicaGroupIdException = IcePHP_defineException('::Ice::InvalidReplicaGroupIdException', 'Ice_InvalidReplicaGroupIdException', false, null, null);
 }
 
-namespace Ice
+global $Ice__t_AdapterAlreadyActiveException;
+
+if(!class_exists('Ice_AdapterAlreadyActiveException'))
 {
-    global $Ice__t_InvalidReplicaGroupIdException;
-
-    if(!class_exists('\\Ice\\InvalidReplicaGroupIdException'))
+    class Ice_AdapterAlreadyActiveException extends Ice_UserException
     {
-        class InvalidReplicaGroupIdException extends \Ice\UserException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::InvalidReplicaGroupIdException';
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_InvalidReplicaGroupIdException;
-                return IcePHP_stringifyException($this, $Ice__t_InvalidReplicaGroupIdException);
-            }
         }
 
-        $Ice__t_InvalidReplicaGroupIdException = IcePHP_defineException('::Ice::InvalidReplicaGroupIdException', '\\Ice\\InvalidReplicaGroupIdException', false, null, null);
+        public function ice_name()
+        {
+            return 'Ice::AdapterAlreadyActiveException';
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_AdapterAlreadyActiveException;
+            return IcePHP_stringifyException($this, $Ice__t_AdapterAlreadyActiveException);
+        }
     }
+
+    $Ice__t_AdapterAlreadyActiveException = IcePHP_defineException('::Ice::AdapterAlreadyActiveException', 'Ice_AdapterAlreadyActiveException', false, null, null);
 }
 
-namespace Ice
+global $Ice__t_ObjectNotFoundException;
+
+if(!class_exists('Ice_ObjectNotFoundException'))
 {
-    global $Ice__t_AdapterAlreadyActiveException;
-
-    if(!class_exists('\\Ice\\AdapterAlreadyActiveException'))
+    class Ice_ObjectNotFoundException extends Ice_UserException
     {
-        class AdapterAlreadyActiveException extends \Ice\UserException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::AdapterAlreadyActiveException';
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_AdapterAlreadyActiveException;
-                return IcePHP_stringifyException($this, $Ice__t_AdapterAlreadyActiveException);
-            }
         }
 
-        $Ice__t_AdapterAlreadyActiveException = IcePHP_defineException('::Ice::AdapterAlreadyActiveException', '\\Ice\\AdapterAlreadyActiveException', false, null, null);
+        public function ice_name()
+        {
+            return 'Ice::ObjectNotFoundException';
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_ObjectNotFoundException;
+            return IcePHP_stringifyException($this, $Ice__t_ObjectNotFoundException);
+        }
     }
+
+    $Ice__t_ObjectNotFoundException = IcePHP_defineException('::Ice::ObjectNotFoundException', 'Ice_ObjectNotFoundException', false, null, null);
 }
 
-namespace Ice
+global $Ice__t_ServerNotFoundException;
+
+if(!class_exists('Ice_ServerNotFoundException'))
 {
-    global $Ice__t_ObjectNotFoundException;
-
-    if(!class_exists('\\Ice\\ObjectNotFoundException'))
+    class Ice_ServerNotFoundException extends Ice_UserException
     {
-        class ObjectNotFoundException extends \Ice\UserException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ObjectNotFoundException';
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_ObjectNotFoundException;
-                return IcePHP_stringifyException($this, $Ice__t_ObjectNotFoundException);
-            }
         }
 
-        $Ice__t_ObjectNotFoundException = IcePHP_defineException('::Ice::ObjectNotFoundException', '\\Ice\\ObjectNotFoundException', false, null, null);
+        public function ice_name()
+        {
+            return 'Ice::ServerNotFoundException';
+        }
+
+        public function __toString()
+        {
+            global $Ice__t_ServerNotFoundException;
+            return IcePHP_stringifyException($this, $Ice__t_ServerNotFoundException);
+        }
     }
+
+    $Ice__t_ServerNotFoundException = IcePHP_defineException('::Ice::ServerNotFoundException', 'Ice_ServerNotFoundException', false, null, null);
 }
 
-namespace Ice
+global $Ice__t_LocatorRegistry;
+global $Ice__t_LocatorRegistryPrx;
+if(!isset($Ice__t_LocatorRegistry))
 {
-    global $Ice__t_ServerNotFoundException;
-
-    if(!class_exists('\\Ice\\ServerNotFoundException'))
-    {
-        class ServerNotFoundException extends \Ice\UserException
-        {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ServerNotFoundException';
-            }
-
-            public function __toString()
-            {
-                global $Ice__t_ServerNotFoundException;
-                return IcePHP_stringifyException($this, $Ice__t_ServerNotFoundException);
-            }
-        }
-
-        $Ice__t_ServerNotFoundException = IcePHP_defineException('::Ice::ServerNotFoundException', '\\Ice\\ServerNotFoundException', false, null, null);
-    }
+    $Ice__t_LocatorRegistry = IcePHP_declareClass('::Ice::LocatorRegistry');
+    $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
 }
 
-namespace Ice
+global $Ice__t_Locator;
+global $Ice__t_LocatorPrx;
+
+if(!interface_exists('Ice_Locator'))
 {
-    global $Ice__t_LocatorRegistry;
-    global $Ice__t_LocatorRegistryPrx;
-    if(!isset($Ice__t_LocatorRegistry))
+    interface Ice_Locator extends Ice_Object
     {
-        $Ice__t_LocatorRegistry = IcePHP_declareClass('::Ice::LocatorRegistry');
-        $Ice__t_LocatorRegistryPrx = IcePHP_declareProxy('::Ice::LocatorRegistry');
+        public function findObjectById($id);
+        public function findAdapterById($id);
+        public function getRegistry();
     }
+
+    class Ice_LocatorPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Ice::Locator', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Ice::Locator', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Ice::Locator';
+        }
+    }
+
+    $Ice__t_Locator = IcePHP_defineClass('::Ice::Locator', 'Ice_Locator', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_LocatorPrx = IcePHP_defineProxy($Ice__t_Locator);
+
+    IcePHP_defineOperation($Ice__t_Locator, 'findObjectById', 2, 1, 0, array(array($Ice__t_Identity, false, 0)), null, array($Ice__t_ObjectPrx, false, 0), array($Ice__t_ObjectNotFoundException));
+    IcePHP_defineOperation($Ice__t_Locator, 'findAdapterById', 2, 1, 0, array(array($IcePHP__t_string, false, 0)), null, array($Ice__t_ObjectPrx, false, 0), array($Ice__t_AdapterNotFoundException));
+    IcePHP_defineOperation($Ice__t_Locator, 'getRegistry', 2, 1, 0, null, null, array($Ice__t_LocatorRegistryPrx, false, 0), null);
 }
 
-namespace Ice
+global $Ice__t_LocatorRegistry;
+global $Ice__t_LocatorRegistryPrx;
+
+if(!interface_exists('Ice_LocatorRegistry'))
 {
-    global $Ice__t_Locator;
-    global $Ice__t_LocatorPrx;
-
-    if(!interface_exists('\\Ice\\Locator'))
+    interface Ice_LocatorRegistry extends Ice_Object
     {
-        interface Locator extends \Ice\Object
-        {
-            public function findObjectById($id);
-            public function findAdapterById($id);
-            public function getRegistry();
-        }
-
-        class LocatorPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::Locator', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::Locator', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::Locator';
-            }
-        }
-
-        $Ice__t_Locator = IcePHP_defineClass('::Ice::Locator', '\\Ice\\Locator', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_LocatorPrx = IcePHP_defineProxy($Ice__t_Locator);
-
-        IcePHP_defineOperation($Ice__t_Locator, 'findObjectById', 2, 1, 0, array(array($Ice__t_Identity, false, 0)), null, array($Ice__t_ObjectPrx, false, 0), array($Ice__t_ObjectNotFoundException));
-        IcePHP_defineOperation($Ice__t_Locator, 'findAdapterById', 2, 1, 0, array(array($IcePHP__t_string, false, 0)), null, array($Ice__t_ObjectPrx, false, 0), array($Ice__t_AdapterNotFoundException));
-        IcePHP_defineOperation($Ice__t_Locator, 'getRegistry', 2, 1, 0, null, null, array($Ice__t_LocatorRegistryPrx, false, 0), null);
+        public function setAdapterDirectProxy($id, $proxy);
+        public function setReplicatedAdapterDirectProxy($adapterId, $replicaGroupId, $p);
+        public function setServerProcessProxy($id, $proxy);
     }
+
+    class Ice_LocatorRegistryPrxHelper
+    {
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
+        {
+            return $proxy->ice_checkedCast('::Ice::LocatorRegistry', $facetOrCtx, $ctx);
+        }
+
+        public static function uncheckedCast($proxy, $facet=null)
+        {
+            return $proxy->ice_uncheckedCast('::Ice::LocatorRegistry', $facet);
+        }
+
+        public static function ice_staticId()
+        {
+            return '::Ice::LocatorRegistry';
+        }
+    }
+
+    $Ice__t_LocatorRegistry = IcePHP_defineClass('::Ice::LocatorRegistry', 'Ice_LocatorRegistry', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_LocatorRegistryPrx = IcePHP_defineProxy($Ice__t_LocatorRegistry);
+
+    IcePHP_defineOperation($Ice__t_LocatorRegistry, 'setAdapterDirectProxy', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($Ice__t_ObjectPrx, false, 0)), null, null, array($Ice__t_AdapterNotFoundException, $Ice__t_AdapterAlreadyActiveException));
+    IcePHP_defineOperation($Ice__t_LocatorRegistry, 'setReplicatedAdapterDirectProxy', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0), array($Ice__t_ObjectPrx, false, 0)), null, null, array($Ice__t_AdapterNotFoundException, $Ice__t_AdapterAlreadyActiveException, $Ice__t_InvalidReplicaGroupIdException));
+    IcePHP_defineOperation($Ice__t_LocatorRegistry, 'setServerProcessProxy', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($Ice__t_ProcessPrx, false, 0)), null, null, array($Ice__t_ServerNotFoundException));
 }
 
-namespace Ice
+global $Ice__t_LocatorFinder;
+global $Ice__t_LocatorFinderPrx;
+
+if(!interface_exists('Ice_LocatorFinder'))
 {
-    global $Ice__t_LocatorRegistry;
-    global $Ice__t_LocatorRegistryPrx;
-
-    if(!interface_exists('\\Ice\\LocatorRegistry'))
+    interface Ice_LocatorFinder extends Ice_Object
     {
-        interface LocatorRegistry extends \Ice\Object
-        {
-            public function setAdapterDirectProxy($id, $proxy);
-            public function setReplicatedAdapterDirectProxy($adapterId, $replicaGroupId, $p);
-            public function setServerProcessProxy($id, $proxy);
-        }
-
-        class LocatorRegistryPrxHelper
-        {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::LocatorRegistry', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::LocatorRegistry', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::LocatorRegistry';
-            }
-        }
-
-        $Ice__t_LocatorRegistry = IcePHP_defineClass('::Ice::LocatorRegistry', '\\Ice\\LocatorRegistry', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_LocatorRegistryPrx = IcePHP_defineProxy($Ice__t_LocatorRegistry);
-
-        IcePHP_defineOperation($Ice__t_LocatorRegistry, 'setAdapterDirectProxy', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($Ice__t_ObjectPrx, false, 0)), null, null, array($Ice__t_AdapterNotFoundException, $Ice__t_AdapterAlreadyActiveException));
-        IcePHP_defineOperation($Ice__t_LocatorRegistry, 'setReplicatedAdapterDirectProxy', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($IcePHP__t_string, false, 0), array($Ice__t_ObjectPrx, false, 0)), null, null, array($Ice__t_AdapterNotFoundException, $Ice__t_AdapterAlreadyActiveException, $Ice__t_InvalidReplicaGroupIdException));
-        IcePHP_defineOperation($Ice__t_LocatorRegistry, 'setServerProcessProxy', 2, 2, 0, array(array($IcePHP__t_string, false, 0), array($Ice__t_ProcessPrx, false, 0)), null, null, array($Ice__t_ServerNotFoundException));
+        public function getLocator();
     }
-}
 
-namespace Ice
-{
-    global $Ice__t_LocatorFinder;
-    global $Ice__t_LocatorFinderPrx;
-
-    if(!interface_exists('\\Ice\\LocatorFinder'))
+    class Ice_LocatorFinderPrxHelper
     {
-        interface LocatorFinder extends \Ice\Object
+        public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
         {
-            public function getLocator();
+            return $proxy->ice_checkedCast('::Ice::LocatorFinder', $facetOrCtx, $ctx);
         }
 
-        class LocatorFinderPrxHelper
+        public static function uncheckedCast($proxy, $facet=null)
         {
-            public static function checkedCast($proxy, $facetOrCtx=null, $ctx=null)
-            {
-                return $proxy->ice_checkedCast('::Ice::LocatorFinder', $facetOrCtx, $ctx);
-            }
-
-            public static function uncheckedCast($proxy, $facet=null)
-            {
-                return $proxy->ice_uncheckedCast('::Ice::LocatorFinder', $facet);
-            }
-
-            public static function ice_staticId()
-            {
-                return '::Ice::LocatorFinder';
-            }
+            return $proxy->ice_uncheckedCast('::Ice::LocatorFinder', $facet);
         }
 
-        $Ice__t_LocatorFinder = IcePHP_defineClass('::Ice::LocatorFinder', '\\Ice\\LocatorFinder', -1, true, false, $Ice__t_Object, null, null);
-
-        $Ice__t_LocatorFinderPrx = IcePHP_defineProxy($Ice__t_LocatorFinder);
-
-        IcePHP_defineOperation($Ice__t_LocatorFinder, 'getLocator', 0, 0, 0, null, null, array($Ice__t_LocatorPrx, false, 0), null);
+        public static function ice_staticId()
+        {
+            return '::Ice::LocatorFinder';
+        }
     }
+
+    $Ice__t_LocatorFinder = IcePHP_defineClass('::Ice::LocatorFinder', 'Ice_LocatorFinder', -1, true, false, $Ice__t_Object, null, null);
+
+    $Ice__t_LocatorFinderPrx = IcePHP_defineProxy($Ice__t_LocatorFinder);
+
+    IcePHP_defineOperation($Ice__t_LocatorFinder, 'getLocator', 0, 0, 0, null, null, array($Ice__t_LocatorPrx, false, 0), null);
 }
 ?>

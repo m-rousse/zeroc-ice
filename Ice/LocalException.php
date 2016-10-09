@@ -19,2001 +19,1802 @@
 // </auto-generated>
 //
 
+require_once 'Ice/Identity.php';
+require_once 'Ice/Version.php';
+require_once 'Ice/BuiltinSequences.php';
 
-namespace
-{
-    require_once 'Ice/Identity.php';
-    require_once 'Ice/Version.php';
-    require_once 'Ice/BuiltinSequences.php';
-}
+global $Ice__t_InitializationException;
 
-namespace Ice
+if(!class_exists('Ice_InitializationException'))
 {
-    global $Ice__t_InitializationException;
-
-    if(!class_exists('\\Ice\\InitializationException'))
+    class Ice_InitializationException extends Ice_LocalException
     {
-        class InitializationException extends \Ice\LocalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::InitializationException';
-            }
+            $this->reason = $reason;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_InitializationException;
-                return IcePHP_stringifyException($this, $Ice__t_InitializationException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::InitializationException';
+        }
 
-            public $reason;
+        public function __toString()
+        {
+            global $Ice__t_InitializationException;
+            return IcePHP_stringifyException($this, $Ice__t_InitializationException);
         }
 
-        $Ice__t_InitializationException = IcePHP_defineException('::Ice::InitializationException', '\\Ice\\InitializationException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public $reason;
     }
+
+    $Ice__t_InitializationException = IcePHP_defineException('::Ice::InitializationException', 'Ice_InitializationException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_PluginInitializationException;
+global $Ice__t_PluginInitializationException;
 
-    if(!class_exists('\\Ice\\PluginInitializationException'))
+if(!class_exists('Ice_PluginInitializationException'))
+{
+    class Ice_PluginInitializationException extends Ice_LocalException
     {
-        class PluginInitializationException extends \Ice\LocalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::PluginInitializationException';
-            }
+            $this->reason = $reason;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_PluginInitializationException;
-                return IcePHP_stringifyException($this, $Ice__t_PluginInitializationException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::PluginInitializationException';
+        }
 
-            public $reason;
+        public function __toString()
+        {
+            global $Ice__t_PluginInitializationException;
+            return IcePHP_stringifyException($this, $Ice__t_PluginInitializationException);
         }
 
-        $Ice__t_PluginInitializationException = IcePHP_defineException('::Ice::PluginInitializationException', '\\Ice\\PluginInitializationException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public $reason;
     }
+
+    $Ice__t_PluginInitializationException = IcePHP_defineException('::Ice::PluginInitializationException', 'Ice_PluginInitializationException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_CollocationOptimizationException;
+global $Ice__t_CollocationOptimizationException;
 
-    if(!class_exists('\\Ice\\CollocationOptimizationException'))
+if(!class_exists('Ice_CollocationOptimizationException'))
+{
+    class Ice_CollocationOptimizationException extends Ice_LocalException
     {
-        class CollocationOptimizationException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::CollocationOptimizationException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_CollocationOptimizationException;
-                return IcePHP_stringifyException($this, $Ice__t_CollocationOptimizationException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::CollocationOptimizationException';
         }
 
-        $Ice__t_CollocationOptimizationException = IcePHP_defineException('::Ice::CollocationOptimizationException', '\\Ice\\CollocationOptimizationException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_CollocationOptimizationException;
+            return IcePHP_stringifyException($this, $Ice__t_CollocationOptimizationException);
+        }
     }
+
+    $Ice__t_CollocationOptimizationException = IcePHP_defineException('::Ice::CollocationOptimizationException', 'Ice_CollocationOptimizationException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_AlreadyRegisteredException;
+global $Ice__t_AlreadyRegisteredException;
 
-    if(!class_exists('\\Ice\\AlreadyRegisteredException'))
+if(!class_exists('Ice_AlreadyRegisteredException'))
+{
+    class Ice_AlreadyRegisteredException extends Ice_LocalException
     {
-        class AlreadyRegisteredException extends \Ice\LocalException
+        public function __construct($kindOfObject='', $id='')
         {
-            public function __construct($kindOfObject='', $id='')
-            {
-                $this->kindOfObject = $kindOfObject;
-                $this->id = $id;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::AlreadyRegisteredException';
-            }
+            $this->kindOfObject = $kindOfObject;
+            $this->id = $id;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_AlreadyRegisteredException;
-                return IcePHP_stringifyException($this, $Ice__t_AlreadyRegisteredException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::AlreadyRegisteredException';
+        }
 
-            public $kindOfObject;
-            public $id;
+        public function __toString()
+        {
+            global $Ice__t_AlreadyRegisteredException;
+            return IcePHP_stringifyException($this, $Ice__t_AlreadyRegisteredException);
         }
 
-        $Ice__t_AlreadyRegisteredException = IcePHP_defineException('::Ice::AlreadyRegisteredException', '\\Ice\\AlreadyRegisteredException', false, null, array(
-            array('kindOfObject', $IcePHP__t_string, false, 0),
-            array('id', $IcePHP__t_string, false, 0)));
+        public $kindOfObject;
+        public $id;
     }
+
+    $Ice__t_AlreadyRegisteredException = IcePHP_defineException('::Ice::AlreadyRegisteredException', 'Ice_AlreadyRegisteredException', false, null, array(
+        array('kindOfObject', $IcePHP__t_string, false, 0),
+        array('id', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_NotRegisteredException;
+global $Ice__t_NotRegisteredException;
 
-    if(!class_exists('\\Ice\\NotRegisteredException'))
+if(!class_exists('Ice_NotRegisteredException'))
+{
+    class Ice_NotRegisteredException extends Ice_LocalException
     {
-        class NotRegisteredException extends \Ice\LocalException
+        public function __construct($kindOfObject='', $id='')
         {
-            public function __construct($kindOfObject='', $id='')
-            {
-                $this->kindOfObject = $kindOfObject;
-                $this->id = $id;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::NotRegisteredException';
-            }
+            $this->kindOfObject = $kindOfObject;
+            $this->id = $id;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_NotRegisteredException;
-                return IcePHP_stringifyException($this, $Ice__t_NotRegisteredException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::NotRegisteredException';
+        }
 
-            public $kindOfObject;
-            public $id;
+        public function __toString()
+        {
+            global $Ice__t_NotRegisteredException;
+            return IcePHP_stringifyException($this, $Ice__t_NotRegisteredException);
         }
 
-        $Ice__t_NotRegisteredException = IcePHP_defineException('::Ice::NotRegisteredException', '\\Ice\\NotRegisteredException', false, null, array(
-            array('kindOfObject', $IcePHP__t_string, false, 0),
-            array('id', $IcePHP__t_string, false, 0)));
+        public $kindOfObject;
+        public $id;
     }
+
+    $Ice__t_NotRegisteredException = IcePHP_defineException('::Ice::NotRegisteredException', 'Ice_NotRegisteredException', false, null, array(
+        array('kindOfObject', $IcePHP__t_string, false, 0),
+        array('id', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_TwowayOnlyException;
+global $Ice__t_TwowayOnlyException;
 
-    if(!class_exists('\\Ice\\TwowayOnlyException'))
+if(!class_exists('Ice_TwowayOnlyException'))
+{
+    class Ice_TwowayOnlyException extends Ice_LocalException
     {
-        class TwowayOnlyException extends \Ice\LocalException
+        public function __construct($operation='')
         {
-            public function __construct($operation='')
-            {
-                $this->operation = $operation;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::TwowayOnlyException';
-            }
+            $this->operation = $operation;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_TwowayOnlyException;
-                return IcePHP_stringifyException($this, $Ice__t_TwowayOnlyException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::TwowayOnlyException';
+        }
 
-            public $operation;
+        public function __toString()
+        {
+            global $Ice__t_TwowayOnlyException;
+            return IcePHP_stringifyException($this, $Ice__t_TwowayOnlyException);
         }
 
-        $Ice__t_TwowayOnlyException = IcePHP_defineException('::Ice::TwowayOnlyException', '\\Ice\\TwowayOnlyException', false, null, array(
-            array('operation', $IcePHP__t_string, false, 0)));
+        public $operation;
     }
+
+    $Ice__t_TwowayOnlyException = IcePHP_defineException('::Ice::TwowayOnlyException', 'Ice_TwowayOnlyException', false, null, array(
+        array('operation', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_CloneNotImplementedException;
+global $Ice__t_CloneNotImplementedException;
 
-    if(!class_exists('\\Ice\\CloneNotImplementedException'))
+if(!class_exists('Ice_CloneNotImplementedException'))
+{
+    class Ice_CloneNotImplementedException extends Ice_LocalException
     {
-        class CloneNotImplementedException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::CloneNotImplementedException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_CloneNotImplementedException;
-                return IcePHP_stringifyException($this, $Ice__t_CloneNotImplementedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::CloneNotImplementedException';
         }
 
-        $Ice__t_CloneNotImplementedException = IcePHP_defineException('::Ice::CloneNotImplementedException', '\\Ice\\CloneNotImplementedException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_CloneNotImplementedException;
+            return IcePHP_stringifyException($this, $Ice__t_CloneNotImplementedException);
+        }
     }
+
+    $Ice__t_CloneNotImplementedException = IcePHP_defineException('::Ice::CloneNotImplementedException', 'Ice_CloneNotImplementedException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_UnknownException;
+global $Ice__t_UnknownException;
 
-    if(!class_exists('\\Ice\\UnknownException'))
+if(!class_exists('Ice_UnknownException'))
+{
+    class Ice_UnknownException extends Ice_LocalException
     {
-        class UnknownException extends \Ice\LocalException
+        public function __construct($unknown='')
         {
-            public function __construct($unknown='')
-            {
-                $this->unknown = $unknown;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnknownException';
-            }
+            $this->unknown = $unknown;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnknownException;
-                return IcePHP_stringifyException($this, $Ice__t_UnknownException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnknownException';
+        }
 
-            public $unknown;
+        public function __toString()
+        {
+            global $Ice__t_UnknownException;
+            return IcePHP_stringifyException($this, $Ice__t_UnknownException);
         }
 
-        $Ice__t_UnknownException = IcePHP_defineException('::Ice::UnknownException', '\\Ice\\UnknownException', false, null, array(
-            array('unknown', $IcePHP__t_string, false, 0)));
+        public $unknown;
     }
+
+    $Ice__t_UnknownException = IcePHP_defineException('::Ice::UnknownException', 'Ice_UnknownException', false, null, array(
+        array('unknown', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_UnknownLocalException;
+global $Ice__t_UnknownLocalException;
 
-    if(!class_exists('\\Ice\\UnknownLocalException'))
+if(!class_exists('Ice_UnknownLocalException'))
+{
+    class Ice_UnknownLocalException extends Ice_UnknownException
     {
-        class UnknownLocalException extends \Ice\UnknownException
+        public function __construct($unknown='')
         {
-            public function __construct($unknown='')
-            {
-                parent::__construct($unknown);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnknownLocalException';
-            }
+            parent::__construct($unknown);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnknownLocalException;
-                return IcePHP_stringifyException($this, $Ice__t_UnknownLocalException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnknownLocalException';
         }
 
-        $Ice__t_UnknownLocalException = IcePHP_defineException('::Ice::UnknownLocalException', '\\Ice\\UnknownLocalException', false, $Ice__t_UnknownException, null);
+        public function __toString()
+        {
+            global $Ice__t_UnknownLocalException;
+            return IcePHP_stringifyException($this, $Ice__t_UnknownLocalException);
+        }
     }
+
+    $Ice__t_UnknownLocalException = IcePHP_defineException('::Ice::UnknownLocalException', 'Ice_UnknownLocalException', false, $Ice__t_UnknownException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_UnknownUserException;
+global $Ice__t_UnknownUserException;
 
-    if(!class_exists('\\Ice\\UnknownUserException'))
+if(!class_exists('Ice_UnknownUserException'))
+{
+    class Ice_UnknownUserException extends Ice_UnknownException
     {
-        class UnknownUserException extends \Ice\UnknownException
+        public function __construct($unknown='')
         {
-            public function __construct($unknown='')
-            {
-                parent::__construct($unknown);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnknownUserException';
-            }
+            parent::__construct($unknown);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnknownUserException;
-                return IcePHP_stringifyException($this, $Ice__t_UnknownUserException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnknownUserException';
         }
 
-        $Ice__t_UnknownUserException = IcePHP_defineException('::Ice::UnknownUserException', '\\Ice\\UnknownUserException', false, $Ice__t_UnknownException, null);
+        public function __toString()
+        {
+            global $Ice__t_UnknownUserException;
+            return IcePHP_stringifyException($this, $Ice__t_UnknownUserException);
+        }
     }
+
+    $Ice__t_UnknownUserException = IcePHP_defineException('::Ice::UnknownUserException', 'Ice_UnknownUserException', false, $Ice__t_UnknownException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_VersionMismatchException;
+global $Ice__t_VersionMismatchException;
 
-    if(!class_exists('\\Ice\\VersionMismatchException'))
+if(!class_exists('Ice_VersionMismatchException'))
+{
+    class Ice_VersionMismatchException extends Ice_LocalException
     {
-        class VersionMismatchException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::VersionMismatchException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_VersionMismatchException;
-                return IcePHP_stringifyException($this, $Ice__t_VersionMismatchException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::VersionMismatchException';
         }
 
-        $Ice__t_VersionMismatchException = IcePHP_defineException('::Ice::VersionMismatchException', '\\Ice\\VersionMismatchException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_VersionMismatchException;
+            return IcePHP_stringifyException($this, $Ice__t_VersionMismatchException);
+        }
     }
+
+    $Ice__t_VersionMismatchException = IcePHP_defineException('::Ice::VersionMismatchException', 'Ice_VersionMismatchException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_CommunicatorDestroyedException;
+global $Ice__t_CommunicatorDestroyedException;
 
-    if(!class_exists('\\Ice\\CommunicatorDestroyedException'))
+if(!class_exists('Ice_CommunicatorDestroyedException'))
+{
+    class Ice_CommunicatorDestroyedException extends Ice_LocalException
     {
-        class CommunicatorDestroyedException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::CommunicatorDestroyedException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_CommunicatorDestroyedException;
-                return IcePHP_stringifyException($this, $Ice__t_CommunicatorDestroyedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::CommunicatorDestroyedException';
         }
 
-        $Ice__t_CommunicatorDestroyedException = IcePHP_defineException('::Ice::CommunicatorDestroyedException', '\\Ice\\CommunicatorDestroyedException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_CommunicatorDestroyedException;
+            return IcePHP_stringifyException($this, $Ice__t_CommunicatorDestroyedException);
+        }
     }
+
+    $Ice__t_CommunicatorDestroyedException = IcePHP_defineException('::Ice::CommunicatorDestroyedException', 'Ice_CommunicatorDestroyedException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ObjectAdapterDeactivatedException;
+global $Ice__t_ObjectAdapterDeactivatedException;
 
-    if(!class_exists('\\Ice\\ObjectAdapterDeactivatedException'))
+if(!class_exists('Ice_ObjectAdapterDeactivatedException'))
+{
+    class Ice_ObjectAdapterDeactivatedException extends Ice_LocalException
     {
-        class ObjectAdapterDeactivatedException extends \Ice\LocalException
+        public function __construct($name='')
         {
-            public function __construct($name='')
-            {
-                $this->name = $name;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ObjectAdapterDeactivatedException';
-            }
+            $this->name = $name;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ObjectAdapterDeactivatedException;
-                return IcePHP_stringifyException($this, $Ice__t_ObjectAdapterDeactivatedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ObjectAdapterDeactivatedException';
+        }
 
-            public $name;
+        public function __toString()
+        {
+            global $Ice__t_ObjectAdapterDeactivatedException;
+            return IcePHP_stringifyException($this, $Ice__t_ObjectAdapterDeactivatedException);
         }
 
-        $Ice__t_ObjectAdapterDeactivatedException = IcePHP_defineException('::Ice::ObjectAdapterDeactivatedException', '\\Ice\\ObjectAdapterDeactivatedException', false, null, array(
-            array('name', $IcePHP__t_string, false, 0)));
+        public $name;
     }
+
+    $Ice__t_ObjectAdapterDeactivatedException = IcePHP_defineException('::Ice::ObjectAdapterDeactivatedException', 'Ice_ObjectAdapterDeactivatedException', false, null, array(
+        array('name', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_ObjectAdapterIdInUseException;
+global $Ice__t_ObjectAdapterIdInUseException;
 
-    if(!class_exists('\\Ice\\ObjectAdapterIdInUseException'))
+if(!class_exists('Ice_ObjectAdapterIdInUseException'))
+{
+    class Ice_ObjectAdapterIdInUseException extends Ice_LocalException
     {
-        class ObjectAdapterIdInUseException extends \Ice\LocalException
+        public function __construct($id='')
         {
-            public function __construct($id='')
-            {
-                $this->id = $id;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ObjectAdapterIdInUseException';
-            }
+            $this->id = $id;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ObjectAdapterIdInUseException;
-                return IcePHP_stringifyException($this, $Ice__t_ObjectAdapterIdInUseException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ObjectAdapterIdInUseException';
+        }
 
-            public $id;
+        public function __toString()
+        {
+            global $Ice__t_ObjectAdapterIdInUseException;
+            return IcePHP_stringifyException($this, $Ice__t_ObjectAdapterIdInUseException);
         }
 
-        $Ice__t_ObjectAdapterIdInUseException = IcePHP_defineException('::Ice::ObjectAdapterIdInUseException', '\\Ice\\ObjectAdapterIdInUseException', false, null, array(
-            array('id', $IcePHP__t_string, false, 0)));
+        public $id;
     }
+
+    $Ice__t_ObjectAdapterIdInUseException = IcePHP_defineException('::Ice::ObjectAdapterIdInUseException', 'Ice_ObjectAdapterIdInUseException', false, null, array(
+        array('id', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_NoEndpointException;
+global $Ice__t_NoEndpointException;
 
-    if(!class_exists('\\Ice\\NoEndpointException'))
+if(!class_exists('Ice_NoEndpointException'))
+{
+    class Ice_NoEndpointException extends Ice_LocalException
     {
-        class NoEndpointException extends \Ice\LocalException
+        public function __construct($proxy='')
         {
-            public function __construct($proxy='')
-            {
-                $this->proxy = $proxy;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::NoEndpointException';
-            }
+            $this->proxy = $proxy;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_NoEndpointException;
-                return IcePHP_stringifyException($this, $Ice__t_NoEndpointException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::NoEndpointException';
+        }
 
-            public $proxy;
+        public function __toString()
+        {
+            global $Ice__t_NoEndpointException;
+            return IcePHP_stringifyException($this, $Ice__t_NoEndpointException);
         }
 
-        $Ice__t_NoEndpointException = IcePHP_defineException('::Ice::NoEndpointException', '\\Ice\\NoEndpointException', false, null, array(
-            array('proxy', $IcePHP__t_string, false, 0)));
+        public $proxy;
     }
+
+    $Ice__t_NoEndpointException = IcePHP_defineException('::Ice::NoEndpointException', 'Ice_NoEndpointException', false, null, array(
+        array('proxy', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_EndpointParseException;
+global $Ice__t_EndpointParseException;
 
-    if(!class_exists('\\Ice\\EndpointParseException'))
+if(!class_exists('Ice_EndpointParseException'))
+{
+    class Ice_EndpointParseException extends Ice_LocalException
     {
-        class EndpointParseException extends \Ice\LocalException
+        public function __construct($str='')
         {
-            public function __construct($str='')
-            {
-                $this->str = $str;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::EndpointParseException';
-            }
+            $this->str = $str;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_EndpointParseException;
-                return IcePHP_stringifyException($this, $Ice__t_EndpointParseException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::EndpointParseException';
+        }
 
-            public $str;
+        public function __toString()
+        {
+            global $Ice__t_EndpointParseException;
+            return IcePHP_stringifyException($this, $Ice__t_EndpointParseException);
         }
 
-        $Ice__t_EndpointParseException = IcePHP_defineException('::Ice::EndpointParseException', '\\Ice\\EndpointParseException', false, null, array(
-            array('str', $IcePHP__t_string, false, 0)));
+        public $str;
     }
+
+    $Ice__t_EndpointParseException = IcePHP_defineException('::Ice::EndpointParseException', 'Ice_EndpointParseException', false, null, array(
+        array('str', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_EndpointSelectionTypeParseException;
+global $Ice__t_EndpointSelectionTypeParseException;
 
-    if(!class_exists('\\Ice\\EndpointSelectionTypeParseException'))
+if(!class_exists('Ice_EndpointSelectionTypeParseException'))
+{
+    class Ice_EndpointSelectionTypeParseException extends Ice_LocalException
     {
-        class EndpointSelectionTypeParseException extends \Ice\LocalException
+        public function __construct($str='')
         {
-            public function __construct($str='')
-            {
-                $this->str = $str;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::EndpointSelectionTypeParseException';
-            }
+            $this->str = $str;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_EndpointSelectionTypeParseException;
-                return IcePHP_stringifyException($this, $Ice__t_EndpointSelectionTypeParseException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::EndpointSelectionTypeParseException';
+        }
 
-            public $str;
+        public function __toString()
+        {
+            global $Ice__t_EndpointSelectionTypeParseException;
+            return IcePHP_stringifyException($this, $Ice__t_EndpointSelectionTypeParseException);
         }
 
-        $Ice__t_EndpointSelectionTypeParseException = IcePHP_defineException('::Ice::EndpointSelectionTypeParseException', '\\Ice\\EndpointSelectionTypeParseException', false, null, array(
-            array('str', $IcePHP__t_string, false, 0)));
+        public $str;
     }
+
+    $Ice__t_EndpointSelectionTypeParseException = IcePHP_defineException('::Ice::EndpointSelectionTypeParseException', 'Ice_EndpointSelectionTypeParseException', false, null, array(
+        array('str', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_VersionParseException;
+global $Ice__t_VersionParseException;
 
-    if(!class_exists('\\Ice\\VersionParseException'))
+if(!class_exists('Ice_VersionParseException'))
+{
+    class Ice_VersionParseException extends Ice_LocalException
     {
-        class VersionParseException extends \Ice\LocalException
+        public function __construct($str='')
         {
-            public function __construct($str='')
-            {
-                $this->str = $str;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::VersionParseException';
-            }
+            $this->str = $str;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_VersionParseException;
-                return IcePHP_stringifyException($this, $Ice__t_VersionParseException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::VersionParseException';
+        }
 
-            public $str;
+        public function __toString()
+        {
+            global $Ice__t_VersionParseException;
+            return IcePHP_stringifyException($this, $Ice__t_VersionParseException);
         }
 
-        $Ice__t_VersionParseException = IcePHP_defineException('::Ice::VersionParseException', '\\Ice\\VersionParseException', false, null, array(
-            array('str', $IcePHP__t_string, false, 0)));
+        public $str;
     }
+
+    $Ice__t_VersionParseException = IcePHP_defineException('::Ice::VersionParseException', 'Ice_VersionParseException', false, null, array(
+        array('str', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_IdentityParseException;
+global $Ice__t_IdentityParseException;
 
-    if(!class_exists('\\Ice\\IdentityParseException'))
+if(!class_exists('Ice_IdentityParseException'))
+{
+    class Ice_IdentityParseException extends Ice_LocalException
     {
-        class IdentityParseException extends \Ice\LocalException
+        public function __construct($str='')
         {
-            public function __construct($str='')
-            {
-                $this->str = $str;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::IdentityParseException';
-            }
+            $this->str = $str;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_IdentityParseException;
-                return IcePHP_stringifyException($this, $Ice__t_IdentityParseException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::IdentityParseException';
+        }
 
-            public $str;
+        public function __toString()
+        {
+            global $Ice__t_IdentityParseException;
+            return IcePHP_stringifyException($this, $Ice__t_IdentityParseException);
         }
 
-        $Ice__t_IdentityParseException = IcePHP_defineException('::Ice::IdentityParseException', '\\Ice\\IdentityParseException', false, null, array(
-            array('str', $IcePHP__t_string, false, 0)));
+        public $str;
     }
+
+    $Ice__t_IdentityParseException = IcePHP_defineException('::Ice::IdentityParseException', 'Ice_IdentityParseException', false, null, array(
+        array('str', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_ProxyParseException;
+global $Ice__t_ProxyParseException;
 
-    if(!class_exists('\\Ice\\ProxyParseException'))
+if(!class_exists('Ice_ProxyParseException'))
+{
+    class Ice_ProxyParseException extends Ice_LocalException
     {
-        class ProxyParseException extends \Ice\LocalException
+        public function __construct($str='')
         {
-            public function __construct($str='')
-            {
-                $this->str = $str;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ProxyParseException';
-            }
+            $this->str = $str;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ProxyParseException;
-                return IcePHP_stringifyException($this, $Ice__t_ProxyParseException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ProxyParseException';
+        }
 
-            public $str;
+        public function __toString()
+        {
+            global $Ice__t_ProxyParseException;
+            return IcePHP_stringifyException($this, $Ice__t_ProxyParseException);
         }
 
-        $Ice__t_ProxyParseException = IcePHP_defineException('::Ice::ProxyParseException', '\\Ice\\ProxyParseException', false, null, array(
-            array('str', $IcePHP__t_string, false, 0)));
+        public $str;
     }
+
+    $Ice__t_ProxyParseException = IcePHP_defineException('::Ice::ProxyParseException', 'Ice_ProxyParseException', false, null, array(
+        array('str', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_IllegalIdentityException;
+global $Ice__t_IllegalIdentityException;
 
-    if(!class_exists('\\Ice\\IllegalIdentityException'))
+if(!class_exists('Ice_IllegalIdentityException'))
+{
+    class Ice_IllegalIdentityException extends Ice_LocalException
     {
-        class IllegalIdentityException extends \Ice\LocalException
+        public function __construct($id=null)
         {
-            public function __construct($id=null)
-            {
-                $this->id = is_null($id) ? new \Ice\Identity : $id;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::IllegalIdentityException';
-            }
+            $this->id = is_null($id) ? new Ice_Identity : $id;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_IllegalIdentityException;
-                return IcePHP_stringifyException($this, $Ice__t_IllegalIdentityException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::IllegalIdentityException';
+        }
 
-            public $id;
+        public function __toString()
+        {
+            global $Ice__t_IllegalIdentityException;
+            return IcePHP_stringifyException($this, $Ice__t_IllegalIdentityException);
         }
 
-        $Ice__t_IllegalIdentityException = IcePHP_defineException('::Ice::IllegalIdentityException', '\\Ice\\IllegalIdentityException', false, null, array(
-            array('id', $Ice__t_Identity, false, 0)));
+        public $id;
     }
+
+    $Ice__t_IllegalIdentityException = IcePHP_defineException('::Ice::IllegalIdentityException', 'Ice_IllegalIdentityException', false, null, array(
+        array('id', $Ice__t_Identity, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_IllegalServantException;
+global $Ice__t_IllegalServantException;
 
-    if(!class_exists('\\Ice\\IllegalServantException'))
+if(!class_exists('Ice_IllegalServantException'))
+{
+    class Ice_IllegalServantException extends Ice_LocalException
     {
-        class IllegalServantException extends \Ice\LocalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::IllegalServantException';
-            }
+            $this->reason = $reason;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_IllegalServantException;
-                return IcePHP_stringifyException($this, $Ice__t_IllegalServantException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::IllegalServantException';
+        }
 
-            public $reason;
+        public function __toString()
+        {
+            global $Ice__t_IllegalServantException;
+            return IcePHP_stringifyException($this, $Ice__t_IllegalServantException);
         }
 
-        $Ice__t_IllegalServantException = IcePHP_defineException('::Ice::IllegalServantException', '\\Ice\\IllegalServantException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public $reason;
     }
+
+    $Ice__t_IllegalServantException = IcePHP_defineException('::Ice::IllegalServantException', 'Ice_IllegalServantException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_RequestFailedException;
+global $Ice__t_RequestFailedException;
 
-    if(!class_exists('\\Ice\\RequestFailedException'))
+if(!class_exists('Ice_RequestFailedException'))
+{
+    class Ice_RequestFailedException extends Ice_LocalException
     {
-        class RequestFailedException extends \Ice\LocalException
+        public function __construct($id=null, $facet='', $operation='')
         {
-            public function __construct($id=null, $facet='', $operation='')
-            {
-                $this->id = is_null($id) ? new \Ice\Identity : $id;
-                $this->facet = $facet;
-                $this->operation = $operation;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::RequestFailedException';
-            }
+            $this->id = is_null($id) ? new Ice_Identity : $id;
+            $this->facet = $facet;
+            $this->operation = $operation;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_RequestFailedException;
-                return IcePHP_stringifyException($this, $Ice__t_RequestFailedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::RequestFailedException';
+        }
 
-            public $id;
-            public $facet;
-            public $operation;
+        public function __toString()
+        {
+            global $Ice__t_RequestFailedException;
+            return IcePHP_stringifyException($this, $Ice__t_RequestFailedException);
         }
 
-        $Ice__t_RequestFailedException = IcePHP_defineException('::Ice::RequestFailedException', '\\Ice\\RequestFailedException', false, null, array(
-            array('id', $Ice__t_Identity, false, 0),
-            array('facet', $IcePHP__t_string, false, 0),
-            array('operation', $IcePHP__t_string, false, 0)));
+        public $id;
+        public $facet;
+        public $operation;
     }
+
+    $Ice__t_RequestFailedException = IcePHP_defineException('::Ice::RequestFailedException', 'Ice_RequestFailedException', false, null, array(
+        array('id', $Ice__t_Identity, false, 0),
+        array('facet', $IcePHP__t_string, false, 0),
+        array('operation', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_ObjectNotExistException;
+global $Ice__t_ObjectNotExistException;
 
-    if(!class_exists('\\Ice\\ObjectNotExistException'))
+if(!class_exists('Ice_ObjectNotExistException'))
+{
+    class Ice_ObjectNotExistException extends Ice_RequestFailedException
     {
-        class ObjectNotExistException extends \Ice\RequestFailedException
+        public function __construct($id=null, $facet='', $operation='')
         {
-            public function __construct($id=null, $facet='', $operation='')
-            {
-                parent::__construct($id, $facet, $operation);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ObjectNotExistException';
-            }
+            parent::__construct($id, $facet, $operation);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ObjectNotExistException;
-                return IcePHP_stringifyException($this, $Ice__t_ObjectNotExistException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ObjectNotExistException';
         }
 
-        $Ice__t_ObjectNotExistException = IcePHP_defineException('::Ice::ObjectNotExistException', '\\Ice\\ObjectNotExistException', false, $Ice__t_RequestFailedException, null);
+        public function __toString()
+        {
+            global $Ice__t_ObjectNotExistException;
+            return IcePHP_stringifyException($this, $Ice__t_ObjectNotExistException);
+        }
     }
+
+    $Ice__t_ObjectNotExistException = IcePHP_defineException('::Ice::ObjectNotExistException', 'Ice_ObjectNotExistException', false, $Ice__t_RequestFailedException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_FacetNotExistException;
+global $Ice__t_FacetNotExistException;
 
-    if(!class_exists('\\Ice\\FacetNotExistException'))
+if(!class_exists('Ice_FacetNotExistException'))
+{
+    class Ice_FacetNotExistException extends Ice_RequestFailedException
     {
-        class FacetNotExistException extends \Ice\RequestFailedException
+        public function __construct($id=null, $facet='', $operation='')
         {
-            public function __construct($id=null, $facet='', $operation='')
-            {
-                parent::__construct($id, $facet, $operation);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::FacetNotExistException';
-            }
+            parent::__construct($id, $facet, $operation);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_FacetNotExistException;
-                return IcePHP_stringifyException($this, $Ice__t_FacetNotExistException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::FacetNotExistException';
         }
 
-        $Ice__t_FacetNotExistException = IcePHP_defineException('::Ice::FacetNotExistException', '\\Ice\\FacetNotExistException', false, $Ice__t_RequestFailedException, null);
+        public function __toString()
+        {
+            global $Ice__t_FacetNotExistException;
+            return IcePHP_stringifyException($this, $Ice__t_FacetNotExistException);
+        }
     }
+
+    $Ice__t_FacetNotExistException = IcePHP_defineException('::Ice::FacetNotExistException', 'Ice_FacetNotExistException', false, $Ice__t_RequestFailedException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_OperationNotExistException;
+global $Ice__t_OperationNotExistException;
 
-    if(!class_exists('\\Ice\\OperationNotExistException'))
+if(!class_exists('Ice_OperationNotExistException'))
+{
+    class Ice_OperationNotExistException extends Ice_RequestFailedException
     {
-        class OperationNotExistException extends \Ice\RequestFailedException
+        public function __construct($id=null, $facet='', $operation='')
         {
-            public function __construct($id=null, $facet='', $operation='')
-            {
-                parent::__construct($id, $facet, $operation);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::OperationNotExistException';
-            }
+            parent::__construct($id, $facet, $operation);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_OperationNotExistException;
-                return IcePHP_stringifyException($this, $Ice__t_OperationNotExistException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::OperationNotExistException';
         }
 
-        $Ice__t_OperationNotExistException = IcePHP_defineException('::Ice::OperationNotExistException', '\\Ice\\OperationNotExistException', false, $Ice__t_RequestFailedException, null);
+        public function __toString()
+        {
+            global $Ice__t_OperationNotExistException;
+            return IcePHP_stringifyException($this, $Ice__t_OperationNotExistException);
+        }
     }
+
+    $Ice__t_OperationNotExistException = IcePHP_defineException('::Ice::OperationNotExistException', 'Ice_OperationNotExistException', false, $Ice__t_RequestFailedException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_SyscallException;
+global $Ice__t_SyscallException;
 
-    if(!class_exists('\\Ice\\SyscallException'))
+if(!class_exists('Ice_SyscallException'))
+{
+    class Ice_SyscallException extends Ice_LocalException
     {
-        class SyscallException extends \Ice\LocalException
+        public function __construct($error=0)
         {
-            public function __construct($error=0)
-            {
-                $this->error = $error;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::SyscallException';
-            }
+            $this->error = $error;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_SyscallException;
-                return IcePHP_stringifyException($this, $Ice__t_SyscallException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::SyscallException';
+        }
 
-            public $error;
+        public function __toString()
+        {
+            global $Ice__t_SyscallException;
+            return IcePHP_stringifyException($this, $Ice__t_SyscallException);
         }
 
-        $Ice__t_SyscallException = IcePHP_defineException('::Ice::SyscallException', '\\Ice\\SyscallException', false, null, array(
-            array('error', $IcePHP__t_int, false, 0)));
+        public $error;
     }
+
+    $Ice__t_SyscallException = IcePHP_defineException('::Ice::SyscallException', 'Ice_SyscallException', false, null, array(
+        array('error', $IcePHP__t_int, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_SocketException;
+global $Ice__t_SocketException;
 
-    if(!class_exists('\\Ice\\SocketException'))
+if(!class_exists('Ice_SocketException'))
+{
+    class Ice_SocketException extends Ice_SyscallException
     {
-        class SocketException extends \Ice\SyscallException
+        public function __construct($error=0)
         {
-            public function __construct($error=0)
-            {
-                parent::__construct($error);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::SocketException';
-            }
+            parent::__construct($error);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_SocketException;
-                return IcePHP_stringifyException($this, $Ice__t_SocketException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::SocketException';
         }
 
-        $Ice__t_SocketException = IcePHP_defineException('::Ice::SocketException', '\\Ice\\SocketException', false, $Ice__t_SyscallException, null);
+        public function __toString()
+        {
+            global $Ice__t_SocketException;
+            return IcePHP_stringifyException($this, $Ice__t_SocketException);
+        }
     }
+
+    $Ice__t_SocketException = IcePHP_defineException('::Ice::SocketException', 'Ice_SocketException', false, $Ice__t_SyscallException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_FileException;
+global $Ice__t_FileException;
 
-    if(!class_exists('\\Ice\\FileException'))
+if(!class_exists('Ice_FileException'))
+{
+    class Ice_FileException extends Ice_SyscallException
     {
-        class FileException extends \Ice\SyscallException
+        public function __construct($error=0, $path='')
         {
-            public function __construct($error=0, $path='')
-            {
-                parent::__construct($error);
-                $this->path = $path;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::FileException';
-            }
+            parent::__construct($error);
+            $this->path = $path;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_FileException;
-                return IcePHP_stringifyException($this, $Ice__t_FileException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::FileException';
+        }
 
-            public $path;
+        public function __toString()
+        {
+            global $Ice__t_FileException;
+            return IcePHP_stringifyException($this, $Ice__t_FileException);
         }
 
-        $Ice__t_FileException = IcePHP_defineException('::Ice::FileException', '\\Ice\\FileException', false, $Ice__t_SyscallException, array(
-            array('path', $IcePHP__t_string, false, 0)));
+        public $path;
     }
+
+    $Ice__t_FileException = IcePHP_defineException('::Ice::FileException', 'Ice_FileException', false, $Ice__t_SyscallException, array(
+        array('path', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_ConnectFailedException;
+global $Ice__t_ConnectFailedException;
 
-    if(!class_exists('\\Ice\\ConnectFailedException'))
+if(!class_exists('Ice_ConnectFailedException'))
+{
+    class Ice_ConnectFailedException extends Ice_SocketException
     {
-        class ConnectFailedException extends \Ice\SocketException
+        public function __construct($error=0)
         {
-            public function __construct($error=0)
-            {
-                parent::__construct($error);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ConnectFailedException';
-            }
+            parent::__construct($error);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ConnectFailedException;
-                return IcePHP_stringifyException($this, $Ice__t_ConnectFailedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ConnectFailedException';
         }
 
-        $Ice__t_ConnectFailedException = IcePHP_defineException('::Ice::ConnectFailedException', '\\Ice\\ConnectFailedException', false, $Ice__t_SocketException, null);
+        public function __toString()
+        {
+            global $Ice__t_ConnectFailedException;
+            return IcePHP_stringifyException($this, $Ice__t_ConnectFailedException);
+        }
     }
+
+    $Ice__t_ConnectFailedException = IcePHP_defineException('::Ice::ConnectFailedException', 'Ice_ConnectFailedException', false, $Ice__t_SocketException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ConnectionRefusedException;
+global $Ice__t_ConnectionRefusedException;
 
-    if(!class_exists('\\Ice\\ConnectionRefusedException'))
+if(!class_exists('Ice_ConnectionRefusedException'))
+{
+    class Ice_ConnectionRefusedException extends Ice_ConnectFailedException
     {
-        class ConnectionRefusedException extends \Ice\ConnectFailedException
+        public function __construct($error=0)
         {
-            public function __construct($error=0)
-            {
-                parent::__construct($error);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ConnectionRefusedException';
-            }
+            parent::__construct($error);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ConnectionRefusedException;
-                return IcePHP_stringifyException($this, $Ice__t_ConnectionRefusedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ConnectionRefusedException';
         }
 
-        $Ice__t_ConnectionRefusedException = IcePHP_defineException('::Ice::ConnectionRefusedException', '\\Ice\\ConnectionRefusedException', false, $Ice__t_ConnectFailedException, null);
+        public function __toString()
+        {
+            global $Ice__t_ConnectionRefusedException;
+            return IcePHP_stringifyException($this, $Ice__t_ConnectionRefusedException);
+        }
     }
+
+    $Ice__t_ConnectionRefusedException = IcePHP_defineException('::Ice::ConnectionRefusedException', 'Ice_ConnectionRefusedException', false, $Ice__t_ConnectFailedException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ConnectionLostException;
+global $Ice__t_ConnectionLostException;
 
-    if(!class_exists('\\Ice\\ConnectionLostException'))
+if(!class_exists('Ice_ConnectionLostException'))
+{
+    class Ice_ConnectionLostException extends Ice_SocketException
     {
-        class ConnectionLostException extends \Ice\SocketException
+        public function __construct($error=0)
         {
-            public function __construct($error=0)
-            {
-                parent::__construct($error);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ConnectionLostException';
-            }
+            parent::__construct($error);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ConnectionLostException;
-                return IcePHP_stringifyException($this, $Ice__t_ConnectionLostException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ConnectionLostException';
         }
 
-        $Ice__t_ConnectionLostException = IcePHP_defineException('::Ice::ConnectionLostException', '\\Ice\\ConnectionLostException', false, $Ice__t_SocketException, null);
+        public function __toString()
+        {
+            global $Ice__t_ConnectionLostException;
+            return IcePHP_stringifyException($this, $Ice__t_ConnectionLostException);
+        }
     }
+
+    $Ice__t_ConnectionLostException = IcePHP_defineException('::Ice::ConnectionLostException', 'Ice_ConnectionLostException', false, $Ice__t_SocketException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_DNSException;
+global $Ice__t_DNSException;
 
-    if(!class_exists('\\Ice\\DNSException'))
+if(!class_exists('Ice_DNSException'))
+{
+    class Ice_DNSException extends Ice_LocalException
     {
-        class DNSException extends \Ice\LocalException
+        public function __construct($error=0, $host='')
         {
-            public function __construct($error=0, $host='')
-            {
-                $this->error = $error;
-                $this->host = $host;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::DNSException';
-            }
+            $this->error = $error;
+            $this->host = $host;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_DNSException;
-                return IcePHP_stringifyException($this, $Ice__t_DNSException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::DNSException';
+        }
 
-            public $error;
-            public $host;
+        public function __toString()
+        {
+            global $Ice__t_DNSException;
+            return IcePHP_stringifyException($this, $Ice__t_DNSException);
         }
 
-        $Ice__t_DNSException = IcePHP_defineException('::Ice::DNSException', '\\Ice\\DNSException', false, null, array(
-            array('error', $IcePHP__t_int, false, 0),
-            array('host', $IcePHP__t_string, false, 0)));
+        public $error;
+        public $host;
     }
+
+    $Ice__t_DNSException = IcePHP_defineException('::Ice::DNSException', 'Ice_DNSException', false, null, array(
+        array('error', $IcePHP__t_int, false, 0),
+        array('host', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_OperationInterruptedException;
+global $Ice__t_OperationInterruptedException;
 
-    if(!class_exists('\\Ice\\OperationInterruptedException'))
+if(!class_exists('Ice_OperationInterruptedException'))
+{
+    class Ice_OperationInterruptedException extends Ice_LocalException
     {
-        class OperationInterruptedException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::OperationInterruptedException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_OperationInterruptedException;
-                return IcePHP_stringifyException($this, $Ice__t_OperationInterruptedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::OperationInterruptedException';
         }
 
-        $Ice__t_OperationInterruptedException = IcePHP_defineException('::Ice::OperationInterruptedException', '\\Ice\\OperationInterruptedException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_OperationInterruptedException;
+            return IcePHP_stringifyException($this, $Ice__t_OperationInterruptedException);
+        }
     }
+
+    $Ice__t_OperationInterruptedException = IcePHP_defineException('::Ice::OperationInterruptedException', 'Ice_OperationInterruptedException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_TimeoutException;
+global $Ice__t_TimeoutException;
 
-    if(!class_exists('\\Ice\\TimeoutException'))
+if(!class_exists('Ice_TimeoutException'))
+{
+    class Ice_TimeoutException extends Ice_LocalException
     {
-        class TimeoutException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::TimeoutException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_TimeoutException;
-                return IcePHP_stringifyException($this, $Ice__t_TimeoutException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::TimeoutException';
         }
 
-        $Ice__t_TimeoutException = IcePHP_defineException('::Ice::TimeoutException', '\\Ice\\TimeoutException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_TimeoutException;
+            return IcePHP_stringifyException($this, $Ice__t_TimeoutException);
+        }
     }
+
+    $Ice__t_TimeoutException = IcePHP_defineException('::Ice::TimeoutException', 'Ice_TimeoutException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ConnectTimeoutException;
+global $Ice__t_ConnectTimeoutException;
 
-    if(!class_exists('\\Ice\\ConnectTimeoutException'))
+if(!class_exists('Ice_ConnectTimeoutException'))
+{
+    class Ice_ConnectTimeoutException extends Ice_TimeoutException
     {
-        class ConnectTimeoutException extends \Ice\TimeoutException
+        public function __construct()
         {
-            public function __construct()
-            {
-                parent::__construct();
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ConnectTimeoutException';
-            }
+            parent::__construct();
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ConnectTimeoutException;
-                return IcePHP_stringifyException($this, $Ice__t_ConnectTimeoutException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ConnectTimeoutException';
         }
 
-        $Ice__t_ConnectTimeoutException = IcePHP_defineException('::Ice::ConnectTimeoutException', '\\Ice\\ConnectTimeoutException', false, $Ice__t_TimeoutException, null);
+        public function __toString()
+        {
+            global $Ice__t_ConnectTimeoutException;
+            return IcePHP_stringifyException($this, $Ice__t_ConnectTimeoutException);
+        }
     }
+
+    $Ice__t_ConnectTimeoutException = IcePHP_defineException('::Ice::ConnectTimeoutException', 'Ice_ConnectTimeoutException', false, $Ice__t_TimeoutException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_CloseTimeoutException;
+global $Ice__t_CloseTimeoutException;
 
-    if(!class_exists('\\Ice\\CloseTimeoutException'))
+if(!class_exists('Ice_CloseTimeoutException'))
+{
+    class Ice_CloseTimeoutException extends Ice_TimeoutException
     {
-        class CloseTimeoutException extends \Ice\TimeoutException
+        public function __construct()
         {
-            public function __construct()
-            {
-                parent::__construct();
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::CloseTimeoutException';
-            }
+            parent::__construct();
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_CloseTimeoutException;
-                return IcePHP_stringifyException($this, $Ice__t_CloseTimeoutException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::CloseTimeoutException';
         }
 
-        $Ice__t_CloseTimeoutException = IcePHP_defineException('::Ice::CloseTimeoutException', '\\Ice\\CloseTimeoutException', false, $Ice__t_TimeoutException, null);
+        public function __toString()
+        {
+            global $Ice__t_CloseTimeoutException;
+            return IcePHP_stringifyException($this, $Ice__t_CloseTimeoutException);
+        }
     }
+
+    $Ice__t_CloseTimeoutException = IcePHP_defineException('::Ice::CloseTimeoutException', 'Ice_CloseTimeoutException', false, $Ice__t_TimeoutException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ConnectionTimeoutException;
+global $Ice__t_ConnectionTimeoutException;
 
-    if(!class_exists('\\Ice\\ConnectionTimeoutException'))
+if(!class_exists('Ice_ConnectionTimeoutException'))
+{
+    class Ice_ConnectionTimeoutException extends Ice_TimeoutException
     {
-        class ConnectionTimeoutException extends \Ice\TimeoutException
+        public function __construct()
         {
-            public function __construct()
-            {
-                parent::__construct();
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ConnectionTimeoutException';
-            }
+            parent::__construct();
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ConnectionTimeoutException;
-                return IcePHP_stringifyException($this, $Ice__t_ConnectionTimeoutException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ConnectionTimeoutException';
         }
 
-        $Ice__t_ConnectionTimeoutException = IcePHP_defineException('::Ice::ConnectionTimeoutException', '\\Ice\\ConnectionTimeoutException', false, $Ice__t_TimeoutException, null);
+        public function __toString()
+        {
+            global $Ice__t_ConnectionTimeoutException;
+            return IcePHP_stringifyException($this, $Ice__t_ConnectionTimeoutException);
+        }
     }
+
+    $Ice__t_ConnectionTimeoutException = IcePHP_defineException('::Ice::ConnectionTimeoutException', 'Ice_ConnectionTimeoutException', false, $Ice__t_TimeoutException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_InvocationTimeoutException;
+global $Ice__t_InvocationTimeoutException;
 
-    if(!class_exists('\\Ice\\InvocationTimeoutException'))
+if(!class_exists('Ice_InvocationTimeoutException'))
+{
+    class Ice_InvocationTimeoutException extends Ice_TimeoutException
     {
-        class InvocationTimeoutException extends \Ice\TimeoutException
+        public function __construct()
         {
-            public function __construct()
-            {
-                parent::__construct();
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::InvocationTimeoutException';
-            }
+            parent::__construct();
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_InvocationTimeoutException;
-                return IcePHP_stringifyException($this, $Ice__t_InvocationTimeoutException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::InvocationTimeoutException';
         }
 
-        $Ice__t_InvocationTimeoutException = IcePHP_defineException('::Ice::InvocationTimeoutException', '\\Ice\\InvocationTimeoutException', false, $Ice__t_TimeoutException, null);
+        public function __toString()
+        {
+            global $Ice__t_InvocationTimeoutException;
+            return IcePHP_stringifyException($this, $Ice__t_InvocationTimeoutException);
+        }
     }
+
+    $Ice__t_InvocationTimeoutException = IcePHP_defineException('::Ice::InvocationTimeoutException', 'Ice_InvocationTimeoutException', false, $Ice__t_TimeoutException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_InvocationCanceledException;
+global $Ice__t_InvocationCanceledException;
 
-    if(!class_exists('\\Ice\\InvocationCanceledException'))
+if(!class_exists('Ice_InvocationCanceledException'))
+{
+    class Ice_InvocationCanceledException extends Ice_LocalException
     {
-        class InvocationCanceledException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::InvocationCanceledException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_InvocationCanceledException;
-                return IcePHP_stringifyException($this, $Ice__t_InvocationCanceledException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::InvocationCanceledException';
         }
 
-        $Ice__t_InvocationCanceledException = IcePHP_defineException('::Ice::InvocationCanceledException', '\\Ice\\InvocationCanceledException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_InvocationCanceledException;
+            return IcePHP_stringifyException($this, $Ice__t_InvocationCanceledException);
+        }
     }
+
+    $Ice__t_InvocationCanceledException = IcePHP_defineException('::Ice::InvocationCanceledException', 'Ice_InvocationCanceledException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ProtocolException;
+global $Ice__t_ProtocolException;
 
-    if(!class_exists('\\Ice\\ProtocolException'))
+if(!class_exists('Ice_ProtocolException'))
+{
+    class Ice_ProtocolException extends Ice_LocalException
     {
-        class ProtocolException extends \Ice\LocalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ProtocolException';
-            }
+            $this->reason = $reason;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ProtocolException;
-                return IcePHP_stringifyException($this, $Ice__t_ProtocolException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ProtocolException';
+        }
 
-            public $reason;
+        public function __toString()
+        {
+            global $Ice__t_ProtocolException;
+            return IcePHP_stringifyException($this, $Ice__t_ProtocolException);
         }
 
-        $Ice__t_ProtocolException = IcePHP_defineException('::Ice::ProtocolException', '\\Ice\\ProtocolException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public $reason;
     }
+
+    $Ice__t_ProtocolException = IcePHP_defineException('::Ice::ProtocolException', 'Ice_ProtocolException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_BadMagicException;
+global $Ice__t_BadMagicException;
 
-    if(!class_exists('\\Ice\\BadMagicException'))
+if(!class_exists('Ice_BadMagicException'))
+{
+    class Ice_BadMagicException extends Ice_ProtocolException
     {
-        class BadMagicException extends \Ice\ProtocolException
+        public function __construct($reason='', $badMagic=null)
         {
-            public function __construct($reason='', $badMagic=null)
-            {
-                parent::__construct($reason);
-                $this->badMagic = $badMagic;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::BadMagicException';
-            }
+            parent::__construct($reason);
+            $this->badMagic = $badMagic;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_BadMagicException;
-                return IcePHP_stringifyException($this, $Ice__t_BadMagicException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::BadMagicException';
+        }
 
-            public $badMagic;
+        public function __toString()
+        {
+            global $Ice__t_BadMagicException;
+            return IcePHP_stringifyException($this, $Ice__t_BadMagicException);
         }
 
-        $Ice__t_BadMagicException = IcePHP_defineException('::Ice::BadMagicException', '\\Ice\\BadMagicException', false, $Ice__t_ProtocolException, array(
-            array('badMagic', $Ice__t_ByteSeq, false, 0)));
+        public $badMagic;
     }
+
+    $Ice__t_BadMagicException = IcePHP_defineException('::Ice::BadMagicException', 'Ice_BadMagicException', false, $Ice__t_ProtocolException, array(
+        array('badMagic', $Ice__t_ByteSeq, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_UnsupportedProtocolException;
+global $Ice__t_UnsupportedProtocolException;
 
-    if(!class_exists('\\Ice\\UnsupportedProtocolException'))
+if(!class_exists('Ice_UnsupportedProtocolException'))
+{
+    class Ice_UnsupportedProtocolException extends Ice_ProtocolException
     {
-        class UnsupportedProtocolException extends \Ice\ProtocolException
+        public function __construct($reason='', $bad=null, $supported=null)
         {
-            public function __construct($reason='', $bad=null, $supported=null)
-            {
-                parent::__construct($reason);
-                $this->bad = is_null($bad) ? new \Ice\ProtocolVersion : $bad;
-                $this->supported = is_null($supported) ? new \Ice\ProtocolVersion : $supported;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnsupportedProtocolException';
-            }
+            parent::__construct($reason);
+            $this->bad = is_null($bad) ? new Ice_ProtocolVersion : $bad;
+            $this->supported = is_null($supported) ? new Ice_ProtocolVersion : $supported;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnsupportedProtocolException;
-                return IcePHP_stringifyException($this, $Ice__t_UnsupportedProtocolException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnsupportedProtocolException';
+        }
 
-            public $bad;
-            public $supported;
+        public function __toString()
+        {
+            global $Ice__t_UnsupportedProtocolException;
+            return IcePHP_stringifyException($this, $Ice__t_UnsupportedProtocolException);
         }
 
-        $Ice__t_UnsupportedProtocolException = IcePHP_defineException('::Ice::UnsupportedProtocolException', '\\Ice\\UnsupportedProtocolException', false, $Ice__t_ProtocolException, array(
-            array('bad', $Ice__t_ProtocolVersion, false, 0),
-            array('supported', $Ice__t_ProtocolVersion, false, 0)));
+        public $bad;
+        public $supported;
     }
+
+    $Ice__t_UnsupportedProtocolException = IcePHP_defineException('::Ice::UnsupportedProtocolException', 'Ice_UnsupportedProtocolException', false, $Ice__t_ProtocolException, array(
+        array('bad', $Ice__t_ProtocolVersion, false, 0),
+        array('supported', $Ice__t_ProtocolVersion, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_UnsupportedEncodingException;
+global $Ice__t_UnsupportedEncodingException;
 
-    if(!class_exists('\\Ice\\UnsupportedEncodingException'))
+if(!class_exists('Ice_UnsupportedEncodingException'))
+{
+    class Ice_UnsupportedEncodingException extends Ice_ProtocolException
     {
-        class UnsupportedEncodingException extends \Ice\ProtocolException
+        public function __construct($reason='', $bad=null, $supported=null)
         {
-            public function __construct($reason='', $bad=null, $supported=null)
-            {
-                parent::__construct($reason);
-                $this->bad = is_null($bad) ? new \Ice\EncodingVersion : $bad;
-                $this->supported = is_null($supported) ? new \Ice\EncodingVersion : $supported;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnsupportedEncodingException';
-            }
+            parent::__construct($reason);
+            $this->bad = is_null($bad) ? new Ice_EncodingVersion : $bad;
+            $this->supported = is_null($supported) ? new Ice_EncodingVersion : $supported;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnsupportedEncodingException;
-                return IcePHP_stringifyException($this, $Ice__t_UnsupportedEncodingException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnsupportedEncodingException';
+        }
 
-            public $bad;
-            public $supported;
+        public function __toString()
+        {
+            global $Ice__t_UnsupportedEncodingException;
+            return IcePHP_stringifyException($this, $Ice__t_UnsupportedEncodingException);
         }
 
-        $Ice__t_UnsupportedEncodingException = IcePHP_defineException('::Ice::UnsupportedEncodingException', '\\Ice\\UnsupportedEncodingException', false, $Ice__t_ProtocolException, array(
-            array('bad', $Ice__t_EncodingVersion, false, 0),
-            array('supported', $Ice__t_EncodingVersion, false, 0)));
+        public $bad;
+        public $supported;
     }
+
+    $Ice__t_UnsupportedEncodingException = IcePHP_defineException('::Ice::UnsupportedEncodingException', 'Ice_UnsupportedEncodingException', false, $Ice__t_ProtocolException, array(
+        array('bad', $Ice__t_EncodingVersion, false, 0),
+        array('supported', $Ice__t_EncodingVersion, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_UnknownMessageException;
+global $Ice__t_UnknownMessageException;
 
-    if(!class_exists('\\Ice\\UnknownMessageException'))
+if(!class_exists('Ice_UnknownMessageException'))
+{
+    class Ice_UnknownMessageException extends Ice_ProtocolException
     {
-        class UnknownMessageException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnknownMessageException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnknownMessageException;
-                return IcePHP_stringifyException($this, $Ice__t_UnknownMessageException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnknownMessageException';
         }
 
-        $Ice__t_UnknownMessageException = IcePHP_defineException('::Ice::UnknownMessageException', '\\Ice\\UnknownMessageException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_UnknownMessageException;
+            return IcePHP_stringifyException($this, $Ice__t_UnknownMessageException);
+        }
     }
+
+    $Ice__t_UnknownMessageException = IcePHP_defineException('::Ice::UnknownMessageException', 'Ice_UnknownMessageException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ConnectionNotValidatedException;
+global $Ice__t_ConnectionNotValidatedException;
 
-    if(!class_exists('\\Ice\\ConnectionNotValidatedException'))
+if(!class_exists('Ice_ConnectionNotValidatedException'))
+{
+    class Ice_ConnectionNotValidatedException extends Ice_ProtocolException
     {
-        class ConnectionNotValidatedException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ConnectionNotValidatedException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ConnectionNotValidatedException;
-                return IcePHP_stringifyException($this, $Ice__t_ConnectionNotValidatedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ConnectionNotValidatedException';
         }
 
-        $Ice__t_ConnectionNotValidatedException = IcePHP_defineException('::Ice::ConnectionNotValidatedException', '\\Ice\\ConnectionNotValidatedException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_ConnectionNotValidatedException;
+            return IcePHP_stringifyException($this, $Ice__t_ConnectionNotValidatedException);
+        }
     }
+
+    $Ice__t_ConnectionNotValidatedException = IcePHP_defineException('::Ice::ConnectionNotValidatedException', 'Ice_ConnectionNotValidatedException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_UnknownRequestIdException;
+global $Ice__t_UnknownRequestIdException;
 
-    if(!class_exists('\\Ice\\UnknownRequestIdException'))
+if(!class_exists('Ice_UnknownRequestIdException'))
+{
+    class Ice_UnknownRequestIdException extends Ice_ProtocolException
     {
-        class UnknownRequestIdException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnknownRequestIdException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnknownRequestIdException;
-                return IcePHP_stringifyException($this, $Ice__t_UnknownRequestIdException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnknownRequestIdException';
         }
 
-        $Ice__t_UnknownRequestIdException = IcePHP_defineException('::Ice::UnknownRequestIdException', '\\Ice\\UnknownRequestIdException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_UnknownRequestIdException;
+            return IcePHP_stringifyException($this, $Ice__t_UnknownRequestIdException);
+        }
     }
+
+    $Ice__t_UnknownRequestIdException = IcePHP_defineException('::Ice::UnknownRequestIdException', 'Ice_UnknownRequestIdException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_UnknownReplyStatusException;
+global $Ice__t_UnknownReplyStatusException;
 
-    if(!class_exists('\\Ice\\UnknownReplyStatusException'))
+if(!class_exists('Ice_UnknownReplyStatusException'))
+{
+    class Ice_UnknownReplyStatusException extends Ice_ProtocolException
     {
-        class UnknownReplyStatusException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnknownReplyStatusException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnknownReplyStatusException;
-                return IcePHP_stringifyException($this, $Ice__t_UnknownReplyStatusException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnknownReplyStatusException';
         }
 
-        $Ice__t_UnknownReplyStatusException = IcePHP_defineException('::Ice::UnknownReplyStatusException', '\\Ice\\UnknownReplyStatusException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_UnknownReplyStatusException;
+            return IcePHP_stringifyException($this, $Ice__t_UnknownReplyStatusException);
+        }
     }
+
+    $Ice__t_UnknownReplyStatusException = IcePHP_defineException('::Ice::UnknownReplyStatusException', 'Ice_UnknownReplyStatusException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_CloseConnectionException;
+global $Ice__t_CloseConnectionException;
 
-    if(!class_exists('\\Ice\\CloseConnectionException'))
+if(!class_exists('Ice_CloseConnectionException'))
+{
+    class Ice_CloseConnectionException extends Ice_ProtocolException
     {
-        class CloseConnectionException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::CloseConnectionException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_CloseConnectionException;
-                return IcePHP_stringifyException($this, $Ice__t_CloseConnectionException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::CloseConnectionException';
         }
 
-        $Ice__t_CloseConnectionException = IcePHP_defineException('::Ice::CloseConnectionException', '\\Ice\\CloseConnectionException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_CloseConnectionException;
+            return IcePHP_stringifyException($this, $Ice__t_CloseConnectionException);
+        }
     }
+
+    $Ice__t_CloseConnectionException = IcePHP_defineException('::Ice::CloseConnectionException', 'Ice_CloseConnectionException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ForcedCloseConnectionException;
+global $Ice__t_ForcedCloseConnectionException;
 
-    if(!class_exists('\\Ice\\ForcedCloseConnectionException'))
+if(!class_exists('Ice_ForcedCloseConnectionException'))
+{
+    class Ice_ForcedCloseConnectionException extends Ice_ProtocolException
     {
-        class ForcedCloseConnectionException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ForcedCloseConnectionException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ForcedCloseConnectionException;
-                return IcePHP_stringifyException($this, $Ice__t_ForcedCloseConnectionException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ForcedCloseConnectionException';
         }
 
-        $Ice__t_ForcedCloseConnectionException = IcePHP_defineException('::Ice::ForcedCloseConnectionException', '\\Ice\\ForcedCloseConnectionException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_ForcedCloseConnectionException;
+            return IcePHP_stringifyException($this, $Ice__t_ForcedCloseConnectionException);
+        }
     }
+
+    $Ice__t_ForcedCloseConnectionException = IcePHP_defineException('::Ice::ForcedCloseConnectionException', 'Ice_ForcedCloseConnectionException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_IllegalMessageSizeException;
+global $Ice__t_IllegalMessageSizeException;
 
-    if(!class_exists('\\Ice\\IllegalMessageSizeException'))
+if(!class_exists('Ice_IllegalMessageSizeException'))
+{
+    class Ice_IllegalMessageSizeException extends Ice_ProtocolException
     {
-        class IllegalMessageSizeException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::IllegalMessageSizeException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_IllegalMessageSizeException;
-                return IcePHP_stringifyException($this, $Ice__t_IllegalMessageSizeException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::IllegalMessageSizeException';
         }
 
-        $Ice__t_IllegalMessageSizeException = IcePHP_defineException('::Ice::IllegalMessageSizeException', '\\Ice\\IllegalMessageSizeException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_IllegalMessageSizeException;
+            return IcePHP_stringifyException($this, $Ice__t_IllegalMessageSizeException);
+        }
     }
+
+    $Ice__t_IllegalMessageSizeException = IcePHP_defineException('::Ice::IllegalMessageSizeException', 'Ice_IllegalMessageSizeException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_CompressionException;
+global $Ice__t_CompressionException;
 
-    if(!class_exists('\\Ice\\CompressionException'))
+if(!class_exists('Ice_CompressionException'))
+{
+    class Ice_CompressionException extends Ice_ProtocolException
     {
-        class CompressionException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::CompressionException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_CompressionException;
-                return IcePHP_stringifyException($this, $Ice__t_CompressionException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::CompressionException';
         }
 
-        $Ice__t_CompressionException = IcePHP_defineException('::Ice::CompressionException', '\\Ice\\CompressionException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_CompressionException;
+            return IcePHP_stringifyException($this, $Ice__t_CompressionException);
+        }
     }
+
+    $Ice__t_CompressionException = IcePHP_defineException('::Ice::CompressionException', 'Ice_CompressionException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_DatagramLimitException;
+global $Ice__t_DatagramLimitException;
 
-    if(!class_exists('\\Ice\\DatagramLimitException'))
+if(!class_exists('Ice_DatagramLimitException'))
+{
+    class Ice_DatagramLimitException extends Ice_ProtocolException
     {
-        class DatagramLimitException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::DatagramLimitException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_DatagramLimitException;
-                return IcePHP_stringifyException($this, $Ice__t_DatagramLimitException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::DatagramLimitException';
         }
 
-        $Ice__t_DatagramLimitException = IcePHP_defineException('::Ice::DatagramLimitException', '\\Ice\\DatagramLimitException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_DatagramLimitException;
+            return IcePHP_stringifyException($this, $Ice__t_DatagramLimitException);
+        }
     }
+
+    $Ice__t_DatagramLimitException = IcePHP_defineException('::Ice::DatagramLimitException', 'Ice_DatagramLimitException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_MarshalException;
+global $Ice__t_MarshalException;
 
-    if(!class_exists('\\Ice\\MarshalException'))
+if(!class_exists('Ice_MarshalException'))
+{
+    class Ice_MarshalException extends Ice_ProtocolException
     {
-        class MarshalException extends \Ice\ProtocolException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::MarshalException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_MarshalException;
-                return IcePHP_stringifyException($this, $Ice__t_MarshalException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::MarshalException';
         }
 
-        $Ice__t_MarshalException = IcePHP_defineException('::Ice::MarshalException', '\\Ice\\MarshalException', false, $Ice__t_ProtocolException, null);
+        public function __toString()
+        {
+            global $Ice__t_MarshalException;
+            return IcePHP_stringifyException($this, $Ice__t_MarshalException);
+        }
     }
+
+    $Ice__t_MarshalException = IcePHP_defineException('::Ice::MarshalException', 'Ice_MarshalException', false, $Ice__t_ProtocolException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ProxyUnmarshalException;
+global $Ice__t_ProxyUnmarshalException;
 
-    if(!class_exists('\\Ice\\ProxyUnmarshalException'))
+if(!class_exists('Ice_ProxyUnmarshalException'))
+{
+    class Ice_ProxyUnmarshalException extends Ice_MarshalException
     {
-        class ProxyUnmarshalException extends \Ice\MarshalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ProxyUnmarshalException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ProxyUnmarshalException;
-                return IcePHP_stringifyException($this, $Ice__t_ProxyUnmarshalException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ProxyUnmarshalException';
         }
 
-        $Ice__t_ProxyUnmarshalException = IcePHP_defineException('::Ice::ProxyUnmarshalException', '\\Ice\\ProxyUnmarshalException', false, $Ice__t_MarshalException, null);
+        public function __toString()
+        {
+            global $Ice__t_ProxyUnmarshalException;
+            return IcePHP_stringifyException($this, $Ice__t_ProxyUnmarshalException);
+        }
     }
+
+    $Ice__t_ProxyUnmarshalException = IcePHP_defineException('::Ice::ProxyUnmarshalException', 'Ice_ProxyUnmarshalException', false, $Ice__t_MarshalException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_UnmarshalOutOfBoundsException;
+global $Ice__t_UnmarshalOutOfBoundsException;
 
-    if(!class_exists('\\Ice\\UnmarshalOutOfBoundsException'))
+if(!class_exists('Ice_UnmarshalOutOfBoundsException'))
+{
+    class Ice_UnmarshalOutOfBoundsException extends Ice_MarshalException
     {
-        class UnmarshalOutOfBoundsException extends \Ice\MarshalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnmarshalOutOfBoundsException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnmarshalOutOfBoundsException;
-                return IcePHP_stringifyException($this, $Ice__t_UnmarshalOutOfBoundsException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnmarshalOutOfBoundsException';
         }
 
-        $Ice__t_UnmarshalOutOfBoundsException = IcePHP_defineException('::Ice::UnmarshalOutOfBoundsException', '\\Ice\\UnmarshalOutOfBoundsException', false, $Ice__t_MarshalException, null);
+        public function __toString()
+        {
+            global $Ice__t_UnmarshalOutOfBoundsException;
+            return IcePHP_stringifyException($this, $Ice__t_UnmarshalOutOfBoundsException);
+        }
     }
+
+    $Ice__t_UnmarshalOutOfBoundsException = IcePHP_defineException('::Ice::UnmarshalOutOfBoundsException', 'Ice_UnmarshalOutOfBoundsException', false, $Ice__t_MarshalException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_NoObjectFactoryException;
+global $Ice__t_NoObjectFactoryException;
 
-    if(!class_exists('\\Ice\\NoObjectFactoryException'))
+if(!class_exists('Ice_NoObjectFactoryException'))
+{
+    class Ice_NoObjectFactoryException extends Ice_MarshalException
     {
-        class NoObjectFactoryException extends \Ice\MarshalException
+        public function __construct($reason='', $type='')
         {
-            public function __construct($reason='', $type='')
-            {
-                parent::__construct($reason);
-                $this->type = $type;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::NoObjectFactoryException';
-            }
+            parent::__construct($reason);
+            $this->type = $type;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_NoObjectFactoryException;
-                return IcePHP_stringifyException($this, $Ice__t_NoObjectFactoryException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::NoObjectFactoryException';
+        }
 
-            public $type;
+        public function __toString()
+        {
+            global $Ice__t_NoObjectFactoryException;
+            return IcePHP_stringifyException($this, $Ice__t_NoObjectFactoryException);
         }
 
-        $Ice__t_NoObjectFactoryException = IcePHP_defineException('::Ice::NoObjectFactoryException', '\\Ice\\NoObjectFactoryException', false, $Ice__t_MarshalException, array(
-            array('type', $IcePHP__t_string, false, 0)));
+        public $type;
     }
+
+    $Ice__t_NoObjectFactoryException = IcePHP_defineException('::Ice::NoObjectFactoryException', 'Ice_NoObjectFactoryException', false, $Ice__t_MarshalException, array(
+        array('type', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_UnexpectedObjectException;
+global $Ice__t_UnexpectedObjectException;
 
-    if(!class_exists('\\Ice\\UnexpectedObjectException'))
+if(!class_exists('Ice_UnexpectedObjectException'))
+{
+    class Ice_UnexpectedObjectException extends Ice_MarshalException
     {
-        class UnexpectedObjectException extends \Ice\MarshalException
+        public function __construct($reason='', $type='', $expectedType='')
         {
-            public function __construct($reason='', $type='', $expectedType='')
-            {
-                parent::__construct($reason);
-                $this->type = $type;
-                $this->expectedType = $expectedType;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::UnexpectedObjectException';
-            }
+            parent::__construct($reason);
+            $this->type = $type;
+            $this->expectedType = $expectedType;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_UnexpectedObjectException;
-                return IcePHP_stringifyException($this, $Ice__t_UnexpectedObjectException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::UnexpectedObjectException';
+        }
 
-            public $type;
-            public $expectedType;
+        public function __toString()
+        {
+            global $Ice__t_UnexpectedObjectException;
+            return IcePHP_stringifyException($this, $Ice__t_UnexpectedObjectException);
         }
 
-        $Ice__t_UnexpectedObjectException = IcePHP_defineException('::Ice::UnexpectedObjectException', '\\Ice\\UnexpectedObjectException', false, $Ice__t_MarshalException, array(
-            array('type', $IcePHP__t_string, false, 0),
-            array('expectedType', $IcePHP__t_string, false, 0)));
+        public $type;
+        public $expectedType;
     }
+
+    $Ice__t_UnexpectedObjectException = IcePHP_defineException('::Ice::UnexpectedObjectException', 'Ice_UnexpectedObjectException', false, $Ice__t_MarshalException, array(
+        array('type', $IcePHP__t_string, false, 0),
+        array('expectedType', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_MemoryLimitException;
+global $Ice__t_MemoryLimitException;
 
-    if(!class_exists('\\Ice\\MemoryLimitException'))
+if(!class_exists('Ice_MemoryLimitException'))
+{
+    class Ice_MemoryLimitException extends Ice_MarshalException
     {
-        class MemoryLimitException extends \Ice\MarshalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::MemoryLimitException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_MemoryLimitException;
-                return IcePHP_stringifyException($this, $Ice__t_MemoryLimitException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::MemoryLimitException';
         }
 
-        $Ice__t_MemoryLimitException = IcePHP_defineException('::Ice::MemoryLimitException', '\\Ice\\MemoryLimitException', false, $Ice__t_MarshalException, null);
+        public function __toString()
+        {
+            global $Ice__t_MemoryLimitException;
+            return IcePHP_stringifyException($this, $Ice__t_MemoryLimitException);
+        }
     }
+
+    $Ice__t_MemoryLimitException = IcePHP_defineException('::Ice::MemoryLimitException', 'Ice_MemoryLimitException', false, $Ice__t_MarshalException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_StringConversionException;
+global $Ice__t_StringConversionException;
 
-    if(!class_exists('\\Ice\\StringConversionException'))
+if(!class_exists('Ice_StringConversionException'))
+{
+    class Ice_StringConversionException extends Ice_MarshalException
     {
-        class StringConversionException extends \Ice\MarshalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::StringConversionException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_StringConversionException;
-                return IcePHP_stringifyException($this, $Ice__t_StringConversionException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::StringConversionException';
         }
 
-        $Ice__t_StringConversionException = IcePHP_defineException('::Ice::StringConversionException', '\\Ice\\StringConversionException', false, $Ice__t_MarshalException, null);
+        public function __toString()
+        {
+            global $Ice__t_StringConversionException;
+            return IcePHP_stringifyException($this, $Ice__t_StringConversionException);
+        }
     }
+
+    $Ice__t_StringConversionException = IcePHP_defineException('::Ice::StringConversionException', 'Ice_StringConversionException', false, $Ice__t_MarshalException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_EncapsulationException;
+global $Ice__t_EncapsulationException;
 
-    if(!class_exists('\\Ice\\EncapsulationException'))
+if(!class_exists('Ice_EncapsulationException'))
+{
+    class Ice_EncapsulationException extends Ice_MarshalException
     {
-        class EncapsulationException extends \Ice\MarshalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                parent::__construct($reason);
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::EncapsulationException';
-            }
+            parent::__construct($reason);
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_EncapsulationException;
-                return IcePHP_stringifyException($this, $Ice__t_EncapsulationException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::EncapsulationException';
         }
 
-        $Ice__t_EncapsulationException = IcePHP_defineException('::Ice::EncapsulationException', '\\Ice\\EncapsulationException', false, $Ice__t_MarshalException, null);
+        public function __toString()
+        {
+            global $Ice__t_EncapsulationException;
+            return IcePHP_stringifyException($this, $Ice__t_EncapsulationException);
+        }
     }
+
+    $Ice__t_EncapsulationException = IcePHP_defineException('::Ice::EncapsulationException', 'Ice_EncapsulationException', false, $Ice__t_MarshalException, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_FeatureNotSupportedException;
+global $Ice__t_FeatureNotSupportedException;
 
-    if(!class_exists('\\Ice\\FeatureNotSupportedException'))
+if(!class_exists('Ice_FeatureNotSupportedException'))
+{
+    class Ice_FeatureNotSupportedException extends Ice_LocalException
     {
-        class FeatureNotSupportedException extends \Ice\LocalException
+        public function __construct($unsupportedFeature='')
         {
-            public function __construct($unsupportedFeature='')
-            {
-                $this->unsupportedFeature = $unsupportedFeature;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::FeatureNotSupportedException';
-            }
+            $this->unsupportedFeature = $unsupportedFeature;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_FeatureNotSupportedException;
-                return IcePHP_stringifyException($this, $Ice__t_FeatureNotSupportedException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::FeatureNotSupportedException';
+        }
 
-            public $unsupportedFeature;
+        public function __toString()
+        {
+            global $Ice__t_FeatureNotSupportedException;
+            return IcePHP_stringifyException($this, $Ice__t_FeatureNotSupportedException);
         }
 
-        $Ice__t_FeatureNotSupportedException = IcePHP_defineException('::Ice::FeatureNotSupportedException', '\\Ice\\FeatureNotSupportedException', false, null, array(
-            array('unsupportedFeature', $IcePHP__t_string, false, 0)));
+        public $unsupportedFeature;
     }
+
+    $Ice__t_FeatureNotSupportedException = IcePHP_defineException('::Ice::FeatureNotSupportedException', 'Ice_FeatureNotSupportedException', false, null, array(
+        array('unsupportedFeature', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_SecurityException;
+global $Ice__t_SecurityException;
 
-    if(!class_exists('\\Ice\\SecurityException'))
+if(!class_exists('Ice_SecurityException'))
+{
+    class Ice_SecurityException extends Ice_LocalException
     {
-        class SecurityException extends \Ice\LocalException
+        public function __construct($reason='')
         {
-            public function __construct($reason='')
-            {
-                $this->reason = $reason;
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::SecurityException';
-            }
+            $this->reason = $reason;
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_SecurityException;
-                return IcePHP_stringifyException($this, $Ice__t_SecurityException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::SecurityException';
+        }
 
-            public $reason;
+        public function __toString()
+        {
+            global $Ice__t_SecurityException;
+            return IcePHP_stringifyException($this, $Ice__t_SecurityException);
         }
 
-        $Ice__t_SecurityException = IcePHP_defineException('::Ice::SecurityException', '\\Ice\\SecurityException', false, null, array(
-            array('reason', $IcePHP__t_string, false, 0)));
+        public $reason;
     }
+
+    $Ice__t_SecurityException = IcePHP_defineException('::Ice::SecurityException', 'Ice_SecurityException', false, null, array(
+        array('reason', $IcePHP__t_string, false, 0)));
 }
 
-namespace Ice
-{
-    global $Ice__t_FixedProxyException;
+global $Ice__t_FixedProxyException;
 
-    if(!class_exists('\\Ice\\FixedProxyException'))
+if(!class_exists('Ice_FixedProxyException'))
+{
+    class Ice_FixedProxyException extends Ice_LocalException
     {
-        class FixedProxyException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::FixedProxyException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_FixedProxyException;
-                return IcePHP_stringifyException($this, $Ice__t_FixedProxyException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::FixedProxyException';
         }
 
-        $Ice__t_FixedProxyException = IcePHP_defineException('::Ice::FixedProxyException', '\\Ice\\FixedProxyException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_FixedProxyException;
+            return IcePHP_stringifyException($this, $Ice__t_FixedProxyException);
+        }
     }
+
+    $Ice__t_FixedProxyException = IcePHP_defineException('::Ice::FixedProxyException', 'Ice_FixedProxyException', false, null, null);
 }
 
-namespace Ice
-{
-    global $Ice__t_ResponseSentException;
+global $Ice__t_ResponseSentException;
 
-    if(!class_exists('\\Ice\\ResponseSentException'))
+if(!class_exists('Ice_ResponseSentException'))
+{
+    class Ice_ResponseSentException extends Ice_LocalException
     {
-        class ResponseSentException extends \Ice\LocalException
+        public function __construct()
         {
-            public function __construct()
-            {
-            }
-
-            public function ice_name()
-            {
-                return 'Ice::ResponseSentException';
-            }
+        }
 
-            public function __toString()
-            {
-                global $Ice__t_ResponseSentException;
-                return IcePHP_stringifyException($this, $Ice__t_ResponseSentException);
-            }
+        public function ice_name()
+        {
+            return 'Ice::ResponseSentException';
         }
 
-        $Ice__t_ResponseSentException = IcePHP_defineException('::Ice::ResponseSentException', '\\Ice\\ResponseSentException', false, null, null);
+        public function __toString()
+        {
+            global $Ice__t_ResponseSentException;
+            return IcePHP_stringifyException($this, $Ice__t_ResponseSentException);
+        }
     }
+
+    $Ice__t_ResponseSentException = IcePHP_defineException('::Ice::ResponseSentException', 'Ice_ResponseSentException', false, null, null);
 }
 ?>
